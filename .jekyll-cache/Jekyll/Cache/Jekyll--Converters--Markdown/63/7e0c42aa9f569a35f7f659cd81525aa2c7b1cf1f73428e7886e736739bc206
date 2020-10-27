@@ -1,0 +1,54 @@
+I"�<h2 id="先來說下使用-gitpage-跟-jekyll-的原因">先來說下使用 gitpage 跟 jekyll 的原因</h2>
+<ol>
+  <li>最主要第一點就是，個人實在是非常喜歡用 markdown 寫作的感覺，可以在手不離開鍵盤的情況下完成整篇文章，據我了解沒有什麼 Blogger 系統是可以完全用 markdown 寫的，之前則是都把筆記整理在 hackmd.io</li>
+  <li>雖然本身沒有接觸過 ruby 但經過一些 survey 之後覺得最好的方案應該還是用 jekyll 自架是比較好的選擇，之後客製化上也比較方便，也不需要學習操作別人弄好的後台</li>
+  <li>架在 gitpage 上則單純不想租機器或雲端空間來弄這個，git 的系統也能幫我做好備份跟更改記錄管理，實在也是蠻理想的</li>
+</ol>
+
+<h2 id="jekyll"><a href="https://jekyllrb.com/">jekyll</a></h2>
+<ul>
+  <li>jekyll 的功用呢就是幫助將，markdown、liquid 等語法轉換為靜態 HTML 的工具，且 Gitpage 本身支援使用</li>
+  <li>而 jekyll 本身則是用 Ruby 開發的，因此使用之前我們先來裝 <a href="https://www.ruby-lang.org/zh_tw/">Ruby</a>，官網直接下載安裝，然後鍵入</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install jekyll
+</code></pre></div></div>
+
+<p>這樣就有了 jekyll 的 cli 了，接著鍵入</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll new &lt;project-name&gt;
+</code></pre></div></div>
+
+<p>建立你的靜態網頁專案，跑完之後專案結構如下</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├ _post
+│   └ 2010-10-26-title.markdown
+├ _config.yml
+├ .gitignore
+├ 404.html
+├ about.markdown
+├ Gemfile
+├ Gemfile.lock
+└ index.markdown
+</code></pre></div></div>
+
+<p>大致應該算好理解，可以直接執行</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll serve
+</code></pre></div></div>
+
+<p>來看看執行結果的網頁看起來怎樣</p>
+<ul>
+  <li>跑完後會發現多了兩個資料夾 <code class="language-plaintext highlighter-rouge">_site</code>, <code class="language-plaintext highlighter-rouge">.jekyll-cache</code> 這兩個是 jekyll 自動根據專案目錄的檔案產生的</li>
+  <li>最主要的文章會根據 <code class="language-plaintext highlighter-rouge">_post</code> 底下的 markdown 解析出來，依據檔名格式 <code class="language-plaintext highlighter-rouge">yaer-month-date-title.md</code> 來解析，只根據檔名，所以 <code class="language-plaintext highlighter-rouge">_post</code> 下的目錄結構要怎麼放都隨你</li>
+  <li>再來就是 <code class="language-plaintext highlighter-rouge">_config.yml</code> 應該算是重點，各種設定還有換主題都在這邊，<strong><em>不過之後再研究</em></strong>，可以先改上自己的部落格名稱跟介紹</li>
+</ul>
+
+<h2 id="gitpage">Gitpage</h2>
+<ul>
+  <li>專案建起來了，接下來就是上架
+    <ol>
+      <li>在自己的 github 上開一個 <code class="language-plaintext highlighter-rouge">&lt;username&gt;.github.io</code> 的 repo，這個專案名稱會默認為你的 gitpage</li>
+      <li>第二步就很簡單了，把你的專案 push 上去，接著到 <code class="language-plaintext highlighter-rouge">&lt;username&gt;.github.io</code> 下就能看到結果了</li>
+    </ol>
+  </li>
+</ul>
+
+:ET
