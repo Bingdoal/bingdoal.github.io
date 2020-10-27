@@ -997,7 +997,33 @@ table tfoot td {
 
 .about p {
   font-size: 16px;
-  margin: 0 0 10px;
+}
+
+.about .blogger-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3em 0 0 0;
+  flex-direction: column;
+}
+.about .blogger-nav:before{
+  content: "";
+  width: 80%;
+  height: 0;
+  display: block;
+  border-top: solid #bbb 2px;
+}
+
+.about .blogger-nav a{
+  display: block;
+  margin: 5px;
+  color: #bbb;
+  font-size: larger;
+  text-decoration: none;
+}
+.about .blogger-nav a:hover{
+  border-bottom: solid 2px black;
+  color: black;
 }
 
 .content-box {

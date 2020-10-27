@@ -2,10 +2,10 @@
 layout: post
 title:  "用 jekyll 在 gitpage 上架 Blogger"
 date:   2020-10-26 14:21:13 +0800
-categories: [blogger]
+categories: [blogger, jekyll, gitpage]
 img: jekyll-github.png
 description: 在 github 上用 markdown 舒服的撰寫 blogger
-tags: [jekyll, gitpage]
+tags: [blogger]
 ---
 
 ## 先來說下使用 gitpage 跟 jekyll 的原因
@@ -51,14 +51,10 @@ $ jekyll serve
 
 + 最主要的文章會根據 `_post` 底下的 markdown 解析出來，依據檔名格式 `yaer-month-date-title.md` 來解析，只根據檔名，所以 `_post` 下的目錄結構要怎麼放都隨你
 
-+ 再來就是 `_config.yml` 應該算是重點，各種設定還有換主題都在這邊，***不過之後再研究***，可以先改上自己的部落格名稱跟介紹
++ 再來就是 `_config.yml` 應該算是重點，各種設定還有換主題都在這邊，***不過有點複雜之後再研究***，可以先改上自己的部落格名稱跟介紹
 
 ## Gitpage
 + 專案建起來了，接下來就是上架
 
 1. 在自己的 github 上開一個 `<username>.github.io` 的 repo，這個專案名稱會默認為你的 gitpage
 2. 第二步就很簡單了，把你的專案 push 上去，接著到 `<username>.github.io` 下就能看到結果了
-
-
-{% if page.comments %}
-{% endif %} 
