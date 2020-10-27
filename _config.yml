@@ -1,6 +1,7 @@
 title: Bingdoal's blogger
 description: > # this means to ignore newlines until "baseurl:"
-  不是在吃飯，就是在吃飯的路上的工程師
+  好吃懶做的工程師
+  不是在吃飯，就是在吃飯的路上
 permalink: ':title/'
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bingdoal.github.io" # the base hostname & protocol for your site, e.g. http://example.com
@@ -9,7 +10,8 @@ site-twitter: #if your site has a twitter account, enter it here
 # Author Settings
 author: Bingdoal # add your name
 author-img: author.jpg # add your photo
-about-author: 不是在吃飯，就是在吃飯的路上的工程師 # add description
+about-author: 好吃懶做的工程師<br>
+  不是在吃飯 就是在吃飯的路上 # add description
 social-twitter: # add your Twitter handle
 social-facebook: bingdoal # add your Facebook handle
 social-github: bingdoal  # add your Github handle

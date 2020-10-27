@@ -7,17 +7,22 @@ img: jekyll-github.png
 description: 在 github 上用 markdown 舒服的撰寫 blogger
 tags: [blogger]
 ---
+# 前言
+想了好久終於是弄了一個 blogger 出來了，一直以來都是用 [hackmd.io]{:target="_blank"} 在撰寫筆記想說哪天 [hackmd.io]{:target="_blank"} 出個部落格功能再說，拖了這麼久終於還是自己搞了一個
 
-## 先來說下使用 gitpage 跟 jekyll 的原因
-1. 最主要第一點就是，個人實在是非常喜歡用 markdown 寫作的感覺，可以在手不離開鍵盤的情況下完成整篇文章，不過據我了解沒有什麼 Blogger 系統是可以完全用 markdown 寫的，在這之前則是都把筆記整理在 hackmd.io
+## 選擇 gitpage 跟 jekyll 的原因
+1. 個人寫作喜好
++ 最主要的點就是，個人實在是非常喜歡用 markdown 寫作的感覺，可以在手不離開鍵盤的情況下完成整篇文章，不過據我了解沒有什麼 Blogger 系統是可以完全用 markdown 寫的，在這之前則是都把筆記整理在 hackmd.io
    
-2. 雖然本身沒有接觸過 ruby 但經過一些 survey 之後覺得最好的方案應該還是用 jekyll 自架是比較好的選擇，之後客製化上也比較方便，也不需要學習操作別人弄好的後台
+1. 客製化程度高  
++ 雖然本身沒有接觸過 ruby 但經過一些 survey 之後覺得最好的方案應該還是用 jekyll 自架是比較好的選擇，之後客製化上也比較方便，也不需要學習操作別人弄好的後台
    
-3. 架在 gitpage 上則單純不想租機器或雲端空間來弄這個，git 的系統也能幫我做好備份跟更改記錄管理，實在也是蠻理想的
+3. 架設方便  
++ 架在 gitpage 上則單純不想租機器或雲端空間來弄這個，git 的系統也能幫我做好備份跟更改記錄管理，實在也是蠻理想的
 
 ## [jekyll](https://jekyllrb.com/)
-+ jekyll 的功用呢就是幫助將，markdown、liquid 等語法轉換為靜態 HTML 的工具，且 Gitpage 本身支援使用
-+ 而 jekyll 本身則是用 Ruby 開發的，因此使用之前我們先來裝 [Ruby](https://www.ruby-lang.org/zh_tw/)，官網直接下載安裝，然後鍵入
++ jekyll 的功用就是幫助將 markdown、liquid 等語法轉換為靜態 HTML 的工具，重點是 Gitpage 原生支援
++ 因為 jekyll 本身則是用 Ruby 開發的，因此使用之前我們先來裝 [Ruby]{:target="_blank"}，官網直接下載安裝，然後鍵入
 
 ```
 $ gem install jekyll
@@ -58,3 +63,6 @@ $ jekyll serve
 
 1. 在自己的 github 上開一個 `<username>.github.io` 的 repo，這個專案名稱會默認為你的 gitpage
 2. 第二步就很簡單了，把你的專案 push 上去，接著到 `<username>.github.io` 下就能看到結果了
+
+[hackmd.io]: http://hackmd.io
+[Ruby]: https://www.ruby-lang.org/zh_tw/ 

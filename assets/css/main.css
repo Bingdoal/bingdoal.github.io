@@ -1240,8 +1240,7 @@ a.newer-posts:hover {
 
 .header-page .page-date {
   color: #a0a0a0;
-  font-weight: 300;
-  font-size: 12px;
+  font-weight: bolder;
   text-transform: uppercase;
 }
 
