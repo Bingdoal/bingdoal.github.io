@@ -3,6 +3,9 @@ layout: post
 title:  "用 jekyll 在 gitpage 上架 Blogger"
 date:   2020-10-26 14:21:13 +0800
 categories: [blogger]
+img: jekyll-github.png
+description: 在 github 上用 markdown 舒服的撰寫 blogger
+tags: [jekyll, gitpage]
 ---
 
 ## 先來說下使用 gitpage 跟 jekyll 的原因
