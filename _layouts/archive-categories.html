@@ -7,7 +7,9 @@ layout: main
 </div>
 
 {% for post in site.posts %}
-{% if post.categories contains page.category or post.category == page.category %}
+{% assign postCategory = post.category | downcase%}
+{% assign pageCategory = page.category | downcase%}
+{% if postCategory  == pageCategory %}
 <article class="post">
     {% if post.img %}
     <a class="post-thumbnail"
