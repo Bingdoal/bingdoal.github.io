@@ -47,6 +47,6 @@ collections:
 jekyll-archives:
   enabled: 
     - categories
-  layout: archive-category
+  layout: archive-categories
   permalinks:
     category: '/category/:name/'
