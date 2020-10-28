@@ -1615,3 +1615,23 @@ a.newer-posts:hover {
   font-size  : xx-large;
   color      : #ec4f32;
 }
+
+.page-content a {
+  margin: 5px;
+}
+
+.page-content a:link {
+  color: #09f;
+}
+
+.page-content a:visited {
+  color: hotpink;
+}
+
+.page-content a:hover {
+  color: rgb(8, 101, 163);
+}
+
+.page-content a:active {
+  color: rgb(91, 182, 243);
+}
