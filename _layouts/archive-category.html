@@ -3,11 +3,10 @@ layout: main
 ---
 
 <div class="category-title">
-    <strong>category:</strong><span>{{ page.title }}</span>
+    <strong>{{ page.type }}:</strong><span>{{ page.title }}</span>
 </div>
 
-{% for post in site.posts %}
-{% if post.categories contains page.category or post.category == page.category %}
+{% for post in page.posts %}
 <article class="post">
     {% if post.img %}
     <a class="post-thumbnail"
@@ -23,6 +22,5 @@ layout: main
             class="post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: " minute read" }}{% endunless %}</span>
     </div>
 </article>
-{% endif %}
 {% endfor %}
 {% include pagination.html %}
