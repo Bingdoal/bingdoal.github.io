@@ -1238,6 +1238,8 @@ footer .copyright {
 .post .post-content .post-date,
 .post .post-content .post-tags {
   font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .post .post-content .post-tag a {
@@ -1647,4 +1649,9 @@ a.newer-posts:hover {
 
 .page-content blockquote {
   border-left-color: rgb(19, 197, 19);
+}
+
+.page-content .tag:visited,
+.page-content .tag:link{
+  color: #263959;
 }
