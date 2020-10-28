@@ -1272,8 +1272,9 @@ footer .copyright {
   color          : #263959;
 }
 
-.post .post-content p {
+.post .post-content .post-desc {
   margin-top: 0;
+  font-size : 21px;
 }
 
 a.older-posts,
@@ -1498,6 +1499,10 @@ a.newer-posts:hover {
   .post .post-content .post-title a {
     font-size: 21px;
   }
+
+  .post .post-content .post-desc {
+    font-size: 12px;
+  }
 }
 
 /* Small Devices, Tablets */
@@ -1600,6 +1605,10 @@ a.newer-posts:hover {
   .post .post-content .post-title a {
     font-size: 21px;
   }
+
+  .post .post-content .post-desc {
+    font-size: 12px;
+  }
 }
 
 .category-title {
@@ -1634,4 +1643,8 @@ a.newer-posts:hover {
 
 .page-content a:active {
   color: rgb(91, 182, 243);
+}
+
+.page-content blockquote {
+  border-left-color: rgb(19, 197, 19);
 }
