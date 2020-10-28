@@ -22,7 +22,7 @@ jobs:
         run: |
           git config --global user.name "Bingdoal"
           git config --global user.email "bingdoal@users.noreply.github.com"
-          git fetch
+          git pull
       - name: commit
         run: |
           git add --all
