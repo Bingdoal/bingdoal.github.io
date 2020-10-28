@@ -197,7 +197,8 @@ public class ViewController {
 ```
 
 其實還有蠻多操作的，詳細請看下面連結  
-[thymeleaf 一些基本教學](https://zhuanlan.zhihu.com/p/103089477)
+[thymeleaf 一些基本教學](https://zhuanlan.zhihu.com/p/103089477){:target='_blank'}
+
 ## Model、Repository、Service
 + 這一部分有蠻多的東西，這邊只能淺談一下，還有很多東西待研究
 
@@ -242,7 +243,8 @@ public class Member {
 
 + 重點一樣放在幾個 annotation，大致上就如同字面意思，應該不難理解，如果變數名稱與實際的 column name 相同，則不需要設定 `@Column` 這個 annotation。
 
-+ 這邊要提到的是 `@GeneratedValue(strategy = GenerationType.IDENTITY)` 這行，指的是 id 的產生方法，網路上大部分教學都是 `GenerationType.AUTO` 但這邊範例使用的是 PostgreSql，id 的產生方法上與一般 MySql 不太一樣，所以設定的值也不相同 
++ 這邊要提到的是 `@GeneratedValue(strategy = GenerationType.IDENTITY)` 這行，指的是 id 的產生方法，網路上大部分教學都是 `GenerationType.AUTO` 但這邊範例使用的是 PostgreSql，id 的產生方法上與一般 MySql 不太一樣，所以設定的值也不相同  
+  
 ### Repository
 Spring 這邊多了一層 Repository 用來定義 model 的方法，下面有三個介面裡面有實作一些基本的方法
 + `@CrudRepository` => 提供基本 CRUD 的方法
@@ -285,9 +287,9 @@ Member findByName(String name);
 ```
 參數則會按照數字順序代入
 
-[詳細擴充方法撰寫](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods)  
-[JPQL 簡介](https://openhome.cc/Gossip/EJB3Gossip/JPQLABC.html)  
-[Spring Data JPA 自訂更新/刪除](https://blog.jren.cc/2020/03/11/spring-data-jpa-define-update-and-remove/)  
+[詳細擴充方法撰寫](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods){:target='_blank'}  
+[JPQL 簡介](https://openhome.cc/Gossip/EJB3Gossip/JPQLABC.html){:target='_blank'}  
+[Spring Data JPA 自訂更新/刪除](https://blog.jren.cc/2020/03/11/spring-data-jpa-define-update-and-remove/){:target='_blank'}  
 
 ### Service
 

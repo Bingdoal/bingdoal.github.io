@@ -65,5 +65,23 @@ $ jekyll serve
 1. 在自己的 github 上開一個 `<username>.github.io` 的 repo，這個專案名稱會默認為你的 gitpage
 2. 第二步就很簡單了，把你的專案 push 上去，接著到 `<username>.github.io` 下就能看到結果了
 
+## 開寫
+將要發表的文章放在 `_post` 裡並且檔名按照 `year-month-date-<title>.md` 來命名， Jekyll 會根據這個格式來解析存入環境變數，並且在 `_config.yml` 裡面也可以用來設定路徑相關  
+
+撰寫的時候也可以為你的頁面撰寫 meta data 可以促進 SEO，也可以用來解析文章的 tag、category、description 方便用來分類或檢視大綱，以這篇文章的 meta 舉例:  
+```markdown
+---
+layout: post
+title:  "用 jekyll 在 gitpage 上架 Blog"
+date:   2020-10-26 14:21:13 +0800
+category: blog
+img: jekyll-github.png
+description: 用 Jekyll 架設在 github 上用 markdown 舒服撰寫的 Blog
+lang: zh-TW
+tags: [blog, jekyll, gitpage]
+---
+```
+
+然後下面寫下你的 markdown 文章，然後 run `jekyll serve` 運行沒問題，就可以推上去啦。
 [hackmd.io]: http://hackmd.io
 [Ruby]: https://www.ruby-lang.org/zh_tw/ 
