@@ -1052,18 +1052,18 @@ table tfoot td {
 }
 
 .blog-category p {
-  font-size: larger;
+  font-size    : larger;
   margin-bottom: 0;
 }
 
 .blog-category a {
-  font-size: large;
+  font-size      : large;
   text-decoration: none;
   color          : #bbb;
 }
 
-.category-div{
-  text-align: left;
+.category-div {
+  text-align  : left;
   padding-left: 4.5em;
 }
 
@@ -1072,7 +1072,7 @@ table tfoot td {
   color        : black;
 }
 
-.blog-category a i{
+.blog-category a i {
   text-decoration: none;
   color          : rgb(240, 157, 63);
 }
@@ -1225,11 +1225,32 @@ footer .copyright {
 .post .post-content {
   padding: 1rem;
   width  : 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .post .post-content .post-date,
-.post .post-content .post-words {
+.post .post-content .post-tags {
   font-size: 12px;
+}
+
+.post .post-content .post-tag a {
+  text-decoration: none;
+  padding        : 2px 5px;
+  margin-left    : 5px;
+  color          : #263959;
+  text-transform : uppercase;
+  border         : 1px solid #263959;
+}
+
+.post .post-content .post-tag a:hover {
+  text-decoration: underline;
+}
+
+.post .post-content .post-info {
+  display        : flex;
+  justify-content: space-between;
 }
 
 .post .post-content .post-title {
