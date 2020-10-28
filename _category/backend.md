@@ -1,6 +1,6 @@
 ---
 title: backend
 category: "backend"
-layout: archive-categories
+layout: category
 permalink: "category/backend"
 ---

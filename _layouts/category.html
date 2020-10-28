@@ -5,11 +5,7 @@ layout: main
 <div class="category-title">
     <strong>Category:</strong><span>{{ page.title }}</span>
 </div>
-
-{% for post in site.posts %}
-{% assign postCategory = post.category | downcase%}
-{% assign pageCategory = page.category | downcase%}
-{% if postCategory  == pageCategory %}
+{% for post in site.categories[page.category] %}
 <article class="post">
     {% if post.img %}
     <a class="post-thumbnail"
@@ -25,5 +21,4 @@ layout: main
             class="post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: " minute read" }}{% endunless %}</span>
     </div>
 </article>
-{% endif %}
 {% endfor %}

@@ -1012,7 +1012,7 @@ table tfoot td {
   display        : flex;
   align-items    : center;
   justify-content: center;
-  margin         : 3em 0 0 0;
+  margin         : 1em 0 0 0;
   flex-direction : column;
 }
 
@@ -1048,18 +1048,18 @@ table tfoot td {
 .blog-category {
   display        : flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items    : center;
+  flex-wrap      : wrap;
   flex-direction : column;
 }
 
 .blog-category p {
-  width: 100%;
-  color: white;
+  width           : 100%;
+  color           : white;
   background-color: #555555;
-  font-size    : larger;
-  margin-bottom: 0;
-  border-radius: 10px;
+  font-size       : larger;
+  margin-bottom   : 0;
+  border-radius   : 10px;
 }
 
 .blog-category a {
@@ -1069,7 +1069,7 @@ table tfoot td {
 }
 
 .category-div {
-  text-align  : left;
+  text-align: left;
 }
 
 .blog-category a:hover {
@@ -1228,10 +1228,10 @@ footer .copyright {
 }
 
 .post .post-content {
-  padding: 0 1rem;
-  width  : 70%;
-  display: flex;
-  flex-direction: column;
+  padding        : 0 1rem;
+  width          : 70%;
+  display        : flex;
+  flex-direction : column;
   justify-content: space-around;
 }
 
@@ -1250,8 +1250,8 @@ footer .copyright {
 }
 
 .post .post-content .post-tag a:hover {
-  text-decoration: underline;
-  color: white;
+  text-decoration : underline;
+  color           : white;
   background-color: #263959;
 }
 
@@ -1408,9 +1408,9 @@ a.newer-posts:hover {
 }
 
 .page-footer .page-tag a:hover {
-  text-decoration: underline;
-  color: white;
-  background-color:#263959;
+  text-decoration : underline;
+  color           : white;
+  background-color: #263959;
 }
 
 /* - - - - - - - - - - Tag Styles - - - - - - - - - - */
@@ -1602,6 +1602,9 @@ a.newer-posts:hover {
   }
 }
 
+.category-title {
+  width: 100%;
+}
 
 .category-title strong {
   font-size: x-large;

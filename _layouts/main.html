@@ -17,7 +17,7 @@ layout: default
         <div><a href="{{site.baseurl}}/tags">Tags in Blog</a></div>
       </div>
       <div class="blog-category">
-        <p>———Category———</p>
+        <p>Category</p>
         {% assign sortedCategories =  site.categories | sort%}
         {% for pageContent in sortedCategories %}
         {% assign category = pageContent | first %}
