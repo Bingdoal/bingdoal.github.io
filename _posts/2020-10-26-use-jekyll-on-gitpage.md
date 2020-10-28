@@ -1,18 +1,18 @@
 ---
 layout: post
-title:  "用 jekyll 在 gitpage 上架 Blogger"
+title:  "用 jekyll 在 gitpage 上架 Blog"
 date:   2020-10-26 14:21:13 +0800
-categories: [blogger, jekyll, gitpage]
+category: Blog
 img: jekyll-github.png
-description: 在 github 上用 markdown 舒服的撰寫 blogger
-tags: [blogger]
+description: 用 Jekyll 架設在 github 上用 markdown 舒服撰寫的 Blog
+tags: [blog, jekyll, gitpage]
 ---
 # 前言
-想了好久終於是弄了一個 blogger 出來了，一直以來都是用 [hackmd.io]{:target="_blank"} 在撰寫筆記想說哪天 [hackmd.io]{:target="_blank"} 出個部落格功能再說，拖了這麼久終於還是自己搞了一個
+想了好久終於是弄了一個 Blog 出來了，一直以來都是用 [hackmd.io]{:target="_blank"} 在撰寫筆記想說哪天 [hackmd.io]{:target="_blank"} 出個部落格功能再說，拖了這麼久終於還是自己搞了一個
 
 ## 選擇 gitpage 跟 jekyll 的原因
 1. 個人寫作喜好
-+ 最主要的點就是，個人實在是非常喜歡用 markdown 寫作的感覺，可以在手不離開鍵盤的情況下完成整篇文章，不過據我了解沒有什麼 Blogger 系統是可以完全用 markdown 寫的，在這之前則是都把筆記整理在 hackmd.io
++ 最主要的點就是，個人實在是非常喜歡用 markdown 寫作的感覺，可以在手不離開鍵盤的情況下完成整篇文章，不過據我了解沒有什麼 Blog 系統是可以完全用 markdown 寫的，在這之前則是都把筆記整理在 hackmd.io
    
 1. 客製化程度高  
 + 雖然本身沒有接觸過 ruby 但經過一些 survey 之後覺得最好的方案應該還是用 jekyll 自架是比較好的選擇，之後客製化上也比較方便，也不需要學習操作別人弄好的後台

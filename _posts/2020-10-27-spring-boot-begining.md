@@ -2,10 +2,10 @@
 layout: post
 title:  "Spring Boot 初戰"
 date:   2020-10-27 15:00:13 +0800
-categories: [java, spring boot]
+category: 後端
 img: spring-boot.jpg
-description: spring boot 初學，快速掌握 Spring 的 MVC 架構
-tags: [java]
+description: spring boot 初學，快速掌握 Spring 的基本 MVC 架構
+tags: [java, spring boot]
 ---
 # Spring Boot 初學用法介紹
 
@@ -44,9 +44,8 @@ public class Application {
     }
 )
 ```
-## Route 
 
-### Controller
+## Controller
 + Spring 的路由是由 Controller 決定的，下面來了解如何建置 Controller  
 
 ```java
@@ -87,7 +86,7 @@ public User getUser(@RequestParam(value="id",defaultValue="0") int id){
 + `@RequestParam` 則是參數傳遞的方法，下面會一併提到
 
 #### 參數傳遞
-+ request 的參數取得大致透過三種方式其對應的 annotation 如下
++ request 的參數取得大致透過幾種方式其對應的 annotation 如下
     + url: `/user/{id}` => `@PathVariable("id")`
     + query: `/user?id=` => `@RequestParam("id")`
     + jsonBody => `@RequestBody`
@@ -115,8 +114,8 @@ public Object getUser(@PathVariable("id") int id) {
     }
 ```
 
-#### 子路由用法
-這邊特別講一下子路由的設定，`@RequestMapping` 的 annotation 比較特別，不只可以用在 method 上來設定觸發的功能，也可以宣告在 class 上用來定義子路由，例如:
+#### 根路由用法
+這邊特別講一下路由的設定，`@RequestMapping` 的 annotation 比較特別，不只可以用在 method 上來設定觸發的功能，也可以宣告在 class 上用來定義根路由，例如:
 
 ```java
 @RestController
@@ -134,7 +133,7 @@ public class MemberController {
     }
 }
 ```
-這樣設定下，在 MemberController 中的路由都會從 `/user` 開始，藉由這種方式達到子路由的功能，而 `@GetMapping` 這類的 annotation 則沒有這種用法，各個方法的 mapping 都只能用在 method 的宣告上
+這樣設定下，在 MemberController 中的路由都會從 `/user` 開始，藉由這種方式達到封裝路由的效果，而 `@GetMapping` 這類的 annotation 則沒有這種用法，各個方法的 mapping 都只能用在 method 的宣告上
 
 ## View
 要用到畫面之前要先引入官方推薦的模板引擎 thymeleaf
@@ -196,10 +195,10 @@ public class ViewController {
 <h1>hello <p th:text="${session.test}"></p></h1>
 ```
 
-其實還有蠻多操作的，詳細請看下面連結
+其實還有蠻多操作的，詳細請看下面連結  
 [thymeleaf 一些基本教學](https://zhuanlan.zhihu.com/p/103089477)
 ## Model、Repository、Service
-+ 這一部分真的是有非常多的東西，這邊只能淺談一下，還有很多東西待研究
++ 這一部分有蠻多的東西，這邊只能淺談一下，還有很多東西待研究
 
 相關設定:
 
