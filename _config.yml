@@ -40,7 +40,10 @@ exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
 collections:
   category:
     output: true
- 
+  archives:
+    output: true
+    permalink: /archives/:path/
+  
 jekyll-archives:
   enabled: 
     - categories

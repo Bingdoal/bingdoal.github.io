@@ -1,0 +1,9 @@
+---
+---
+{
+    "category": [
+        {%- for category in site.categories -%}
+        "{{ category[0]}}"{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+    ]
+}
