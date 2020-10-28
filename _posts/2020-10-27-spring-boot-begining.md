@@ -5,6 +5,7 @@ date:   2020-10-27 15:00:13 +0800
 category: backend
 img: spring-boot.jpg
 description: spring boot 初學，快速掌握 Spring 的基本 MVC 架構
+lang: zh-TW
 tags: [java, spring boot]
 ---
 # Spring Boot 初學用法介紹
