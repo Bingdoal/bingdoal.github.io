@@ -1048,12 +1048,18 @@ table tfoot td {
 .blog-category {
   display        : flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   flex-direction : column;
 }
 
 .blog-category p {
+  width: 100%;
+  color: white;
+  background-color: #555555;
   font-size    : larger;
   margin-bottom: 0;
+  border-radius: 10px;
 }
 
 .blog-category a {
@@ -1064,7 +1070,6 @@ table tfoot td {
 
 .category-div {
   text-align  : left;
-  padding-left: 4.5em;
 }
 
 .blog-category a:hover {
@@ -1223,7 +1228,7 @@ footer .copyright {
 }
 
 .post .post-content {
-  padding: 1rem;
+  padding: 0 1rem;
   width  : 70%;
   display: flex;
   flex-direction: column;
