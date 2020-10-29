@@ -819,7 +819,6 @@ pre {
   overflow   : auto;
   white-space: pre-wrap;
   word-wrap  : break-word;
-  word-break : break-all;
 }
 
 pre code {
@@ -829,7 +828,6 @@ pre code {
   overflow     : auto;
   white-space  : pre-wrap;
   word-wrap    : break-word;
-  word-break   : break-all;
 }
 
 table {
@@ -891,7 +889,7 @@ table tfoot td {
 }
 
 .wrapper {
-  max-width: 1250px;
+  max-width: 1600px;
   position : relative;
 }
 

@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "用 jekyll 在 gitpage 上架 Blog"
+title:  "用 jekyll 在 github page 上架 Blog"
 date:   2020-10-26 14:21:13 +0800
 category: blog
 img: jekyll-github.png
 description: 用 Jekyll 架設在 github 上用 markdown 舒服撰寫的 Blog
 lang: zh-TW
-tags: [blog, jekyll, gitpage]
+tags: [blog, jekyll, github page]
 ---
 # 前言
 想了好久終於是弄了一個 Blog 出來了，一直以來都是用 [hackmd.io]{:target="_blank"} 在撰寫筆記想說哪天 [hackmd.io]{:target="_blank"} 出個部落格功能再說，拖了這麼久終於還是自己搞了一個
