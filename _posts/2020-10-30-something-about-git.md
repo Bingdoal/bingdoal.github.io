@@ -92,7 +92,7 @@ git diff de986d9
 git checkout de986d9
 ```
 
-也可以拋棄這次的變更  
+也可以直接讓專案回到這個版本  
 ```shell
 git reset de986d9
 ```
