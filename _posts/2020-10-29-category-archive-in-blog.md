@@ -181,9 +181,9 @@ jobs:
 記得在 `archive_url` 欄位填入自己的 url，然後推上 github 後到 Action 的頁籤找到剛剛編輯的 action 執行  
 
 執行過程可以看一下輸出的訊息，大致可以了解到他是怎麼運作的
-1. 首先 Github 接收到你的專案後幫你 build 成靜態網站
-2. 然後透過 http request 去抓取到 `archives/archivedata` 的內容，經過 liquid 的嵌入過後，裡面內容列出了所有文章的年份、tag、category
-3. python 再幫你創建需要的資料夾以及 html 檔，並且依照年分、tag、catrgory name 去命名，然後推一包上去
+1. 首先 Github 接收到你的專案後幫你 build 成靜態網站，然後剛剛的 `archivedata.txt` 經過 liquid 的嵌入過後，裡面會變成一個 json 列出了所有文章的年份、tag、category
+2. 然後 action 會去執行 [jekyll-blog-archive-workflow](https://github.com/kannansuresh/jekyll-blog-archive-workflow) 這個專案的 python，大概是透過 http request 去抓取到 `archives/archivedata` 裡面放的所有分類內容
+3. python 再幫你創建需要的資料夾以及 html 檔，依照年分、tag、catrgory name 去命名，然後推一包上去
 4. Github 再重建一次新的網站時，就多了這幾個頁面，就達到自動封裝年分、tag、category 的效果了  
 
 ---
