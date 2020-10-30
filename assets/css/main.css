@@ -941,6 +941,7 @@ table tfoot td {
   height                 : 100%;
   padding                : 20px 10px;
   background-color       : #ffffff;
+  box-shadow: 2px 2px 5px 2px #bbb !important;
 }
 
 .about {
@@ -1652,4 +1653,8 @@ a.newer-posts:hover {
 .page-content .tag:visited,
 .page-content .tag:link{
   color: #263959;
+}
+
+.page-content img{
+  box-shadow: 2px 2px 5px 2px #bbb;
 }
