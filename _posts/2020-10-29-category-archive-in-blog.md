@@ -178,4 +178,63 @@ jobs:
           git commit -m "Created and updated archive files." || echo "No changes to commit."
           git push origin master || echo "No changes to push."
 ```
-記得在
+記得在 `archive_url` 欄位填入自己的 url，然後推上 github 後到 Action 的頁籤找到剛剛編輯的 action 執行  
+
+執行過程可以看一下輸出的訊息，大致可以了解到他是怎麼運作的
+1. 首先 Github 接收到你的專案後幫你 build 成靜態網站
+2. 然後透過 http request 去抓取到 `archives/archivedata` 的內容，經過 liquid 的嵌入過後，裡面內容列出了所有文章的年份、tag、category
+3. python 再幫你創建需要的資料夾以及 html 檔，並且依照年分、tag、catrgory name 去命名，然後推一包上去
+4. Github 再重建一次新的網站時，就多了這幾個頁面，就達到自動封裝年分、tag、category 的效果了  
+
+---
+
+恩... 怎麼說呢，雖然是達到成效了，但總覺得步驟有點麻煩，每次推上去還要去按一下 action，而且因為 Github 建置網站也需要點時間，所以也不能推上去馬上按，還要等他一下，然後本地每次推之前也都要重拉一次，而且這樣本地開發就不能隨時用這個功能了，必須要 Github action 建完拉下來才是封裝好的版本，說實話有點不盡理想  
+
+## 自己動手做
+
+所以最後分析完 Action 的做法之後，我決定自己手動建置這個結構，因為事實上也並不是太困難的步驟，可以留下上面的 category layout，然後在目錄下新增  
+
+```
+└ _category
+    ├ blog.md
+    └ backend.md
+```
+
+裡面內容也很簡單，就只有  
+
+```
+---
+title: blog
+category: "blog"
+layout: category
+permalink: "category/blog"
+---
+```
+
+這樣可以確保本地開發就有內容，推上去也不用再按 Action，反正每發一篇文章最多就多一個分類，其實並不算太複雜的工  
+
+# 建立連結
+
+那分類的頁面完成了接下來做連結，其實就只是利用 liquid 的語法去生成而已  
+{% raw %}
+```liquid
+<div class="blog-category">
+  <p>Category</p>
+  {% assign sortedCategories =  site.categories | sort%}
+  {% for pageContent in sortedCategories %}
+  {% assign category = pageContent | first %}
+  {% assign size = pageContent | last | size %}
+  <div class="category-div">
+    <a href="{{site.baseurl}}/category/{{category}}">{{category}}
+      <i>({{size}})</i>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+```
+{% endraw %}
+
+可以放在自己想要顯示的位置，這段可以列出所有的 category 並且嵌入連結，利用 sort 可以確保出現的順序  
+
+到這邊 category 的功能就實現啦，繞了一大圈，結果用了個最簡單的作法😂，不過也因此對於 liquid 的用法有更多想法了，沒想到可以利用來建立 json 再去撈來使用，有打開腦洞的感覺，好像也可以拿來建假資料，弄個 Mock Api 之類的  
+  
