@@ -92,18 +92,18 @@ git diff de986d9
 git checkout de986d9
 ```
 
-也可以拋棄這次的變更  
+也可以直接讓專案回到這個版本  
 ```shell
 git reset de986d9
 ```
 
-要注意這會讓這個 commit 之後的 commit 直接在視線中消失，比較建議的會是下面的指令
+要注意這會讓 `de986d9` 之後的 commit 直接在視線中消失，比較建議的會是下面的指令
 
 ```shell
 git revert de986d9
 ```
 
-差異在於， revert 是把重設到 `de986d9` 提交的這件事，當成另一個變更，你不會遺失任何版本  
+差異在於， revert 是把重設到 `de986d9` 的這件事，當成另一個變更，你不會遺失任何版本  
 
 而在較有規模的專案開發中，大多數都會有切分支的需求，分支的概念就是從現在的版本拉一個平行世界出去，主要用來區隔不同功能或開發者的變更，不會直接衝突到一起  
 ```shell
@@ -123,7 +123,7 @@ merge 可能會發生 collision，也就是所謂的衝突，有相同的檔案�
 
 然後再提交一包上去作為 Merge 的 commit，至此就算是解完衝突了  
 
-# 便利的設定與工具
+# 其他
 
 ## Alias
 在用 git 開發的時候會很頻繁的用到很多 git 的指令，要一直打非常的麻煩阿，所以可以利用 git alias 的功能，幫指令取別名，打起來就快速多了，下面列出我自己設定的別名  
@@ -139,9 +139,9 @@ git config --global alias.ignore "!gi() { curl -sL https://www.gitignore.io/api/
 ```shell
 git st   # 就等於 git status
 ```
-第二個 alias 可以看到幫 git log 寫了一堆參數，因 git log 的部分直接秀出來的排版實在有點難看，所以可以用參數格式化一下，詳細可以看看這篇文 [git log 進階應用](http://jamestw.logdown.com/posts/238719-advanced-git-log) 還有一些 filter 的功能方便查找  
+第二個 alias 可以看到幫 git log 寫了一堆參數，因 git log 的部分直接秀出來的排版實在有點難看，所以可以用參數格式化一下，詳細可以看看這篇文 [git log 進階應用](http://jamestw.logdown.com/posts/238719-advanced-git-log){:target="_blank"} 還有一些 filter 的功能方便查找  
 
-可以看到第三個 alias 最前面有個 ! 意思是這個是不屬於 git 的內部指令的，連這都可以 alias，使用起來真的是相當方便。這個指令的作用，是去 [gitignore.io](https://www.toptal.com/developers/gitignore) 的網站抓取常用的 `.gitignore` 的內容，也是很方便的東西  
+可以看到第三個 alias 最前面有個 ! 意思是這個是不屬於 git 的內部指令的，連這都可以 alias，使用起來真的是相當方便。這個指令的作用，是去 [gitignore.io](https://www.toptal.com/developers/gitignore){:target="_blank"} 的網站抓取常用的 `.gitignore` 的內容，也是很方便的東西  
 
 如果想要取消別名只要  
 ```shell
