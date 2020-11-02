@@ -3,12 +3,12 @@ title: 一些 Git 的使用心得
 date: 2020-10-30 23:32:00 +0800
 category: Dev tools
 img: git.png
-description: 最近因為工作關係，還有架設部落格的關係，才又開始頻繁接觸使用 Git，想把最近的一些使用上的心得，還有一些設定，筆記也分享一下，方便以後回顧
+description: 最近因為工作，還有架設部落格的關係，才又開始頻繁接觸使用 Git，想把最近的一些使用上的心得，還有一些設定，紀錄也分享一下，方便以後回顧
 layout: post
 tags: [git,dev tools]
 ---
 
-最近因為工作關係，還有架設部落格的關係，才又開始頻繁接觸使用 Git，想把最近的一些使用上的心得，還有一些設定，筆記一下，方便以後回顧  
+最近因為工作，還有架設部落格的關係，才又開始頻繁接觸使用 Git，想把最近的一些使用上的心得，還有一些設定，紀錄也分享一下，方便以後回顧 
 
 # 簡介
 ## 版本控制
@@ -148,6 +148,31 @@ git st   # 就等於 git status
 git config --global --unset alias.st 
 ```
 就好囉
+
+## Tag
+
+前面有講到要定位到想要的 commit 可以透過自動產生的 hash，但這個 hash 並不是這麼好記本身也不含有意義  
+
+這時候可以利用 `git tag` 的指令為 commit 貼上標記  
+
+```shell
+git tag <tag-name>                              # 在最後的 commit 處貼上 tag
+git tag <tag-name> de986d9                      # 在 commit de986d9 處貼上 tag
+git tag <tag-name> de986d9 -a -m "tag message"  # 在 commit de986d9 處貼上 tag 並且附帶 "tag message" 的訊息
+git tag -d <tag-name>                           # 刪除 tag
+git tag                                         # 列出所有的 tag
+git tag -l 'v1.*'                               # 列出符合 v1.* 的所有 tag
+```
+那之後使用這個 tag 就等於會指向到被貼上的 commit 處了，有點像是幫 commit 取別名的概念  
+而如果有用到 git 平台的話，一般的 push 並不會把 tag 推上去，要透過一些參數  
+
+```shell
+git push origin <tag-name>          # 把 <tag-name> 推上去
+git push origin --tags              # 把全部的 tag 同步上去
+git push --delete origin <tag-name> # 刪除遠端的 tag
+```
+tag 應用上比較常見的是貼上 stable 的版號，也方便統一管理或比較版本間的差異  
+
 ## .gitignore
 在你的專案底下建立 `.gitignore` 的檔案，git 在對專案監控檔案變更的時候，就會忽略底下的檔案，不過也是可以強制加入的  
 ```shell
