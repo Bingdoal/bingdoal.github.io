@@ -130,9 +130,8 @@ merge 可能會發生 collision，也就是所謂的衝突，有相同的檔案�
 
 ```shell
 git config --global alias.st status
-
-git config --global alias.ls "log --format='%C(yellow)%h - %C(green)%an, %C(white)%ad : %C(ul)%s' --date=short"
-
+git config --global alias.ch checkout
+git config --global alias.ls "log --format='%C(yellow)%h - %C(magenta)%an%C(green)<%ae>, %C(cyan)%ad : %C(auto)%C(ul)%s' --date=short"
 git config --global alias.ignore "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
 ```
 
