@@ -285,8 +285,9 @@ Member findByName(String name);
 @Query("SELECT m FROM Member m WHERE m.name=?1")
 Member findByName(String name);
 ```
-參數則會按照數字順序代入
+參數則會按照數字順序代入  
 
+參考資料:  
 [詳細擴充方法撰寫](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods){:target='_blank'}  
 [JPQL 簡介](https://openhome.cc/Gossip/EJB3Gossip/JPQLABC.html){:target='_blank'}  
 [Spring Data JPA 自訂更新/刪除](https://blog.jren.cc/2020/03/11/spring-data-jpa-define-update-and-remove/){:target='_blank'}  
@@ -332,7 +333,7 @@ public class MemberService{
 
 + 基本上看到這邊也有概念了，Spring 不依賴原生方法去匯入資源以及創造實體，而是透過各種 annotation 去自動產生與掃描
 
-在 Controller 之中使用也是如此:
+在 Controller 之中使用也是如此:  
 
 ```java
 @RestController
@@ -458,3 +459,5 @@ public class ShopCard {
 }
 
 ```
+
+spring boot 實際上還有很多操作需要研究，這邊就簡單說明到這裡，之後再多針對單一主題去做說明跟深入  
