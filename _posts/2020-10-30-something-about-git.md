@@ -133,6 +133,8 @@ git config --global alias.st status
 git config --global alias.ch checkout
 git config --global alias.ls "log --format='%C(yellow)%h - %C(magenta)%an%C(green)<%ae>, %C(cyan)%ad : %C(auto)%C(ul)%s' --date=short"
 git config --global alias.ignore "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
+
+git config --get-regexp alias # 列出所有 git alias
 ```
 
 使用上只要  

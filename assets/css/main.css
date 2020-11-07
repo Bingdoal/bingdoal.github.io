@@ -1659,3 +1659,11 @@ a.newer-posts:hover {
 .page-content img {
     box-shadow: 2px 2px 5px 2px #bbb;
 }
+
+.page-content table th {
+    font-size: larger !important;
+}
+
+.page-content table td{
+    font-size: medium !important;
+}
