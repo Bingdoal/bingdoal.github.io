@@ -58,6 +58,8 @@ CMD node index.js   # 執行指令  (注意只能有一行 CMD)
 
 因此最終建立好的 image 裡面其實是包含我們的專案以及 `npm install` 後的 `node_module`，而最後的 `CMD` 就是 image 被 run 起來成一個 container 之後會執行的腳本，而這邊要注意就是 `CMD` 只能設定一行指令，設定多行的話，只會執行最後一行  
 
+DockerFile 也有一個設計是可以加入一個 `.dockerignore` 就像 git 一樣可以略過一些不想被加入的檔案  
+
 ## 基本流程操作
 接下來跑一下基本的流程，基於上面的 DockerFile 往下走，可以先在上面的 DockerFile 同目錄底下建一個 `app` 的資料夾，然後加入這兩個檔案  
 
