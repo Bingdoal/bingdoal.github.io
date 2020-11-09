@@ -188,6 +188,7 @@ git rm --cached <filepath>
 
 或是用下面指令，一次掃除所有應該被忽略的對象  
 ```shell
+git rm --cached -f ./
 git clean -fx
 ```
 
