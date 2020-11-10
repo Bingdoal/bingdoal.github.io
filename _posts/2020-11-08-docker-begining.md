@@ -32,9 +32,9 @@ Docker 的概念就是創造一個虛擬化的容器，這個容器包含整個�
 Image 作為 Container 的模板存在，大概有下面三種取得方法:  
 1. 寫 DockerFile 然後下指令 build image
 2. 打包既有的 container 成 image
-3. 從 [Dokcer Hub](https://hub.docker.com/){:target="_blank"} 上拉別人建好的 image 下來用
+3. 從 [Docker Hub](https://hub.docker.com/){:target="_blank"} 上拉別人建好的 image 下來用
 
-一開始通常都是從 Dokcer Hub 上拉一些基本款下來，然後灌成自己習慣的環境後打包成 image，但開始有很多產品要部屬之後，就會開始寫 DockerFile 來建置，一方面好管理好維護，裡頭有什麼看 DockerFile 就一目瞭然，一方面也更方便我們執行一些客制化的行為  
+一開始通常都是從 Docker Hub 上拉一些基本款下來，然後灌成自己習慣的環境後打包成 image，但開始有很多產品要部屬之後，就會開始寫 DockerFile 來建置，一方面好管理好維護，裡頭有什麼看 DockerFile 就一目瞭然，一方面也更方便我們執行一些客制化的行為  
 
 ## Container
 想像成是輕量的 VM，裏頭會包含 OS，再承載你的產品，概念也有點像是一個應用程式，然而環境是完全被隔離的  
