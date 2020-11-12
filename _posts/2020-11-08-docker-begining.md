@@ -124,15 +124,15 @@ docker run -p 8000:8080 hello-docker
 
 ### 常用指令
 
-| 指令                                            | 說明                                                            |
-| ----------------------------------------------- | --------------------------------------------------------------- |
-| `docker build . -t <imagename>`                 | 從 DockerHub 上拉下指定的 image                                 |
-| `docker pull <reponame>:<version>`              | 從 DockerHub 上拉下指定的 image                                 |
-| `docker image ls`                               | 列出所有 image                                                  |
-| `docker container ls `                          | 列出正在運行的 container                                        |
-| `docker container ls -a`                        | 列出所有 container 包含沒在運行的                               |
-| `docker run <imagename> --name <containername>` | 執行 image 成 container 並指定 container name，不指定會隨機生成 |
-| `docker container start <containername>`        | 啟動 container                                                  |
-| `docker exec -it <containername> bash`          | 執行 container 的 bash                                          |
-| `docker container stop <containername>`         | 停止 container                                                  |
-| `docker container rm <containername>`           | 移除 container                                                  |
+| 指令                                               | 說明                                                                  |
+| -------------------------------------------------- | --------------------------------------------------------------------- |
+| `docker build . -t <imagename>`                    | 從 DockerHub 上拉下指定的 image                                       |
+| `docker pull <reponame>:<version>`                 | 從 DockerHub 上拉下指定的 image                                       |
+| `docker image ls`                                  | 列出所有 image                                                        |
+| `docker container ls ` / `docker ps`               | 列出正在運行的 container                                              |
+| `docker container ls -a` / `docker ps -a`          | 列出所有 container 包含沒在運行的                                     |
+| `docker run -d <imagename> --name <containername>` | 在背景執行 image 成 container 並指定 container name，不指定會隨機生成 |
+| `docker container start <containername>`           | 啟動 container                                                        |
+| `docker exec -it <containername> bash`             | 執行 container 的 bash                                                |
+| `docker container stop <containername>`            | 停止 container                                                        |
+| `docker container rm <containername>`              | 移除 container                                                        |
