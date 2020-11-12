@@ -1467,12 +1467,27 @@ a.newer-posts:hover {
 
 .tag-list span a {
     text-decoration: none;
-    color          : #263959;
 }
 
 .tag-list span a:hover {
     text-decoration: underline;
     opacity        : .8;
+}
+
+.tag-list span a:link {
+    color: #09f;
+}
+
+.tag-list span a:visited {
+    color: hotpink;
+}
+
+.tag-list span a:hover {
+    color: rgb(8, 101, 163);
+}
+
+.tag-list span a:active {
+    color: rgb(91, 182, 243);
 }
 
 /* - - - - - - - - - - Media Styles - - - - - - - - - - */
