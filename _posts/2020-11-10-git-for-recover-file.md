@@ -12,9 +12,9 @@ tags: [git,dev tools]
 
 ## `git status`
 了解還原的做法之前，先來弄懂 git 中的狀態有哪些，可以看到下面被分為
-+ <span style="color: #00b700">Changes to be committed</span>
-+ <span style="color: red">Changes not staged for commit</span>
-+ <span style="color: red">Untracked files</span>
++ <span style="color: #00b700">Changes to be committed</span> (被加入暫存)
++ <span style="color: red">Changes not staged for commit</span> (尚未加入暫存)
++ <span style="color: red">Untracked files</span> (尚未被 git 追蹤的檔案)
 
 ![]({{site.baseurl}}/assets/img/git-status.png)
 
@@ -26,7 +26,7 @@ tags: [git,dev tools]
 ## `git checkout -- <file>` 
 `git checkout -- <file>` 是用來還原處於 <span style="color: red">Changes not staged for commit</span> 狀態的檔案，可以還原這個尚未被加入的變更  
 
-可以看到上圖中 test2.txt 同時處於 <span style="color: #00b700">Changes to be committed</span> 以及 <span style="color: red">Changes not staged for commit</span> 的狀態，當我對 test2.txt 下 `git checkout -- ` 之後只會還原 <span style="color: red">Changes not staged for commit</span> 的部分，而不會影響到 <span style="color: #00b700">Changes to be committed</span> 已經被加入的部分  
+可以看到上圖中 test2.txt 同時處於 <span style="color: #00b700">Changes to be committed</span> 以及 <span style="color: red">Changes not staged for commit</span> 的狀態，當我對 test2.txt 下 `git checkout -- ` 之後只會還原 <span style="color: red">Changes not staged for commit</span> 的部分，而不會影響到 <span style="color: #00b700">Changes to be committed</span> 已經被加入到暫存的部分  
 
 ![]({{site.baseurl}}/assets/img/git-checkout-status.png)
 
@@ -65,10 +65,8 @@ git reset --hard
 git stash
 ```
 
-來暫存這些變更，如果後續有需要還可以  
+來暫存這些變更，如果後續有需要還可以透過下面指令來還原變更    
 
 ```shell
 git stash pop
 ```
-
-來還原變更  

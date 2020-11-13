@@ -15,7 +15,7 @@ tags: [blog, jekyll, github page]
 1. 個人寫作喜好
 + 最主要的點就是，個人實在是非常喜歡用 markdown 寫作的感覺，可以在手不離開鍵盤的情況下完成整篇文章，不過據我了解沒有什麼 Blog 系統是可以完全用 markdown 寫的，在這之前則是都把筆記整理在 hackmd.io
    
-1. 客製化程度高  
+2. 客製化程度高  
 + 雖然本身沒有接觸過 ruby 但經過一些 survey 之後覺得最好的方案應該還是用 jekyll 自架是比較好的選擇，之後客製化上也比較方便，也不需要學習操作別人弄好的後台
    
 3. 架設方便  
@@ -23,14 +23,15 @@ tags: [blog, jekyll, github page]
 
 ## [jekyll](https://jekyllrb.com/)
 + jekyll 的功用就是幫助將 markdown、liquid 等語法轉換為靜態 HTML 的工具，重點是 Gitpage 原生支援
-+ 因為 jekyll 本身則是用 Ruby 開發的，因此使用之前我們先來裝 [Ruby]{:target="_blank"}，官網直接下載安裝，然後鍵入
++ 因為 jekyll 本身則是用 Ruby 開發的，因此使用之前我們先來裝 [Ruby]{:target="_blank"}，官網直接下載安裝，然後鍵入  
 
-```
+```shell
 $ gem install jekyll
 ```
 
-這樣就有了 jekyll 的 cli 了，接著鍵入
-```
+這樣就有了 jekyll 的 cli 了，接著鍵入  
+
+```shell
 $ jekyll new <project-name>
 ```
 
@@ -55,7 +56,7 @@ $ jekyll serve
 來看看執行結果的網頁看起來怎樣
 + 跑完後會發現多了兩個資料夾 `_site`, `.jekyll-cache` 這兩個是 jekyll 自動根據專案目錄的檔案產生的
 
-+ 最主要的文章會根據 `_post` 底下的 markdown 解析出來，依據檔名格式 `yaer-month-date-title.md` 來解析，只根據檔名，所以 `_post` 下的目錄結構要怎麼放都隨你
++ 最主要的文章會根據 `_post` 底下的 markdown 解析出來，依據檔名格式 `year-month-date-title.md` 來解析，只根據檔名，所以 `_post` 下的目錄結構要怎麼放都隨你
 
 + 再來就是 `_config.yml` 應該算是重點，各種設定還有換主題都在這邊，***不過有點複雜之後再研究***，可以先改上自己的部落格名稱跟介紹
 
