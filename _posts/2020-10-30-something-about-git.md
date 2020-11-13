@@ -124,9 +124,9 @@ git checkout -b <branch-name>  # 建立並且切換到分支
 git merge <branch-name>
 ```
 
-merge 可能會發生 collision，也就是所謂的衝突，有相同的檔案一起做了變更  
+merge 可能會發生 conflict，也就是所謂的衝突，有相同的檔案一起做了變更  
 
-這時候會進入 MERGE 的模式，Git 會幫你把 collision 的區段畫起來，由開發者自己去決定是哪個變更要留下，或是再重新撰寫新的變更  
+這時候會進入 MERGE 的模式，Git 會幫你把 conflict 的區段畫起來，由開發者自己去決定是哪個變更要留下，或是再重新撰寫新的變更  
 
 然後再提交一包上去作為 Merge 的 commit，至此就算是解完衝突了  
 
