@@ -1685,3 +1685,32 @@ a.newer-posts:hover {
 .page-content table td {
     font-size: medium !important;
 }
+
+.pagination-bar {
+    display        : flex;
+    width          : 100%;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pagination-bar p {
+    margin: 0;
+    text-align: center;
+}
+
+
+.page-link:link {
+    color: #09f;
+}
+
+.page-link:visited {
+    color: hotpink;
+}
+
+.page-link:hover {
+    color: rgb(8, 101, 163);
+}
+
+.page-link:active {
+    color: rgb(91, 182, 243);
+}

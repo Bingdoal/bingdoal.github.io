@@ -3,7 +3,7 @@ layout: post
 title:  "docker 初戰筆記"
 date:   2020-11-07 15:00:13 +0800
 category: deploy
-img: docker.jpg
+img: cover/docker.jpg
 description: 一直都有聽過 docker 跟容器化的技術，但一直都沒有機會碰到，最近也是工作關係開始接觸到，實在是蠻複雜的，趕快把所知紀錄一下
 lang: zh-TW
 tags: [docker, deploy]

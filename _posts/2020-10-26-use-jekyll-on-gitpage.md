@@ -3,7 +3,7 @@ layout: post
 title:  "用 jekyll 在 github page 上架 Blog"
 date:   2020-10-26 14:21:13 +0800
 category: blog
-img: jekyll-github.png
+img: cover/jekyll-github.png
 description: 用 Jekyll 架設在 github 上用 markdown 舒服撰寫的 Blog
 lang: zh-TW
 tags: [blog, jekyll, github page]

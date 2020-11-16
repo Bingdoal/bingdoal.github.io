@@ -2,7 +2,7 @@
 title: 在 Git 上的檔案還原
 date: 2020-11-10 09:30:00 +0800
 category: Dev tools
-img: git.png
+img: cover/git.png
 description: 常常在 GUI 上操作還原某段或是某個檔案的內容，但始終不知道背後的 git 是怎麼運作的，今天試著來研究探討看看這個部分
 layout: post
 tags: [git,dev tools]

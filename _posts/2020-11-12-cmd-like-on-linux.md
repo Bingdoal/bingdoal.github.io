@@ -2,7 +2,7 @@
 title: 好用的 Command Line 工具 Cmder
 date: 2020-11-12 09:30:00 +0800
 category: Dev tools
-img: cmder.jpg
+img: cover/cmder.png
 description: 開發工作中經常會需要使用到 cmd 來進行操作，但 windows 的 cmd、PowerShell 都不是太美觀，操作上也沒有很順手，通常都是為了用某些工具才會打開來用，今天就來用看看這個功能強大的 command line 工具 cmder
 layout: post
 tags: [dev tools, cmder]

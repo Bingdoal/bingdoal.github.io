@@ -3,7 +3,7 @@ layout: post
 title:  "在 github page 上實現 category archive"
 date:   2020-10-29 18:21:13 +0800
 category: blog
-img: jekyll-github.png
+img: cover/jekyll-github.png
 description: 總是看別人的部落格都有些酷酷的功能，自己的也想來一些，一開始就先從幫文章分類開始吧
 lang: zh-TW
 tags: [blog, jekyll, github page]
