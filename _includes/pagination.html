@@ -24,10 +24,18 @@
   </p>
   <p>
     {% for page in (1..paginator.total_pages) %}
+    {% assign linkClass = "page-link" %}
+    {% if page == paginator.page %}
+    {% assign linkClass = "page-link active" %}
+    {% endif %}
     {% if page == 1 %}
-    <a class="page-link" href="{{ site.baseurl }}/">{{page}}</a>
+    <a class="{{ linkClass }}" href="{{ site.baseurl }}/">
+      {{page}}
+    </a>
     {% else %}
-    <a class="page-link" href="{{ site.baseurl }}/page/{{ page }}/">{{page}}</a>
+    <a class="{{ linkClass }}" href="{{ site.baseurl }}/page/{{ page }}/">
+      {{page}}
+    </a>
     {% endif %}
     {% endfor %}
   </p>
