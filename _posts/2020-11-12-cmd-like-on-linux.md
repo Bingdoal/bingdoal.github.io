@@ -45,7 +45,7 @@ ls=ls -a --show-control-chars -F --color $*
 
 ## 更改主題
 
-cmder 跟 bash 一樣可以做到自定義樣式，這邊我是直接套用別人的主題 [](https://github.com/AmrEldib/cmder-powerline-prompt){:target="_blank"}  
+cmder 跟 bash 一樣可以做到自定義樣式，這邊我是直接套用別人的主題 [cmder-powerline-prompt](https://github.com/AmrEldib/cmder-powerline-prompt){:target="_blank"}  
 把 source code 抓下來，把目錄下的 `.lua` 檔都放到 `%CMDER_ROOT%/config` 底下就好了，不過字體上還有點問題，所以要去抓一下 [Fira Code](https://github.com/tonsky/FiraCode/releases){:target="_blank"} 的字型來安裝，這個字型在 coding 的時候我也蠻喜歡用的  
 
 下載好之後可以到設定裡去更改字型   
