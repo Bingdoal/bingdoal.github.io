@@ -4,13 +4,13 @@ title:  "docker 初戰筆記"
 date:   2020-11-07 15:00:13 +0800
 category: deploy
 img: cover/docker.jpg
-description: 一直都有聽過 docker 跟容器化的技術，但一直都沒有機會碰到，最近也是工作關係開始接觸到，實在是蠻複雜的，趕快把所知紀錄一下
+description: 一直都有聽過 docker 跟容器化的技術，但一直都沒有機會碰到，最近也是工作關係開始接觸到，一些觀念跟操作都還不是很清晰，趕快先把所知先紀錄一下
 lang: zh-TW
 tags: [docker, deploy]
 ---
 # docker 初戰
 
-一直都有聽過 docker 跟容器化的技術，但一直都沒有機會碰到，最近也是工作關係開始接觸到，實在是蠻複雜的，趕快把所知紀錄一下  
+一直都有聽過 docker 跟容器化的技術，但一直都沒有機會碰到，最近也是工作關係開始接觸到，一些觀念跟操作都還不是很清晰，趕快先把所知紀錄一下
 
 ## 安裝
 首先就請先到 [docker 官網](https://www.docker.com/){:target="_blank"} 去下載並安裝，安裝完應該要重啟，可能還會發生一些問題要裝東裝西的，就照指示一步一步完成吧  
@@ -124,15 +124,12 @@ docker run -p 8000:8080 hello-docker
 
 ### 常用指令
 
-| 指令                                               | 說明                                                                  |
-| -------------------------------------------------- | --------------------------------------------------------------------- |
-| `docker build . -t <imagename>`                    | 從 DockerHub 上拉下指定的 image                                       |
-| `docker pull <reponame>:<version>`                 | 從 DockerHub 上拉下指定的 image                                       |
-| `docker image ls`                                  | 列出所有 image                                                        |
-| `docker container ls ` / `docker ps`               | 列出正在運行的 container                                              |
-| `docker container ls -a` / `docker ps -a`          | 列出所有 container 包含沒在運行的                                     |
-| `docker run -d <imagename> --name <containername>` | 在背景執行 image 成 container 並指定 container name，不指定會隨機生成 |
-| `docker container start <containername>`           | 啟動 container                                                        |
-| `docker exec -it <containername> bash`             | 執行 container 的 bash                                                |
-| `docker container stop <containername>`            | 停止 container                                                        |
-| `docker container rm <containername>`              | 移除 container                                                        |
++ `docker build . -t <imagename>`: 從 Dockerfile 建立 image 並貼上 tagname 
++ `docker pull <reponame>:<version>`: 從 DockerHub 上拉下指定的 image 
++ `docker image ls`: 列出所有 image
++ `docker container ls ` / `docker ps`: 列出正在運行的 container
++ `docker run -d <imagename> --name <containername>`: 在背景執行 image 成 container 並指定 container name，不指定會隨機生成
++ `docker container start <containername>`: 啟動 container 
++ `docker exec -it <containername> bash`: 執行 container 的 bash
++ `docker container stop <containername>`: 停止 container 
++ `docker container rm <containername>`: 移除 container 
