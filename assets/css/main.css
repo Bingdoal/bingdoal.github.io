@@ -1044,12 +1044,17 @@ table tfoot td {
     color        : black;
 }
 
-.blog-category {
+.blog-category-nav {
     display        : flex;
     justify-content: center;
     align-items    : center;
     flex-wrap      : wrap;
     flex-direction : column;
+    align-content  : center;
+}
+
+.blog-category-nav{
+    max-height: 40vh;
 }
 
 .blog-category p {
@@ -1062,6 +1067,7 @@ table tfoot td {
 }
 
 .blog-category a {
+    margin-left: 3px;
     font-size      : large;
     text-decoration: none;
     color          : #bbb;

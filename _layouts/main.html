@@ -18,16 +18,18 @@ layout: default
       </div>
       <div class="blog-category">
         <p>Category</p>
-        {% assign sortedCategories =  site.categories | sort%}
-        {% for pageContent in sortedCategories %}
-        {% assign category = pageContent | first %}
-        {% assign size = pageContent | last | size %}
-        <div class="category-div">
-          <a href="{{site.baseurl}}/category/{{category}}">{{category}}
-            <i>({{size}})</i>
-          </a>
+        <div class="blog-category-nav">
+          {% assign sortedCategories =  site.categories | sort%}
+          {% for pageContent in sortedCategories %}
+          {% assign category = pageContent | first %}
+          {% assign size = pageContent | last | size %}
+          <div class="category-div">
+            <a href="{{site.baseurl}}/category/{{category}}">{{category}}
+              <i>({{size}})</i>
+            </a>
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
     </div>
   </header> <!-- End Header -->
