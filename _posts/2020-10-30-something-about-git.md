@@ -204,9 +204,10 @@ git add -f <filepath>
 git rm --cached <filepath>
 ```
 
-或是用下面指令，一次掃除所有應該被忽略的對象  
+或是用下面指令，一次掃除所有在暫存的對象，然後在 add 回來  
 ```shell
-git rm --cached -f ./
+git rm --cached -r ./
+git add ./
 ```
 
 ## .gitkeep
