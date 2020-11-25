@@ -204,7 +204,7 @@ git add -f <filepath>
 git rm --cached <filepath>
 ```
 
-或是用下面指令，一次掃除所有在暫存的對象，然後在再 add 回來  
+或是用下面指令，一次掃除所有在暫存的對象，然後再 add 回來  
 ```shell
 git rm --cached -r ./
 git add ./
