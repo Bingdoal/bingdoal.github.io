@@ -1726,6 +1726,7 @@ a.newer-posts:hover {
         box-shadow .15s ease-in-out;
     color       : #007bff;
     border-color: #007bff;
+    text-decoration: none;
 }
 
 .page-link:hover {
