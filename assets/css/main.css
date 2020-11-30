@@ -1359,7 +1359,6 @@ a.newer-posts:hover {
 }
 
 .page-cover-image .page-image {
-    height      : 100%;
     display     : block;
     margin-left : auto;
     margin-right: auto;
@@ -1604,6 +1603,9 @@ a.newer-posts:hover {
 @media only screen and (max-width: 480px) {
     .content-box {
         padding: 10px;
+    }
+    .page-cover-image{
+        width: 90vw;
     }
 
     .post {
