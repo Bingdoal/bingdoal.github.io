@@ -1602,18 +1602,19 @@ a.newer-posts:hover {
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
     .content-box {
-        padding: 10px;
-    }
-    .article-page{
-        display: flex;
+        padding        : 10px;
+        display        : flex;
         justify-content: center;
     }
-    .page-cover-image{
+
+    .page-cover-image {
         width: 90vw;
     }
-    .wrap-content{
+
+    .wrap-content {
         width: 90vw;
     }
+
     .post {
         width                 : 98%;
         max-width             : 100%;
@@ -1732,8 +1733,8 @@ a.newer-posts:hover {
         background-color .15s ease-in-out,
         border-color .15s ease-in-out,
         box-shadow .15s ease-in-out;
-    color       : #007bff;
-    border-color: #007bff;
+    color          : #007bff;
+    border-color   : #007bff;
     text-decoration: none;
 }
 
