@@ -1604,10 +1604,16 @@ a.newer-posts:hover {
     .content-box {
         padding: 10px;
     }
+    .article-page{
+        display: flex;
+        justify-content: center;
+    }
     .page-cover-image{
         width: 90vw;
     }
-
+    .wrap-content{
+        width: 90vw;
+    }
     .post {
         width                 : 98%;
         max-width             : 100%;
