@@ -438,9 +438,10 @@ template {
 
 .highlight {
     background-color     : #faf9f9;
-    -webkit-border-radius: 3px;
-    border-radius        : 3px;
+    -webkit-border-radius: 10px;
+    border-radius        : 10px;
     margin               : 0;
+    box-shadow: 2px 2px 5px 0px #bbb;
 }
 
 .highlighter-rouge {
