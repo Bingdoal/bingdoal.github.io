@@ -1682,7 +1682,7 @@ a.newer-posts:hover {
 }
 
 .page-content blockquote {
-    border-left-color: rgb(19, 197, 19);
+    border-left-color: black;
 }
 
 .page-content .tag:visited,
