@@ -1,7 +1,7 @@
 title: Bingdoal's Note
 description: > # this means to ignore newlines until "baseurl:"
   這裡是 Bingdoal 的筆記，裡面有各種自己在技術上遇到後想記錄的內容，
-  曾經寫過一點前段的 Vue.js，目前則是一名後端工程師，主要開發語言是 node.js 跟 spring boot
+  曾經寫過一點前端的 Vue.js，目前則是一名後端工程師，主要開發語言是 node.js 跟 spring boot
 permalink: '/:categories/:year/:month/:title/'
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bingdoal.github.io" # the base hostname & protocol for your site, e.g. http://example.com

@@ -28,9 +28,9 @@ tags: [spring, cron]
 ```xml
 <dependencies>
     <dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-aop</artifactId>
-	</dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
 </dependencies>
 ```
 
