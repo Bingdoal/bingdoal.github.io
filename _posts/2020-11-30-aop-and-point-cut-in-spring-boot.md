@@ -94,6 +94,7 @@ execution(
 # 實例用法
 ```java
 @Aspect
+@Component
 class TestAop{
     @Before("execution(public * com.xyz.someapp.*.*(..))")
     public void logBefore(JoinPoint joinPoint){
@@ -102,7 +103,7 @@ class TestAop{
 }
 ```
 
-class 必須加上 `@Aspect` 才會被 Spring boot 被註冊為 AOP 用的 Bean，這段程式碼會在 `com.xyz.someapp` 下的所有類別的所有 public 方法執行前，印出類別及方法名稱
+記得 class 必須加上 `@Component` 才會被 Spring boot 被註冊為 Bean，這段程式碼會在 `com.xyz.someapp` 下的所有類別的所有 public 方法執行前，印出類別及方法名稱
 
 ## `@AfterReturning`
 ```java
