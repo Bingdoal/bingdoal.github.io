@@ -4,7 +4,7 @@ title:  "用 jekyll 在 github page 上架 Blog"
 date:   2020-10-26 14:21:13 +0800
 category: blog
 img: cover/jekyll-github.png
-description: 用 Jekyll 架設在 github 上用 markdown 舒服撰寫的 Blog
+description: 想了好久終於是弄了一個 Blog 出來了，一直以來都是用 hackmd.io 在撰寫筆記，想說哪天 hackmd.io 出個部落格功能再說，拖了這麼久終於還是自己搞了一個
 lang: zh-TW
 tags: [blog, jekyll, github page]
 ---

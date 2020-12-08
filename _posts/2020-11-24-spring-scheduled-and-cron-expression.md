@@ -8,8 +8,7 @@ layout: post
 tags: [spring, cron]
 ---
 
-後端開發中也常會碰到定期任務的需求，這時候 spring 的 Scheduled 就可以派上用場啦，也筆記一下 cron 表示式的內容，不然每次寫都搞不太清楚  
-
+{{page.description}}
 ## @Scheduled
 
 當需要用到週期性的執行某些任務的時候，就很適合使用 `@Scheduled` 可以看到下面的使用範例  

@@ -8,7 +8,7 @@ layout: post
 tags: [spring, cron]
 ---
 
-用 Spring boot 撰寫後端時，常會有事前檢查、事後日誌的需求，若在每個 Api 中都做一次那就太蠢了，於是這邊介紹一下 Spring boot 中十分方便的 AOP 機制，可以輕鬆達成日誌的統一撰寫，也可以降低程式碼的耦合性  
+{{page.description}}
 
 # AOP (Aspect-Oriented Programming)
 從字面上的話看不太懂是什麼意思，其實簡單來說是指在一般流程中加入一些關注點，從需要的角度去執行程式。也就是在一般流程中，插入特定的切入點，術語上稱為 Cross-cutting concerns  

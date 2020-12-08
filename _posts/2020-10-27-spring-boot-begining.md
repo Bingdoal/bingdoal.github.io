@@ -8,9 +8,8 @@ description: spring boot 初學，快速掌握 Spring 的基本 MVC 架構
 lang: zh-TW
 tags: [java, spring boot]
 ---
-# Spring Boot 初學用法介紹
 
-Spring 框架下透過各種 annotation 來定義各種設定，下面會介紹常用的幾種功能  
+{{page.description}}
 ## 進入點
 ```java
 @SpringBootApplication

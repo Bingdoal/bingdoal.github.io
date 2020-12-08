@@ -3,13 +3,12 @@ title: 在 Git 上的檔案還原
 date: 2020-11-10 09:30:00 +0800
 category: Dev tools
 img: cover/git.png
-description: 常常在 GUI 上操作還原某段或是某個檔案的內容，但始終不知道背後的 git 是怎麼運作的，今天試著來研究探討看看這個部分
+description: 常常在 GUI 上操作還原某段或是某個檔案的內容，但始終不知道背後的 git 是怎麼運作的，今天試著來研究並記錄一下實際的指令操作
 layout: post
 tags: [git,dev tools]
 ---
 
-常常在 GUI 上操作還原某段或是某個檔案的內容，但始終不知道背後的 git 是怎麼運作的，今天試著來研究探討看看這個部分  
-
+{{page.description}}
 ## `git status`
 了解還原的做法之前，先來弄懂 git 中的狀態有哪些，可以看到下面被分為
 + <span style="color: #00b700">Changes to be committed</span> (被加入暫存)

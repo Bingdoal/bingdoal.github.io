@@ -8,9 +8,8 @@ description: 一直都有聽過 docker 跟容器化的技術，但一直都沒�
 lang: zh-TW
 tags: [docker, deploy]
 ---
-# docker 初戰
 
-一直都有聽過 docker 跟容器化的技術，但一直都沒有機會碰到，最近也是工作關係開始接觸到，一些觀念跟操作都還不是很清晰，趕快先把所知紀錄一下
+{{page.description}}
 
 ## 安裝
 首先就請先到 [docker 官網](https://www.docker.com/){:target="_blank"} 去下載並安裝，安裝完應該要重啟，可能還會發生一些問題要裝東裝西的，就照指示一步一步完成吧  

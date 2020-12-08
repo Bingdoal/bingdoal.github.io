@@ -8,9 +8,10 @@ description: blog 架好了，但是預設的樣式當然不能滿足我們，�
 lang: zh-TW
 tags: [blog, jekyll, liquid]
 ---
-blog 架好了，但是預設的樣式當然不能滿足我們，既然都自己架 blog 了接下來當然就是客製化的時間啦!!  
 
-不過由於自己以前也沒有接觸過 Ruby 和 Liquid template 所以就找些網路資源來拼拼湊湊吧  
+{{page.description}}
+
+不過由於自己以前也沒有接觸過 Ruby 和 Liquid template 所以就先找些網路資源來拼拼湊湊吧  
 
 # 主題
 首先來挑個別人寫好的主題吧，直接 google `jekyll theme` 就可以找到很多結果，也有很多的網站都幫你收集好可以用了  
