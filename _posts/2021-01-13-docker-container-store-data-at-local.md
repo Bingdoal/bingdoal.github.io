@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 利用 Docker volume 儲存 container 的資料在本地端
-date: 2021-01-14 16:14:12 +0800
+date: 2021-01-13 16:14:12 +0800
 category: deploy
 img: cover/docker.jpg
 description: 常在使用 container 建置開發環境後常會有一個困擾，就是當 container 被刪除的時候裡面的資料也會一併消失，或是 container 之間要共用一些檔案的時候都會有一些困難點，於是就有 docker volume 的機制出來了
@@ -31,11 +31,11 @@ docker run -it -v /storage ubuntu:18.04 bin/bash
 ```
 
 + 透過指令查看 volume 位置
-
+{% raw %}
 ```
 docker inspect -f "{{range .Mounts}}{{.Source}}{{end}}" <container_id>
 ```
-
+{% endraw %}
 + 如果在 Windows 上建立的話會發現實際上路徑並不存在，因為 Window 版的 docker 實際上是透過 WSL 去執行的，以 Windows 來說的話會放在 `\\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes` 裡面，是個十分神奇的位置
 
 + 也可以加在 Dockerfile 裡頭，其實跟指令沒什麼差異
