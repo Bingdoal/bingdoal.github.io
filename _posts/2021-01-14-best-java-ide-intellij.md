@@ -15,18 +15,15 @@ tags: [ide, java, intellij]
 ### 追蹤程式碼的能力極強
 你只需要 `ctrl + 左鍵` 可以追蹤參考、追蹤使用，還可以追蹤外部引入的 library，即使被編譯成 jar 依舊可以 trace，十分強大。
 
-另外強烈建議使用 IntelliJ 要使用有側鍵的滑鼠，側鍵的功能可以返回上一個 focus 在頻繁 trace code 的時候比較不容易迷失。
-
+另外強烈建議使用 IntelliJ 要使用有側鍵的滑鼠，側鍵的功能可以返回上一個 focus，當你在頻繁 trace code 的時候比較不容易迷失。
 
 ### 輕鬆一鍵重構
 寫程式不免需要重構程式碼，常見的可能有重新命名、抽換方法、移除功能、移動功能 ...，IntelliJ 都內建好這些功能了，這種苦工式的重構就交給工具來辦吧。
 
 ### 最懂你需求的 Intellisense
-這應該是 IntelliJ 最強大的地方，跳出的語法提示基本上前一兩個就會是你要的，舉例來說下面例子，IntelliJ 第一個提示會跳出 `getId` 而不是按照字母排序，也不會是 `setId`，這就是它強大的地方，IntelliJ 會根據前後文判斷提示顯示的優先順序。
+這應該是 IntelliJ 最強大的地方，跳出的語法提示基本上前一兩個就會是你要的，舉例來說下面例子，IntelliJ 第一個提示會跳出 `getName` 而不是按照字母排序，也不會是 `setName`，這就是它強大的地方，IntelliJ 會根據前後文判斷提示顯示的優先順序。
 
-```
-String id = person. ...
-```
+![]({{site.baseurl}}/assets/img/intellij-intellisense1.png)
 
 甚至在命名變數的時候還會給你適當的名稱提示，根本就是一個最好的 coding 助手。
 
@@ -50,7 +47,7 @@ IntelliJ 對於 Git 的支援度非常的高，它本身就是一個不錯用的
 + `shift + enter`: 在行尾新增換行
 + `shift + F6`: 重構重新命名
 + `alt + enter`: 快速完成
-+ `alt + F12`: 開啟/關閉 Treminal
++ `alt + F12`: 開啟/關閉 Terminal
 + `ctrl + /`: 選取行註解
 + `ctrl + 左鍵` 或 `中鍵`: 追蹤定義
 + `alt + ←/→`: 切換左右分頁
