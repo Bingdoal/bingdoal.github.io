@@ -1,6 +1,6 @@
 ---
 title: Dev tools
-category: "Dev tools"
+category: "dev-tools"
 layout: category
-permalink: "category/Dev tools"
+permalink: "category/dev-tools"
 ---
