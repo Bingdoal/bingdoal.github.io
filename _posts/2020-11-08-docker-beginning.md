@@ -43,6 +43,7 @@ Image 作為 Container 的模板存在，大概有下面三種取得方法:
 
 ```dockerfile
 FROM node:latest    # 基於 node.js 的 image 去建置，裡面會內建 node.js
+RUN mkdir /app      # 建置工作目錄
 WORKDIR /app        # 把工作環境指定在 /app 下
 ADD ./app /app      # 把本地目錄 ./app 的內容加入到 /app 下
 RUN npm install     # 環境建置指令
