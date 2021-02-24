@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "踩雷紀錄: Docker push denied"
+title: [踩雷紀錄] Docker push denied
 date: 2021-02-05 17:19:54 +0800
 category: deploy
 img: cover/docker.jpg
