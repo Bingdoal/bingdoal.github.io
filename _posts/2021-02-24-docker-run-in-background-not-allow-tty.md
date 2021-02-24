@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [踩雷紀錄] Docker container 背景執行 tty 類的程式
+title: "[踩雷紀錄] Docker container 背景執行 tty 類的程式"
 date: 2021-02-24 14:05:38 +0800
 category: deploy
 img: cover/docker.jpg
