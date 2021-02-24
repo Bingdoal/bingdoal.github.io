@@ -48,11 +48,11 @@
         <lastmod>2020-12-28</lastmod>
     </url>
     <url>
-        <loc>https://bingdoal.github.io/dev%20tools/2020/11/git-for-recover-file/</loc>
+        <loc>https://bingdoal.github.io/dev-tools/2020/11/git-for-recover-file/</loc>
         <lastmod>2020-12-28</lastmod>
     </url>
     <url>
-        <loc>https://bingdoal.github.io/dev%20tools/2020/11/cmd-like-on-linux/</loc>
+        <loc>https://bingdoal.github.io/dev-tools/2020/11/cmd-like-on-linux/</loc>
         <lastmod>2020-12-28</lastmod>
     </url>
     <url>
@@ -74,6 +74,26 @@
     <url>
         <loc>https://bingdoal.github.io/deploy/2020/12/docker-composer/</loc>
         <lastmod>2020-12-28</lastmod>
+    </url>
+    <url>
+        <loc>https://bingdoal.github.io/deploy/2021/01/docker-container-store-data-at-local/</loc>
+        <lastmod>2021-02-24</lastmod>
+    </url>
+    <url>
+        <loc>https://bingdoal.github.io/dev-tools/2021/01/best-java-ide-intellij/</loc>
+        <lastmod>2021-02-24</lastmod>
+    </url>
+    <url>
+        <loc>https://bingdoal.github.io/deploy/2021/01/build-maven-repo-on-github/</loc>
+        <lastmod>2021-02-24</lastmod>
+    </url>
+    <url>
+        <loc>https://bingdoal.github.io/deploy/2021/02/kubernetes-beginning/</loc>
+        <lastmod>2021-02-24</lastmod>
+    </url>
+    <url>
+        <loc>https://bingdoal.github.io/deploy/2021/02/docker-run-in-background-not-allow-tty/</loc>
+        <lastmod>2021-02-24</lastmod>
     </url>
     <!-- category -->
     <url>
