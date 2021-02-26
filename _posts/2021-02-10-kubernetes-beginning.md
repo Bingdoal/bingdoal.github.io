@@ -73,9 +73,12 @@ kubectl port-forward express-ts 3001:3000
 + 可以把 pod 的服務幫助 host 在本機上，host 上去之後到 [http://localhost:3001](http://localhost:3001) 可以看到結果
 
 ```bash
-kubectl exec -it express-ts -- bin/bash
+kubectl exec -it <pod-name> -- bin/bash
+kubectl cp <pod-name>:<source-path> <dest-path>
+kubectl cp <dest-path> <pod-name>:<source-path>
 ```
-+ 類似 docker exec 的概念可以執行 pod 中 container 的 bash
+1. 類似 docker exec 的概念可以執行 pod 中 container 的 bash
+2. 也類似 docker cp 的概念可以在本地跟 pod 間複製檔案
 
 ## Node
 

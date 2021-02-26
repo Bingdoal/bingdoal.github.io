@@ -43,7 +43,17 @@ docker inspect -f "{{range .Mounts}}{{.Source}}{{end}}" <container_id>
 ```
 VOLUME "C:/.volume" "/storage"
 ```
+# 其他傳遞檔案的方法
+
+有時候只是臨時需要來回傳個檔案，在建立 container 的時候並沒有事先掛上 volume，那也可以透過下面的方式來做到檔案傳遞:
+
+```
+docker cp <container>:<source-path> <dest-path>
+docker cp <source-path> <container>:<dest-path>
+```
+
+簡單指令可以在 container 跟本地之間複製檔案
 
 ## 結語
 
-使用起來非常方便，可以直接建立 container 與本地端的資料共用甚至 container 之間也可以共用 volume，往後產出的 log 或是 report 也不用透過 api 打出來到實體機器，可以直接放在 volume 底下
+volume 使用起來非常方便，可以直接建立 container 與本地端的資料共用甚至 container 之間也可以共用 volume，往後產出的 log 或是 report 也不用透過 api 打出來到實體機器，可以直接放在 volume 底下
