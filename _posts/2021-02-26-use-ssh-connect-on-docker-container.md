@@ -53,7 +53,7 @@ FROM ubuntu:18.04
 
 RUN apt update
 RUN apt install openssh-server -y
-RUN echo 'root:netconf' | chpasswd
+RUN echo 'root:password' | chpasswd
 RUN echo "Port 22" >> /etc/ssh/sshd_config
 RUN echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
 RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
