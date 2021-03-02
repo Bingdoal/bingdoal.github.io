@@ -4,7 +4,7 @@ title: 想用 SSH 連線到 Docker container
 date: 2021-02-26 14:54:23 +0800
 category: deploy
 img: cover/docker.jpg
-description: 今天接到一個有趣的需求，是需要可以 ssh 連線到 container 上操作，一般都是直接用 docker exec 啦，不過客戶說要就做給他吧
+description: 今天接到一個有趣的需求，是需要可以 ssh 連線到 container 上操作，一般都是直接用 docker exec 操作，不過可能會有需要給外部人員進來操作或看一些紀錄，ssh 遠端操作是最常見的作法，下面列出如何在 container 中設定 ssh 連線
 lang: zh-TW
 tags: [docker, deploy]
 ---
