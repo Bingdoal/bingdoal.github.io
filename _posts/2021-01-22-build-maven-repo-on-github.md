@@ -3,7 +3,7 @@ layout: post
 title: 在 github 上建立自己的 maven repo
 date: 2021-01-22 15:17:44 +0800
 category: deploy
-img: cover/maven.png
+img: cover/maven.jpg
 description: 最近用 spring boot 寫的後端專案越來越肥大了，因此團隊考慮將一些功能切分出去變成小專案來維護，也方便之後給其他專案共用，以前自己也曾經作過這種事，不過當時是單純用共享 jar 的方式，每改一版就要重 build 一次並且有用到的專案都要手動去下載，其實是有點麻煩，這次將運用 maven 的機制來部屬自己的 maven repo，讓專案只須要維護 maven 的設定就可以達到共用 library 的效果。
 lang: zh-TW
 tags: [maven, java]
