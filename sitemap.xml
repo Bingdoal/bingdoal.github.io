@@ -16,7 +16,7 @@
     </url>
     <!-- post -->
     <url>
-        <loc>https://bingdoal.github.io/dev%20tools/2021/01/best-java-ide-intellij/</loc>
+        <loc>https://bingdoal.github.io/dev-tools/2021/01/best-java-ide-intellij/</loc>
         <lastmod>2020-01-14</lastmod>
     </url>
     <url>
@@ -40,7 +40,7 @@
         <lastmod>2020-12-28</lastmod>
     </url>
     <url>
-        <loc>https://bingdoal.github.io/dev%20tools/2020/10/something-about-git/</loc>
+        <loc>https://bingdoal.github.io/dev-tools/2020/10/something-about-git/</loc>
         <lastmod>2020-12-28</lastmod>
     </url>
     <url>
@@ -94,6 +94,14 @@
     <url>
         <loc>https://bingdoal.github.io/deploy/2021/02/docker-run-in-background-not-allow-tty/</loc>
         <lastmod>2021-02-24</lastmod>
+    </url>
+    <url>
+        <loc>https://bingdoal.github.io/deploy/2021/02/use-ssh-connect-on-docker-container/</loc>
+        <lastmod>2021-03-05</lastmod>
+    </url>
+    <url>
+        <loc>https://bingdoal.github.io/others/2021/03/linux-run-in-background/</loc>
+        <lastmod>2021-03-05</lastmod>
     </url>
     <!-- category -->
     <url>
