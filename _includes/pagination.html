@@ -1,43 +1,63 @@
 <div class="pagination-bar">
-  {% if paginator.total_pages > 1 %}
-  <p>
-    {% if paginator.previous_page %}
+    {% if paginator.total_pages > 1 %}
+        <p>
+            {% if paginator.previous_page %}
+                {% if paginator.previous_page == 1 %}
+                    <a class="newer-posts" href="{{ site.baseurl }}/">
+                        <i aria-hidden="true" class="fa fa-long-arrow-left"></i>
+                    </a>
+                {% else %}
+                    <a class="newer-posts" href="{{ site.baseurl }}/page/{{ paginator.previous_page }}/">
+                        <i aria-hidden="true" class="fa fa-long-arrow-left"></i>
+                    </a>
+                {% endif %}
+            {% endif %}
 
-    {% if paginator.previous_page == 1 %}
-    <a class="newer-posts" href="{{ site.baseurl }}/">
-      <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-    </a>
-    {% else %}
-    <a class="newer-posts" href="{{ site.baseurl }}/page/{{ paginator.previous_page }}/">
-      <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-    </a>
-    {% endif %}
-    {% endif %}
+            <span class="page-number">Page
+                {{paginator.page}}
+                of
+                {{paginator.total_pages}}</span>
 
-    <span class="page-number">Page {{paginator.page}} of {{paginator.total_pages}}</span>
+            {% if paginator.next_page %}
+                <a class="older-posts" href="{{ site.baseurl }}/page/{{ paginator.next_page }}/">
+                    <i aria-hidden="true" class="fa fa-long-arrow-right"></i>
+                </a>
+            {% endif %}
+        </p>
 
-    {% if paginator.next_page %}
-    <a class="older-posts" href="{{ site.baseurl }}/page/{{ paginator.next_page }}/">
-      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-    </a>
+        <p>
+            {% for page in (1..paginator.total_pages) %}
+                {% assign linkClass = "page-link" %}
+                {% if page == paginator.page %}
+                    {% assign linkClass = "page-link active" %}
+                {% endif %}
+
+                {% assign start = paginator.page | minus: 2 %}
+                {% assign end = paginator.page | plus: 2 %}
+                {% assign lastPage = paginator.total_pages | minus: 1 %}
+
+                {% if page == 1
+                    or (page >= start and page <= end)
+                    or page == paginator.total_pages %}
+                    {% if start >= 3 and page == start %}
+                        <span>...</span>
+                    {% endif %}
+
+                    {% if page == 1 %}
+                        <a class="{{ linkClass }}" href="{{ site.baseurl }}/">
+                            {{page}}
+                        </a>
+                    {% else %}
+                        <a class="{{ linkClass }}" href="{{ site.baseurl }}/page/{{ page }}/">
+                            {{page}}
+                        </a>
+                    {% endif %}
+
+                    {% if end < lastPage and page == end %}
+                        <span>...</span>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </p>
     {% endif %}
-  </p>
-  <p>
-    {% for page in (1..paginator.total_pages) %}
-    {% assign linkClass = "page-link" %}
-    {% if page == paginator.page %}
-    {% assign linkClass = "page-link active" %}
-    {% endif %}
-    {% if page == 1 %}
-    <a class="{{ linkClass }}" href="{{ site.baseurl }}/">
-      {{page}}
-    </a>
-    {% else %}
-    <a class="{{ linkClass }}" href="{{ site.baseurl }}/page/{{ page }}/">
-      {{page}}
-    </a>
-    {% endif %}
-    {% endfor %}
-  </p>
-  {% endif %}
 </div>
