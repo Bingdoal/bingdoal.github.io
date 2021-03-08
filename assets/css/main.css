@@ -1750,3 +1750,23 @@ a.page-link.active {
     background-color: #007bff;
     border-color    : #007bff;
 }
+
+/* tag cloud */
+
+.tag-cloud-block{
+    background-color: #ddd;
+    border-radius: 15px;
+    padding: 5px;
+}
+.tag-cloud{
+    margin: 3px;
+}
+
+.tag-cloud a{
+    color: #777;
+    text-decoration: none;
+}
+.tag-cloud a:hover {
+    color: rgb(73, 82, 211);
+    font-weight:900;
+}
