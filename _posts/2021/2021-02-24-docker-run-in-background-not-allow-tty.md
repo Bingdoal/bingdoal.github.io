@@ -6,7 +6,7 @@ category: deploy
 img: cover/docker.jpg
 description: 最近在部屬包裝在 Karaf 的產品的時候遇到的問題，不管怎麼包 container 都無法正常啟動，記錄一下踩雷的經驗
 lang: zh-TW
-tags: [踩雷紀錄,docker,deploy]
+tags: [踩雷紀錄, docker, deploy]
 ---
 
 {{page.description}}

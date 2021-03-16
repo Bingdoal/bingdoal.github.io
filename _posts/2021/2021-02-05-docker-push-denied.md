@@ -6,7 +6,7 @@ category: deploy
 img: cover/docker.jpg
 description: 在做 k8s 的練習的時候碰到的問題，不管怎麼推都推不上去 docker repo，記錄一下踩雷經驗
 lang: zh-TW
-tags: [踩雷紀錄 ,docker, deploy]
+tags: [踩雷紀錄  docker, deploy]
 ---
 
 {{page.description}}
