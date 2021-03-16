@@ -41,6 +41,7 @@ tags: [java, ftp, 踩雷紀錄]
 
 ![]({{site.baseurl}}/assets/img/ftp-passive.png)
 
+被動式來說的話變成 server 這邊需要額外多開幾個 port 來進行連線
 ## 實際問題解析
 
 其實蠻好理解的，既然沒辦法由 server 來連線那就轉由 client 來進行，然而就是這樣的機制造成本地測試與線上使用時預期上的不同
@@ -53,8 +54,10 @@ tags: [java, ftp, 踩雷紀錄]
 
 ```java
 public class FTPUtils{
-    public static FTPClient getFTPClient(String host, int port,
-    String username, String password){
+    public static FTPClient getFTPClient(
+        String host, int port,
+        String username, String password
+    ){
         FTPClient ftpClient = null;
         try {
             ftpClient = new FTPClient;
