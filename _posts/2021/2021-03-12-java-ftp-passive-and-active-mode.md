@@ -60,7 +60,7 @@ public class FTPUtils{
     ){
         FTPClient ftpClient = null;
         try {
-            ftpClient = new FTPClient;
+            ftpClient = new FTPClient();
             ftpClient.connect(host, port);
             ftpClient.login(username, password);
             ftpClient.setRemoteVerificationEnabled(false);
