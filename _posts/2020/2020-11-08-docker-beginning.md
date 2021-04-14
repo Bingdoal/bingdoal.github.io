@@ -12,7 +12,7 @@ tags: [docker, deploy]
 {{page.description}}
 
 ## 安裝
-首先就請先到 [docker 官網](https://www.docker.com/){:target="_blank"} 去下載並安裝，安裝完應該要重啟，可能還會發生一些問題要裝東裝西的，就照指示一步一步完成吧
+首先就請先到 [docker 官網](https://www.docker.com/) 去下載並安裝，安裝完應該要重啟，可能還會發生一些問題要裝東裝西的，就照指示一步一步完成吧
 
 安裝完成啟動後會看到這個畫面，工具列右下角還有可愛的鯨魚
 ![](https://i.imgur.com/2GRGiA4.png)
@@ -31,7 +31,7 @@ Docker 的概念就是創造一個虛擬化的容器，這個容器可以將產�
 Image 作為 Container 的模板存在，大概有下面三種取得方法:
 1. 寫 DockerFile 然後下指令 build 出自己客製化的 image
 2. 打包現有的 container 成 image
-3. 從 [Docker Hub](https://hub.docker.com/){:target="_blank"} 上拉別人建好的 image 下來用
+3. 從 [Docker Hub](https://hub.docker.com/) 上拉別人建好的 image 下來用
 
 一開始通常都是從 Docker Hub 上拉一些基本款下來，然後灌成自己的環境後打包成 image，但開始有很多產品要部屬之後，就會開始寫 DockerFile 來建置，一方面好管理好維護，裡頭有什麼看 DockerFile 就一目瞭然，一方面也更方便我們執行一些客制化和初始化的行為
 
@@ -117,7 +117,7 @@ docker run -p 8000:8080 hello-docker
 
 這邊有個要講一下的是 `-p 8000:8080` 的參數，是用來把這個 container 的 8080 port，host 到本機的 8000 port，要特別注意前後順序，前面是本機的 port，自己被這個雷到好幾次
 
-成功跑起來之後就到 [http://localhost:8000](http://localhost:8000){:target="_blank"} 去看看結果吧
+成功跑起來之後就到 [http://localhost:8000](http://localhost:8000) 去看看結果吧
 
 ## 小結
 到這邊大概對 Docker 有個基本概念，之後會再深入了解一下，Docker 架構下的其他組件，像是 docker daemon、docker network ...，Docker 有很多東西需要深入了解，然後還有 K8s 要玩，感覺永遠都學不完阿~😵

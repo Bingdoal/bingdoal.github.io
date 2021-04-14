@@ -159,14 +159,14 @@ git config --global --unset alias.st
 git config --global alias.ignore "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
 ```
 可以看到這個 alias 最前面有個 `!`，意思是這個是不屬於 git 的內部指令的，連這都可以 alias。
-這個指令的作用，是去 [gitignore.io](https://www.toptal.com/developers/gitignore){:target="_blank"} 的網站抓取常用的 `.gitignore` 的內容，也是很方便的東西
+這個指令的作用，是去 [gitignore.io](https://www.toptal.com/developers/gitignore) 的網站抓取常用的 `.gitignore` 的內容，也是很方便的東西
 
 ### log
 
 ```shell
 git config --global alias.ls "log --format='%C(yellow)%h - %C(magenta)%an%C(green)<%ae>, %C(cyan)%ad : %C(auto)%s' --date=short"
 ```
-可以看到這裡幫 git log 寫了一堆參數，因為預設 git log 的輸出排版實在有點難看，所以可以用參數來幫助格式化一下，詳細可以看看這篇文 [git log 進階應用](http://jamestw.logdown.com/posts/238719-advanced-git-log){:target="_blank"} 還可以搭配一些 filter 的功能方便查找
+可以看到這裡幫 git log 寫了一堆參數，因為預設 git log 的輸出排版實在有點難看，所以可以用參數來幫助格式化一下，詳細可以看看這篇文 [git log 進階應用](http://jamestw.logdown.com/posts/238719-advanced-git-log) 還可以搭配一些 filter 的功能方便查找
 
 ## Tag
 

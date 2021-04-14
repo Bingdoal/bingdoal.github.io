@@ -9,7 +9,7 @@ lang: zh-TW
 tags: [blog, jekyll, github page]
 ---
 # 前言
-想了好久終於是弄了一個 Blog 出來了，一直以來都是用 [hackmd.io]{:target="_blank"} 在撰寫筆記想說哪天 [hackmd.io]{:target="_blank"} 出個部落格功能再說，拖了這麼久終於還是自己搞了一個
+想了好久終於是弄了一個 Blog 出來了，一直以來都是用 [hackmd.io] 在撰寫筆記想說哪天 [hackmd.io] 出個部落格功能再說，拖了這麼久終於還是自己搞了一個
 
 ## 選擇 gitpage 跟 jekyll 的原因
 1. 個人寫作喜好
@@ -23,7 +23,7 @@ tags: [blog, jekyll, github page]
 
 ## [jekyll](https://jekyllrb.com/)
 + jekyll 的功用就是幫助將 markdown、liquid 等語法轉換為靜態 HTML 的工具，重點是 Gitpage 原生支援
-+ 因為 jekyll 本身則是用 Ruby 開發的，因此使用之前我們先來裝 [Ruby]{:target="_blank"}，官網直接下載安裝，然後鍵入
++ 因為 jekyll 本身則是用 Ruby 開發的，因此使用之前我們先來裝 [Ruby]，官網直接下載安裝，然後鍵入
 
 ```shell
 $ gem install jekyll

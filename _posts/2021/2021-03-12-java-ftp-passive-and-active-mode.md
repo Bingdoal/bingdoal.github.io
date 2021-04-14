@@ -83,4 +83,4 @@ public class FTPUtils{
 }
 ```
 
-其實這個解決方案的靈感來自於著名的 FTP 軟體 [FileZilla](https://filezilla-project.org/){:target="_blank"}，FileZilla 在每次連線的時候第一件事就是取得根目錄的清單，於是我也效仿這個做法來確認連線模式是否有作用
+其實這個解決方案的靈感來自於著名的 FTP 軟體 [FileZilla](https://filezilla-project.org/)，FileZilla 在每次連線的時候第一件事就是取得根目錄的清單，於是我也效仿這個做法來確認連線模式是否有作用

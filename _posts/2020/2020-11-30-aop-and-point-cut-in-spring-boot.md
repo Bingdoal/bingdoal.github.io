@@ -11,19 +11,19 @@ tags: [spring, cron]
 {{page.description}}
 
 # AOP (Aspect-Oriented Programming)
-從字面上的話看不太懂是什麼意思，其實簡單來說是指在一般流程中加入一些關注點，從需要的角度去執行程式。也就是在一般流程中，插入特定的切入點，術語上稱為 Cross-cutting concerns  
+從字面上的話看不太懂是什麼意思，其實簡單來說是指在一般流程中加入一些關注點，從需要的角度去執行程式。也就是在一般流程中，插入特定的切入點，術語上稱為 Cross-cutting concerns
 
-![]({{site.baseurl}}/assets/img/cross-cutting-concerns.jpg)  
+![]({{site.baseurl}}/assets/img/cross-cutting-concerns.jpg)
 
-看圖應該很容易理解的，就是從一般的程式流程中間橫切進去執行日誌紀錄、安全檢查等等，如果這種作法要按照一般撰寫來實現的話，維護上會是場災難，想想要在每個 Api 的 function 中加入各自的 log 機制、安全檢查，不光是加上這個功能就很麻煩，後續更改維護都很費工夫，會讓人為因素大幅上升，就各方面來說都不是理想的做法  
+看圖應該很容易理解的，就是從一般的程式流程中間橫切進去執行日誌紀錄、安全檢查等等，如果這種作法要按照一般撰寫來實現的話，維護上會是場災難，想想要在每個 Api 的 function 中加入各自的 log 機制、安全檢查，不光是加上這個功能就很麻煩，後續更改維護都很費工夫，會讓人為因素大幅上升，就各方面來說都不是理想的做法
 
-也因此就有依靠框架之力的必要了，AOP 的機制也是為此而生  
+也因此就有依靠框架之力的必要了，AOP 的機制也是為此而生
 
 > 有點像前端框架 lifecycle 概念
 
 ## 使用
 
-使用前先在 `pom.xml` 加入  
+使用前先在 `pom.xml` 加入
 
 ```xml
 <dependencies>
@@ -35,7 +35,7 @@ tags: [spring, cron]
 ```
 
 ## Advice
-AOP 橫切入的時機點被稱為 Advice，大致有下面五種:  
+AOP 橫切入的時機點被稱為 Advice，大致有下面五種:
 
 1. `@Before`: 執行前
 2. `@AfterReturning`: 執行後正常回傳
@@ -44,7 +44,7 @@ AOP 橫切入的時機點被稱為 Advice，大致有下面五種:
 5. `@Around`: 最全能的 Advice，可以在方法中自由撰寫切點跟執行內容
 
 # Pointcut 表示式
-用來指定需要加入 Advice 的方法們，有自己的規則跟語法，源自於 [AspectJ](https://www.eclipse.org/aspectj/){:target="_blank"} 這個 package 的用法，可用的語法有下面:  
+用來指定需要加入 Advice 的方法們，有自己的規則跟語法，源自於 [AspectJ](https://www.eclipse.org/aspectj/) 這個 package 的用法，可用的語法有下面:
 
 <!-- TODO:把 PointCut 細節弄懂 -->
 1. `execution`: 直接用來表示要指定的方法，可以用一些表示法指定複數方法
@@ -59,7 +59,7 @@ AOP 橫切入的時機點被稱為 Advice，大致有下面五種:
 
 以上的表示法都可以混用，可以加入邏輯運算式 `&&`、`||` 和 `!` 來串起整個表達式，所以上面那些表達式可以想作是回傳 boolean 的 function
 
-> 這邊 `this` 跟 `target` 的差異沒很理解，而且絕大部分情況還是都用 `execution` 來定義  
+> 這邊 `this` 跟 `target` 的差異沒很理解，而且絕大部分情況還是都用 `execution` 來定義
 > `this` 跟 `target` 的差異可以看這邊 [Spring AOP target() vs this()](https://stackoverflow.com/questions/11924685/spring-aop-target-vs-this)
 
 表達式的格式如下:
@@ -77,14 +77,14 @@ execution(
 ## 舉例一下
 ```java
 // 表示在 TestController 底下所有 public 的方法，並且不限制傳入參數的類型與數量，也不限制回傳，下面兩個寫法是等價的
-@Pointcut("execution(public * com.xyz.someapp.control.TestController.*(..))") 
-@Pointcut("within(public * com.xyz.someapp.control.TestController)") 
+@Pointcut("execution(public * com.xyz.someapp.control.TestController.*(..))")
+@Pointcut("within(public * com.xyz.someapp.control.TestController)")
 
 // 表示在 TestEntity 下，所有 set 開頭的 public 方法
-@Pointcut("execution(public * com.xyz.someapp.control.TestEntity.set*(..))") 
+@Pointcut("execution(public * com.xyz.someapp.control.TestEntity.set*(..))")
 
 // 所有 get 開頭無參數的 public 方法
-@Pointcut("execution(public * get*())") 
+@Pointcut("execution(public * get*())")
 
 //所有 get 跟 set 開頭無參數的 public 方法
 @Pointcut("execution(public * get*()) || execution(public * set*())")
@@ -150,7 +150,7 @@ class TestAop{
 `Around` 比較特別一點，沒有指定特定的時間點，而是可以自己選擇流程控制，如上面程式碼註解所寫的樣子，可以自己定義什麼時候執行，藉由傳入的特別參數 `ProceedingJoinPoint`，可以決定在哪裡拋出例外、取得結果等等，算是萬用的 `Pointcut`
 
 ## `@Pointcut`
-除了上面的特定的時機點以外，還額外提供了一個 annotation `@Pointcut`，用意是在於集中註冊需要用到 AOP 機制的方法，例如:  
+除了上面的特定的時機點以外，還額外提供了一個 annotation `@Pointcut`，用意是在於集中註冊需要用到 AOP 機制的方法，例如:
 
 ```java
 @Aspect
