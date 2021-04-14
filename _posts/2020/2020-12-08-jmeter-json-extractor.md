@@ -1,5 +1,5 @@
 ---
-title: Jmeter JSON Extractor 快速解析 API 的 Response 
+title: Jmeter JSON Extractor 快速解析 API 的 Response
 date: 2020-12-08 09:30:00 +0800
 category: test
 img: cover/jmeter.png
@@ -15,7 +15,7 @@ tags: [test, jmeter]
 
 ## 屬性
 
-![]({{site.baseurl}}/assets/img/jmeter-json-extractor-ui.png)  
+![]({{site.baseurl}}/assets/img/jmeter-json-extractor-ui.png)
 
 + Names of created variables: 從 JSON Extractor 提取出來的屬性存放的變數名稱，可以是已經存在的或是不存在的都可以
 + JSON Path expression: 特有的表達式，用來擷取需要的資料
@@ -38,9 +38,9 @@ tags: [test, jmeter]
 
 ### Filter
 + 常見的等於、大於、不等於那類的就不列了
-+ `=~`: 接 regular expression 
-+ `in`: 後面接一個 array 
-+ `nin`: 後面接一個 array: 表示 not in 
++ `=~`: 接 regular expression
++ `in`: 後面接一個 array
++ `nin`: 後面接一個 array: 表示 not in
 + `subsetof`: 後面接一個 array: 表示子集
 + `anyof`: Github 有寫但我始終不了解用法，原文 => `left has an intersection with right [?(@.sizes anyof ['M', 'L'])]`
 + `noneof`: not anyof
@@ -58,12 +58,12 @@ tags: [test, jmeter]
 ## 示例
 
 + `$.content..id`: 取得 content 下所有的 id，要注意一點 `..` 是深層掃描，如果底下層還有 id 的屬性也會一並被截取到
-+ `$.content[*].id`: 這個寫法就可以只抓到下一層的所有 id 
++ `$.content[*].id`: 這個寫法就可以只抓到下一層的所有 id
 + `$.content[?(@.id < 10)]`: 取 id 小於 10 的所有元素
 
-更多用法就參考 Github 吧 [Jayway JsonPath Github](https://github.com/json-path/JsonPath){:target='_blank'}
+更多用法就參考 Github 吧 [Jayway JsonPath Github](https://github.com/json-path/JsonPath)
 
-也可以到 [Jayway JsonPath Evaluator](http://jsonpath.herokuapp.com/){:target='_blank'} 去玩玩看 Path expression 是否如預期
+也可以到 [Jayway JsonPath Evaluator](http://jsonpath.herokuapp.com/) 去玩玩看 Path expression 是否如預期
 
 ## Debug Sampler
 在 Jmeter 中使用的話可以用 `Debug Sampler` 查看最後變數取得的值，來確認有沒有正常運行

@@ -16,12 +16,12 @@ tags: [blog, jekyll, liquid]
 # 主題
 首先來挑個別人寫好的主題吧，直接 google `jekyll theme` 就可以找到很多結果，也有很多的網站都幫你收集好可以用了
 
-不過如果像我一樣有在 github 上部屬的需求的話，由於 github 並不全面的支援 jekyll 的所有 plugin，所以一些主題在 github 上可能功能會殘缺不全，所以建議關鍵字改成 `github page jekyll theme` 或者直接到 [github-pages-themes](https://jekyllthemes.io/github-pages-themes){:target='_blank'} 去找，往後搜尋相關功能的時候也記得加入 `github page` 的關鍵字，才不容易走冤枉路
+不過如果像我一樣有在 github 上部屬的需求的話，由於 github 並不全面的支援 jekyll 的所有 plugin，所以一些主題在 github 上可能功能會殘缺不全，所以建議關鍵字改成 `github page jekyll theme` 或者直接到 [github-pages-themes](https://jekyllthemes.io/github-pages-themes) 去找，往後搜尋相關功能的時候也記得加入 `github page` 的關鍵字，才不容易走冤枉路
 
 挑好之後把整個專案拉下來，然後把你的 `_post` 換上去，然後把 `_config.yml` 的相關內容改一改，基本上這樣就套用好別人的主題啦~
 
 # 客製化
-抓下別人做好的主題之後，接下來就是慢慢來研究到底是怎麼運作的，進而客製化自己想要的功能跟版面啦，這裡用我套用的 [flexible-jekyll](https://github.com/artemsheludko/flexible-jekyll){:target='_blank'} 主題來舉例
+抓下別人做好的主題之後，接下來就是慢慢來研究到底是怎麼運作的，進而客製化自己想要的功能跟版面啦，這裡用我套用的 [flexible-jekyll](https://github.com/artemsheludko/flexible-jekyll) 主題來舉例
 
 ## Jekyll & Liquid template
 既然要來改裡面的東西，免不了要來了解一下使用的工具
@@ -38,7 +38,7 @@ Jekyll 是個輕量級的靜態網站生成並附帶一個 hosting server，Jeky
 + 一些 Plugin 與其相關的設定
 
 ### Liquid
-來講講 Liquid 的一些內容，先來看看[官方文件](https://shopify.github.io/liquid/){:target='_blank'}
+來講講 Liquid 的一些內容，先來看看[官方文件](https://shopify.github.io/liquid/)
 
 可以發現文件內容其實不多，很容易就可以上手了
 

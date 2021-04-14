@@ -19,7 +19,7 @@ public class Application {
 	}
 }
 ```
-+ Spring 的進入點就如上面這段 code  
++ Spring 的進入點就如上面這段 code
 + 其中 `@SpringBootApplication` 這個 annotation 是一堆 annotation 的綜合體如下
 
 ```java
@@ -46,7 +46,7 @@ public class Application {
 ```
 
 ## Controller
-+ Spring 的路由是由 Controller 決定的，下面來了解如何建置 Controller  
++ Spring 的路由是由 Controller 決定的，下面來了解如何建置 Controller
 
 ```java
 @Controller
@@ -59,15 +59,15 @@ class User{
 }
 ```
 
-+ `@Controller` 和 `@RestController` 都可以用來指定 class 為 Controller，區別為是否包含 View 的回傳，單純的資料交換的話使用 `@RestController` 就好了  
++ `@Controller` 和 `@RestController` 都可以用來指定 class 為 Controller，區別為是否包含 View 的回傳，單純的資料交換的話使用 `@RestController` 就好了
 
 + 用 annotation 的好處是，只要在任意的 class 開頭定義好，Spring 啟動後就會自動去找，不需要一個一個 import 也不用為了路徑去改變專案結構
 
 ### RequestMapping
 
-+ `@RequestMapping` 這個 annotation 決定詳細的路徑以及 header、body、method 等等訊息在內，主要的 request 設定其實都仰賴它  
++ `@RequestMapping` 這個 annotation 決定詳細的路徑以及 header、body、method 等等訊息在內，主要的 request 設定其實都仰賴它
 
-+ 而 Spring 後來又推出以 method 分類的 annotation 包含:  
++ 而 Spring 後來又推出以 method 分類的 annotation 包含:
     + `@GetMapping`
     + `@PostMapping`
     + `@DeleteMapping`
@@ -81,7 +81,7 @@ public User getUser(@RequestParam(value="id",defaultValue="0") int id){
 }
 ```
 
-+ 上面的 `@RequestMapping` 就等價於 `@GetMapping`，`value`/`path` 定義了路徑，`method` 定義方法，也可以額外定義 `header`  
++ 上面的 `@RequestMapping` 就等價於 `@GetMapping`，`value`/`path` 定義了路徑，`method` 定義方法，也可以額外定義 `header`
 
 + `@RequestParam` 則是參數傳遞的方法，下面會一併提到
 
@@ -91,7 +91,7 @@ public User getUser(@RequestParam(value="id",defaultValue="0") int id){
     + query: `/user?id=` => `@RequestParam("id")`
     + jsonBody => `@RequestBody`
     + formData => `@RequestPart("name")`
-  
+
 ```java
 @GetMapping(value = "/{id}")
 public Object getUser(@PathVariable("id") int id) {
@@ -126,7 +126,7 @@ public class MemberController {
     public String getMember() {
         return "all member";
     }
-    
+
     @GetMapping("/info")
     public String getMemberInfo(){
         return "member info";
@@ -139,9 +139,9 @@ public class MemberController {
 要用到畫面之前要先引入官方推薦的模板引擎 thymeleaf
 
 ```xml
-<dependency>         
-    <groupId>org.springframework.boot</groupId>            
-    <artifactId>spring-boot-starter-thymeleaf</artifactId>      
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
 </dependency>
 ```
 相關設定:
@@ -195,8 +195,8 @@ public class ViewController {
 <h1>hello <p th:text="${session.test}"></p></h1>
 ```
 
-其實還有蠻多操作的，詳細請看下面連結  
-[thymeleaf 一些基本教學](https://zhuanlan.zhihu.com/p/103089477){:target='_blank'}
+其實還有蠻多操作的，詳細請看下面連結
+[thymeleaf 一些基本教學](https://zhuanlan.zhihu.com/p/103089477)
 
 ## Model、Repository、Service
 + 這一部分有蠻多的東西，這邊只能淺談一下，還有很多東西待研究
@@ -231,7 +231,7 @@ public class Member {
     private int id;
     @Column(name = "name")
     private String name;
-    
+
     public Member() {
 
     }
@@ -242,8 +242,8 @@ public class Member {
 
 + 重點一樣放在幾個 annotation，大致上就如同字面意思，應該不難理解，如果變數名稱與實際的 column name 相同，則不需要設定 `@Column` 這個 annotation。
 
-+ 這邊要提到的是 `@GeneratedValue(strategy = GenerationType.IDENTITY)` 這行，指的是 id 的產生方法，網路上大部分教學都是 `GenerationType.AUTO` 但這邊範例使用的是 PostgreSql，id 的產生方法上與一般 MySql 不太一樣，所以設定的值也不相同  
-  
++ 這邊要提到的是 `@GeneratedValue(strategy = GenerationType.IDENTITY)` 這行，指的是 id 的產生方法，網路上大部分教學都是 `GenerationType.AUTO` 但這邊範例使用的是 PostgreSql，id 的產生方法上與一般 MySql 不太一樣，所以設定的值也不相同
+
 ### Repository
 Spring 這邊多了一層 Repository 用來定義 model 的方法，下面有三個介面裡面有實作一些基本的方法
 + `@CrudRepository` => 提供基本 CRUD 的方法
@@ -284,12 +284,12 @@ Member findByName(String name);
 @Query("SELECT m FROM Member m WHERE m.name=?1")
 Member findByName(String name);
 ```
-參數則會按照數字順序代入  
+參數則會按照數字順序代入
 
-參考資料:  
-[詳細擴充方法撰寫](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods){:target='_blank'}  
-[JPQL 簡介](https://openhome.cc/Gossip/EJB3Gossip/JPQLABC.html){:target='_blank'}  
-[Spring Data JPA 自訂更新/刪除](https://blog.jren.cc/2020/03/11/spring-data-jpa-define-update-and-remove/){:target='_blank'}  
+參考資料:
+[詳細擴充方法撰寫](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods)
+[JPQL 簡介](https://openhome.cc/Gossip/EJB3Gossip/JPQLABC.html)
+[Spring Data JPA 自訂更新/刪除](https://blog.jren.cc/2020/03/11/spring-data-jpa-define-update-and-remove/)
 
 ### Service
 
@@ -332,7 +332,7 @@ public class MemberService{
 
 + 基本上看到這邊也有概念了，Spring 不依賴原生方法去匯入資源以及創造實體，而是透過各種 annotation 去自動產生與掃描
 
-在 Controller 之中使用也是如此:  
+在 Controller 之中使用也是如此:
 
 ```java
 @RestController
@@ -350,7 +350,7 @@ public class MemberController {
             return memberService.findById(id);
         }
     }
-    
+
     @PostMapping("")
     public String insert(@RequestBody Member member) {
         return memberService.insert(member);
@@ -430,7 +430,7 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<ShopCard> shopCards;
-    
+
     public Member() {
 
     }
@@ -459,4 +459,4 @@ public class ShopCard {
 
 ```
 
-spring boot 實際上還有很多操作需要研究，這邊就簡單說明到這裡，之後再多針對單一主題去做說明跟深入  
+spring boot 實際上還有很多操作需要研究，這邊就簡單說明到這裡，之後再多針對單一主題去做說明跟深入
