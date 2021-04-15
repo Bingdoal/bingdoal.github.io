@@ -13,7 +13,7 @@ tags: [docker, deploy]
 
 # Docker volume
 
-由於 container 本身是一個封閉的環境，所以整個環境被刪除的時候裡頭的資料也無法倖免，為了讓我們可以保留部分資料，像是 log, report 或者 config 之類需要被保留的文件，於是有了 volume 這一個概念
+由於 container 本身是一個封閉的環境，所以整個環境被刪除的時候裡頭的資料也無法倖免，為了讓我們可以保留部分資料，像是 log, report 或者 config 之類需要被保留的文件或者是像 database 這類需要保存狀態的服務，於是有了 volume 這一個概念
 
 其實說穿了就是在 container 裡面建立一個與本地端連結的路徑，像是 windows 的分享資料夾的概念，以下就直接以實作來看看吧
 
