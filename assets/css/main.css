@@ -1443,6 +1443,13 @@ a.newer-posts:hover {
 .blog-tags h2 {
     color : #263959;
     margin: 10px 0;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+.blog-tags h2.tag-highlight{
+    background-color: rgb(252, 129, 28);
+    color: white;
 }
 
 .tags {
