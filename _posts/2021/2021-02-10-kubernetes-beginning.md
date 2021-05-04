@@ -18,7 +18,7 @@ Kubernetes(後簡稱K8s) 是由 Google 開發設計並捐贈給 [Cloud Native Co
 K8s 可以做到幾件事情:
 1. 同時部屬多個 container 到一台或是多台機器上
 2. 管理並監控多個 container 的狀態。最基本的當 container crash 了，K8s 可以設定自動重啟來確保服務不中斷。
-3. 從 container 的角度上做到 Loading balance 跟反代理
+3. 從 container 的角度上做到 Load balance 跟反代理
 
 簡而言之 K8s 是用於管理 container 的系統，而針對產品開發的各種需求 K8s 將管理 container 的各種功能切分成了許多的元件，這篇會先簡單介紹 Node, Pod, Service, Deployment
 > 光搞懂這四個元件就弄的我一個頭兩個大了
@@ -75,7 +75,7 @@ kubectl port-forward express-ts 3001:3000
 ```bash
 kubectl exec -it <pod-name> -- bin/bash
 kubectl cp <pod-name>:<source-path> <dest-path>
-kubectl cp <dest-path> <pod-name>:<source-path>
+kubectl cp <source-path> <pod-name>:<dest-path>
 ```
 1. 類似 docker exec 的概念可以執行 pod 中 container 的 bash
 2. 也類似 docker cp 的概念可以在本地跟 pod 間複製檔案
@@ -88,7 +88,7 @@ Node 通常代表的是一個虛擬機或是實體機器，是用來運行 Pod �
 
 可以看到一個 K8s 的架構中可以存在多個 node，當運行時資源不足的時候會自動找尋有多餘資源的 Node 部屬 Pod，而在 Node 中又可以分為三個部件 kubelet, kube-proxy, Container Runtime，下面簡單介紹三者內容
 1. kubelet
-   + 主要的 Node 代理者，主要負責該 Node 上所有 Pod 的狀態以及跟 apiserver 溝通
+   + 主要的 Node 代理者，主要負責該 Node 上所有 Pod 的狀態以及跟 api server 溝通
 2. kube-proxy
    + 負責用來代理每個節點間溝通，可以做到簡單的 TCP、UDP、SCTP 的轉流，還可以設置 cluster 內的 DNS
 3. Container Runtime
@@ -97,7 +97,7 @@ Node 通常代表的是一個虛擬機或是實體機器，是用來運行 Pod �
 實際上對於 Node 的理解目前也還很淺，目前實作上也還沒遇到多 Node 的使用，因此只淺談到這裡
 
 ## Service
-上面提及 Pod 可以透過 `port-forward` 的指令 host 到本機上，但只能在前景執行，而且每個 pod 都要去執行一次也不太合理，所以 Service 這個元件就誕生了，Service 主要可以想成是 Pod 的反代理機制，用來定義 Pod 如何被連線以及存取，下面是 Service 的 yaml 設定:
+上面提及 Pod 可以透過 `port-forward` 的指令 host 到本機上，但只能在前景執行，而且每個 pod 都要去執行一次也不太好管理，所以 Service 這個元件就誕生了，Service 主要可以想成是 Pod 的反代理機制，用來定義 Pod 如何被連線以及存取，下面是 Service 的 yaml 設定:
 
 ```yaml
 apiVersion: v1
@@ -144,7 +144,18 @@ spec:
 ```
 1. replicas 指同時啟動多少個 pod
 2. template 則設定由該 deployment 建立起來的 pod 長什麼樣子
+### 版控
+Deployment 還有一個神奇的功能，就是可以 rollback 到先前的歷史版本，方便針對服務的版本差異做管理
 
+```bash
+kubectl rollout history deploy <deploy-name>
+```
++ 當對於 K8s 的 deploy 進行編輯操作之後，K8s 會紀錄版本間的變更，上面指令可以列出編輯的歷史紀錄
+
+```bash
+kubectl rollout undo deploy <deploy-name> --to-reversion=<reversion>
+```
++ 印出歷史紀錄後，可以根據版號進行 rollback
 ## 資源操作指令指令整理
 
 ```bash
@@ -164,16 +175,6 @@ kubectl delete all --all
 ```
 + 上面 Pod、Service、Deployment 都可以透過這些指令來進行操作
 
-### 版控
-```bash
-kubectl rollout history <resource> <resource-name>
-```
-+ 當對於 K8s 的各個資源進行編輯操作之後，K8s 會紀錄版本間的變更，上面指令可以列出編輯的歷史紀錄
-
-```bash
-kubectl rollout undo <resource> <resource-name> --to-reversion=<reversion>
-```
-+ 印出歷史紀錄後，可以根據版號進行 rollback
 
 ## 小結
 其實在進到後端跟 DevOps 的領域之前就常聽到 K8s 的盛名，但真正工作接觸後才知道這東西有多複雜，可以感受到這套系統設計的極為精細，本篇只為 K8s 的一開始基本操作，有關的原理探討其實都非常不足，而現階段幾乎都是邊操作邊理解，這也代表自己還有很多不足的地方要多加學習，希望後面能將整個運作原理都補上
