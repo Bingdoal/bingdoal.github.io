@@ -37,11 +37,11 @@
                 {% assign lastPage = paginator.total_pages | minus: 1 %}
 
                 {% if end > lastPage%}
-                {% assign start = start | minus: end | plus: lastPage | plus: 1 %}
+                    {% assign start = start | minus: end | plus: lastPage | plus: 1 %}
                 {% endif %}
 
                 {% if start < 1%}
-                {% assign end = end | minus: start | plus: 1 %}
+                    {% assign end = end | minus: start | plus: 1 %}
                 {% endif %}
 
                 {% if page == 1
