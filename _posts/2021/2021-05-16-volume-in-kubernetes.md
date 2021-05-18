@@ -88,6 +88,7 @@ spec:
 但通常來說不會直接用 `hostPath` 來設定 Volume，會再透過 `Persistent Volumes (PV)` 以及 `Persistent Volume Claims (PVC)` 來進行 Volume 的管理，大多用在測試階段才會先用 `hostPath` 來使用
 
 + 如果說需要在一個 Volume 下掛載多個路徑也可以透過 `subPath` 的方式，如下所設定:
+
 ```yaml
 apiVersion: v1
 kind: Pod
