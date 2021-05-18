@@ -87,6 +87,31 @@ spec:
 
 但通常來說不會直接用 `hostPath` 來設定 Volume，會再透過 `Persistent Volumes (PV)` 以及 `Persistent Volume Claims (PVC)` 來進行 Volume 的管理，大多用在測試階段才會先用 `hostPath` 來使用
 
++ 如果說需要在一個 Volume 下掛載多個路徑也可以透過 `subPath` 的方式，如下所設定:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: host-path-nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - mountPath: /tmp/conf
+      name: host-path
+      subPath: sub1
+    - mountPath: /tmp/conf
+      name: host-path
+      subPath: sub2
+  volumes:
+  - name: host-path
+    hostPath:
+      path: /tmp/host_path
+      type: DirectoryOrCreate
+```
+
+照這樣設定可以在同一個 `hostPath` 之下掛載兩個目錄，而不會把資料都混在一起
 ### 其他
 其他的 Volume Type 則主要是用於雲端上的儲存空間，可以透過 K8s 直接將 Volume 掛載到雲端上，如下面的三種:
 1. gcePersistentDisk
