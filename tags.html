@@ -19,18 +19,19 @@ permalink: /tags/
         <!--  cycles through tag list and creates header row of all tags used in site with accompanying per-tag counts...-->
         {% for this_word in tag_words %}
             <li>
-                <a class="tag" href="#{{ this_word | cgi_escape }}">{{ this_word }}
-                    <span>({{ site.tags[this_word].size
-          }})</span>
+                {% assign tagName = this_word | strip  %}
+                <a class="tag" href="#{{ tagName | escape }}">
+                    {{ tagName }}<span>({{ site.tags[tagName].size}})</span>
                 </a>
             </li>
         {% endfor %}
     </ul>
     <!--cycles through tag list and creates subheader for each tag name...-->
     {% for this_word in tag_words %}
-        <h2 id="{{ this_word | cgi_escape }}">{{ this_word }}</h2>
+        {% assign tagName = this_word | strip %}
+        <h2 id="{{ tagName | escape }}">{{ tagName }}</h2>
         <!--  lists all posts corresponding to specific tag...-->
-        {% for post in site.tags[this_word] %}
+        {% for post in site.tags[tagName] %}
             {% if post.title != null %}
                 <div class="tag-list">
                     <span>
