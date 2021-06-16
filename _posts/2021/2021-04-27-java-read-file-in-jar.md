@@ -2,7 +2,7 @@
 layout: post
 title: "[踩雷紀錄] 在 build 成 jar 的 Java 中讀在 jar 中的檔案: URI is not hierarchical"
 date: 2021-04-27 09:45:01 +0800
-category: others
+category: backend
 img: cover/java.jpg
 description: 標題看起來有點繞口，不過這個問題倒真的令人困擾，主要困擾在於開發時完全沒有問題，但是到了 build 成 jar 之後，狀況才會出現，也造成要除錯十分麻煩，必須改完 code 然後 build 成 jar 才能確定問題，也沒辦法用 debugger
 lang: zh-TW
