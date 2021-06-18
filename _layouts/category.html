@@ -27,7 +27,8 @@ layout: main
                         </span>
                     {% endfor %}
                 </div>
-                <p class="post-date">{{post.date | date: '%Y, %b %d'}}</p>
+                <p class="post-date"><a class="my-link" href="/year/{{post.date | date: '%Y'}}">{{post.date | date: '%Y'}}</a>
+                {{post.date | date: ', %b %d'}}</p>
             </div>
         </div>
     </article>
