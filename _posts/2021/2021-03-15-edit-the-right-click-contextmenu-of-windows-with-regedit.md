@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 編輯 Windows 上的右鍵選單內容
+title: "[踩雷紀錄] 編輯 Windows 上的右鍵選單內容"
 date: 2021-03-15 09:59:03 +0800
 category: others
 img: cover/windows-regedit.png

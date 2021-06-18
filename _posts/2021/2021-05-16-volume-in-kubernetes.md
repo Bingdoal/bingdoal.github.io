@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kubernetes 初戰(二) Volume
+title: Kubernetes 初戰(二) 儲存空間 Volume
 date: 2021-05-16 09:00:26 +0800
 category: deploy
 img: cover/kubernetes.png
