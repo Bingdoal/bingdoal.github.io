@@ -40,3 +40,5 @@ exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
 collections:
   category:
     output: true
+  year:
+    output: true
