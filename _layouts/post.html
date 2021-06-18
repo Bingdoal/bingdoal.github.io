@@ -19,7 +19,9 @@ layout: main
             <header class="header-page">
                 <h1 class="page-title">{{page.title}}</h1>
                 <div class="page-date">
-                    <span>{{page.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span>
+                        <a class="my-link" href="/year/{{page.date | date: '%Y'}}">{{page.date | date: '%Y'}}</a>{{page.date | date: ', %b %d'}}&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
                 </div>
             </header>
             <div class="page-content">

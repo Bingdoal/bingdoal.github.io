@@ -1,0 +1,28 @@
+---
+layout: main
+---
+
+<section class="blog-tags">
+    <div class="category-title">
+        <strong>Year:</strong>
+        <span>{{ page.year }}</span>
+    </div>
+    <hr>
+    <div>
+        {% for post in site.posts %}
+        {% assign postYear = post.date | date: "%Y" %}
+        {% assign thisYear = page.year | append: "" %}
+        {% if postYear == thisYear %}
+        <div class="tag-list">
+            <span>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            </span>
+            <small>
+                <span>|
+                    {{ post.date | date_to_string }}</span>
+            </small>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
