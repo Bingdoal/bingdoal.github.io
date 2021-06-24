@@ -5,7 +5,7 @@ category: backend
 img: cover/spring-boot.jpg
 description: 用 Spring boot 撰寫後端時，常會有事前檢查、事後日誌的需求，若在每個 Api 中都做一次那就太蠢了，於是這邊介紹一下 Spring boot 中十分方便的 AOP 機制，可以輕鬆達成日誌的統一撰寫，也可以降低程式碼的耦合性
 layout: post
-tags: [spring, cron]
+tags: [spring boot, java]
 ---
 
 {{page.description}}
