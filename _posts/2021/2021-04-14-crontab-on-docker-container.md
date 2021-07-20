@@ -21,7 +21,7 @@ tags: [others, docker, cron]
 ```
 
 ## Dockerfile
-```Dockerfile
+```dockerfile
 FROM ubuntu:18.04
 COPY crontab /mycron
 RUN chmod 777 /mycron
@@ -29,4 +29,5 @@ RUN apt update && apt install cron -y
 RUN crontab /mycron
 CMD cron start && tail -f /var/mail/mail
 ```
+
 這樣就可以執行我們預先寫好的 crontab 並且列出 log，cron 會將執行的輸出送到 mail 因此可以讀取 mail 來拿到 log

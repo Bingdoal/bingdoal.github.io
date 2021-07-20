@@ -2,7 +2,7 @@
 layout: post
 title: Linux 環境下在背景執行程式
 date: 2021-03-03 17:28:41 +0800
-category: others
+category: linux
 img: cover/linux.png
 description: 在 Linux bash 操作下應該很常會有這種需求，尤其是在 ssh 連線下需要執行程式的同時去做其他事，如果為此多開 terminal 去連線也蠻蠢的，下面記錄一下 linux 背景執行的一些指令
 lang: zh-TW
