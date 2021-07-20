@@ -6,7 +6,7 @@ category: linux
 img: cover/bash.jpg
 description: 身為一個軟體工程師在 Linux 上操作指令是必須要學習的，雖然本人也是工作後才比較常用到😅，不過常常會有需要打一大串指令或是操作一些複雜邏輯的時候，這時候就可以撰寫 shell script 幫助處理複雜的指令，可以做到自動化的處理，是可以幫助工程師偷懶的利器，這篇主要做些簡單的筆記幫助自己不要忘記
 lang: zh-TW
-tags: [others, linux]
+tags: [linux, shell script]
 ---
 
 {{page.description}}

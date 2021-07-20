@@ -6,7 +6,7 @@ category: linux
 img: cover/linux.png
 description: 操作 linux 時常會需要一些週期性的任務，例行的資料備份、測試腳本等等，這篇簡介一下 linux 上常用的例行任務工具 Cron
 lang: zh-TW
-tags: [others, linux, cron]
+tags: [linux, cron]
 ---
 
 {{page.description}}

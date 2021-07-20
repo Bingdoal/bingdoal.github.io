@@ -6,7 +6,7 @@ category: others
 img: cover/docker.jpg
 description: 接續上一篇介紹 Cron，這一篇要來在 container 之中使用 Cron，雖然一般來說應該不太會遇到這個情況，但最近剛好就被我遇上了，因此順便記錄一下
 lang: zh-TW
-tags: [others, docker, cron]
+tags: [docker, cron]
 ---
 
 {{page.description}}
