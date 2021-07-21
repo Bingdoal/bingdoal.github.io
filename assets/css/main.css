@@ -449,12 +449,12 @@ template {
     font-weight          : 400;
     -webkit-border-radius: 3px;
     border-radius        : 3px;
-    padding              : 0.2rem 0.3rem;
+    padding              : 0.2rem;
 }
 
 code.highlighter-rouge {
     background-color: #ddd;
-    white-space: nowrap;
+    white-space     : nowrap;
 }
 
 .highlight .hll {
@@ -1230,26 +1230,42 @@ footer .copyright {
 
 a.older-posts,
 a.newer-posts {
-    font-size         : 18px;
+    font-size         : 1.5rem;
     display           : inline-block;
-    color             : #515151;
+    color             : #007bff;
     -webkit-transition: -webkit-transform .2s;
     transition        : -webkit-transform .2s;
     -o-transition     : transform .2s;
     transition        : transform .2s;
     transition        : transform .2s, -webkit-transform .2s;
+    vertical-align    : middle;
+    border-radius     : 50%;
+    width             : 2rem;
+    height            : 2rem;
+    text-decoration   : none;
+    display           : inline-flex;
+    justify-content   : center;
+    align-items       : center;
 }
 
 a.older-posts:hover {
     -webkit-transform: translateX(5px);
     -ms-transform    : translateX(5px);
     transform        : translateX(5px);
+
+    color           : #fff;
+    background-color: #007bff;
+    border-color    : #007bff;
 }
 
 a.newer-posts:hover {
     -webkit-transform: translateX(-5px);
     -ms-transform    : translateX(-5px);
     transform        : translateX(-5px);
+
+    color           : #fff;
+    background-color: #007bff;
+    border-color    : #007bff;
 }
 
 /* - - - - - - - - - - Post Page Styles - - - - - - - - - - */
@@ -1747,14 +1763,14 @@ table {
     --table-striped-bg   : rgba(0, 0, 0, 0.05);
     --table-hover-color  : #212529;
     --table-hover-bg     : rgba(0, 0, 0, 0.075);
-    width                   : 100%;
-    margin-bottom           : 1rem;
-    color                   : #212529;
-    vertical-align          : top;
-    border-color            : #dee2e6;
-    border-style            : solid;
-    border-radius           : 5px;
-    box-shadow              : 1px 1px 1px 1px #bbb;
+    width                : 100%;
+    margin-bottom        : 1rem;
+    color                : #212529;
+    vertical-align       : top;
+    border-color         : #dee2e6;
+    border-style         : solid;
+    border-radius        : 5px;
+    box-shadow           : 1px 1px 1px 1px #bbb;
 }
 
 tbody,
@@ -1774,7 +1790,7 @@ table>:not(:last-child)>:last-child>* {
 
 table>tbody>tr:nth-of-type(odd) {
     --table-accent-bg: var(--table-striped-bg);
-    color               : var(--table-striped-color);
+    color            : var(--table-striped-color);
 }
 
 table>:not(caption)>*>* {
@@ -1786,5 +1802,5 @@ table>:not(caption)>*>* {
 
 table>tbody>tr:hover {
     --table-accent-bg: var(--table-hover-bg);
-    color               : var(--table-hover-color);
+    color            : var(--table-hover-color);
 }

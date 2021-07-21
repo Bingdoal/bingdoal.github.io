@@ -2,30 +2,17 @@
     {% if paginator.total_pages > 1 %}
         <p>
             {% if paginator.previous_page %}
-                {% if paginator.previous_page == 1 %}
-                    <a class="newer-posts" href="{{ site.baseurl }}/">
-                        <i aria-hidden="true" class="fa fa-long-arrow-left"></i>
-                    </a>
-                {% else %}
-                    <a class="newer-posts" href="{{ site.baseurl }}/page/{{ paginator.previous_page }}/">
-                        <i aria-hidden="true" class="fa fa-long-arrow-left"></i>
-                    </a>
-                {% endif %}
+            {% if paginator.previous_page == 1 %}
+            <a class="newer-posts" href="{{ site.baseurl }}/">
+                <i aria-hidden="true" class="far fa-arrow-alt-circle-left"></i>
+            </a>
+            {% else %}
+            <a class="newer-posts" href="{{ site.baseurl }}/page/{{ paginator.previous_page }}/">
+                <i aria-hidden="true" class="far fa-arrow-alt-circle-left"></i>
+            </a>
+            {% endif %}
             {% endif %}
 
-            <span class="page-number">Page
-                {{paginator.page}}
-                of
-                {{paginator.total_pages}}</span>
-
-            {% if paginator.next_page %}
-                <a class="older-posts" href="{{ site.baseurl }}/page/{{ paginator.next_page }}/">
-                    <i aria-hidden="true" class="fa fa-long-arrow-right"></i>
-                </a>
-            {% endif %}
-        </p>
-
-        <p>
             {% for page in (1..paginator.total_pages) %}
                 {% assign linkClass = "page-link" %}
                 {% if page == paginator.page %}
@@ -66,6 +53,12 @@
                     {% endif %}
                 {% endif %}
             {% endfor %}
+
+            {% if paginator.next_page %}
+            <a class="older-posts" href="{{ site.baseurl }}/page/{{ paginator.next_page }}/">
+                <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
+            </a>
+            {% endif %}
         </p>
     {% endif %}
 </div>
