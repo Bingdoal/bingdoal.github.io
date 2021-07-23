@@ -94,3 +94,7 @@ while IFS="," read number title content; do
     echo "number: $number, title: $title, content: $content"
 done < "test.csv"
 ```
+
+## 其他
+
+如果檔案內容不是簡單的用一個 `,` 去隔開，而是有複雜結構的話，可以參考用[前篇](https://bingdoal.github.io/linux/2021/07/linux-string-manipulation-and-output-proccessing-command/)所提到的字串處理，來分析複雜的資料結構
