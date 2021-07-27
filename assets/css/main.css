@@ -1213,8 +1213,8 @@ footer .copyright {
 
 .post .post-content .post-title {
     margin     : 0 0 10px;
-    font-size  : 30px;
-    font-weight: 400;
+    font-size  : 2rem;
+    font-weight: 600;
 }
 
 .post .post-content .post-title a {
@@ -1225,7 +1225,7 @@ footer .copyright {
 
 .post .post-content .post-desc {
     margin-top: 0;
-    font-size : 21px;
+    font-size : 1.3rem;
 }
 
 a.older-posts,
@@ -1279,7 +1279,7 @@ a.newer-posts:hover {
 }
 
 .header-page .page-title {
-    font-weight: 400;
+    font-weight: 600;
     margin     : 0 0 10px;
     line-height: 1.3;
 }
@@ -1489,11 +1489,11 @@ a.newer-posts:hover {
     }
 
     .post .post-content .post-title a {
-        font-size: 21px;
+        font-size: 2rem;
     }
 
     .post .post-content .post-desc {
-        font-size: 12px;
+        font-size: 1.3rem;
     }
 }
 
@@ -1605,11 +1605,11 @@ a.newer-posts:hover {
     }
 
     .post .post-content .post-title a {
-        font-size: 21px;
+        font-size: 2rem;
     }
 
     .post .post-content .post-desc {
-        font-size: 12px;
+        font-size: 1.3rem;
     }
 }
 
