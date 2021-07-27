@@ -6,7 +6,7 @@ category: dev-tools
 img: cover/intellij.png
 description: 個人通常用來撰寫 Java 及 Dart，最大的缺點大概就是 IDE 重開很花時間，但是不影響他的強大使用體驗，Intellisense 速度快且精確，語法支援上很友善，自動完成的提示可以有效優化程式碼，程式碼檢查功能嚴謹，啟動後運行速度快，使用體驗相當良好，各種插件也是功能強大，下面就慢慢來介紹各個強大之處
 lang: zh-TW
-tags: [ide, java, intellij]
+tags: [ide, java, intellij, dev-tools]
 ---
 
 {{page.description}}

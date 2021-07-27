@@ -6,7 +6,7 @@ category: dev-tools
 img: cover/vim.png
 description: 雖然現在有很多功能強大的 IDE 諸如 IntelliJ、VSCode 或是 Eclipse，但在 linux server 上時常都是只有 command line mode 的，以上的編輯器也就都派不上用場了，不可避免的需要使用到 vim 這類的純文字編輯器，因此筆記一下一些常用到的操作
 lang: zh-TW
-tags: [linux, ide]
+tags: [linux, ide, dev-tools]
 ---
 
 {{page.description}}
