@@ -71,6 +71,7 @@ ls -l | grep ".sh" # 輸出該行含有 .sh 的內容
 cat test.log | grep -A 10 "ERROR" # 輸出該行之外 多輸出後 10 行
 cat test.log | grep -B 10 "ERROR" # 輸出該行之外 多輸出前 10 行
 cat test.log | grep -C 10 "ERROR" # 輸出該行之外 多輸出前後 10 行
+cat test.log | grep -P 10 "E\w+R" # 用 regex 來搜尋字串
 cat test.log | grep -n "ERROR" # 輸出內容時帶上行數
 cat test.log | grep -i "ERROR" # 不分大小寫比對
 cat test.log | grep -v "ERROR" # 反向操作，不輸出匹配到的內容
