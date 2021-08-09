@@ -154,6 +154,7 @@ class TestAop{
 
 ```java
 @Aspect
+@Component
 class TestAop{
     @Pointcut("execution(public * com.xyz.someapp.*.*(..))")
     public void includeSomeappAllMethod(){}
@@ -173,3 +174,5 @@ class TestAop{
 ```
 
 這會等價於上面的那些寫法，而且可以統一管理要加入切點的方法，不必每次都去改每個 Pointcut 的表達式
+
+最後特別要注意的是 `@Component` 一定要加，spring 才會把這個 `@Aspect` 建立成 `Bean`
