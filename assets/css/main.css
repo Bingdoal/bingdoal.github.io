@@ -1581,6 +1581,11 @@ a.newer-posts:hover {
         width: 90vw;
     }
 
+    code.highlighter-rouge {
+        white-space: initial;
+        word-break : break-word;
+    }
+
     .post {
         width                 : 98%;
         max-width             : 100%;
