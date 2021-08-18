@@ -1809,3 +1809,8 @@ table>tbody>tr:hover {
     --table-accent-bg: var(--table-hover-bg);
     color            : var(--table-hover-color);
 }
+
+.page-navigation{
+    display: flex;
+    justify-content: space-between;
+}
