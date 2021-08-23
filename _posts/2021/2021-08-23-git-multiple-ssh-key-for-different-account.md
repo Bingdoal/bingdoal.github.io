@@ -24,13 +24,13 @@ tags: [dev-tools, git]
 # 預設 key
 Host github.com
     HostName github.com
-	PreferredAuthentications publickey
+    PreferredAuthentications publickey
     User git
     IdentityFile ~/.ssh/id_rsa
 # 工作用 key
 Host work.github.com
     HostName github.com
-	PreferredAuthentications publickey
+    PreferredAuthentications publickey
     User git
     IdentityFile ~/.ssh/work_rsa
 ```
