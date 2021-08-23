@@ -25,9 +25,13 @@ tags: [docker, cron]
 FROM ubuntu:18.04
 COPY crontab /mycron
 RUN chmod 777 /mycron
-RUN apt update && apt install cron -y
+RUN apt update && apt install cron tzdata -y
+RUN TZ=Asia/Taipei \
+    && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
+    && echo $TZ > /etc/timezone \
+    && dpkg-reconfigure -f noninteractive tzdata
 RUN crontab /mycron
 CMD cron start && tail -f /var/mail/mail
 ```
 
-這樣就可以執行我們預先寫好的 crontab 並且列出 log，cron 會將執行的輸出送到 mail 因此可以讀取 mail 來拿到 log
+這樣就可以執行我們預先寫好的 crontab 並且列出 log，cron 會將執行的輸出送到 mail 因此可以讀取 mail 來拿到 log，比較要注意的是 TimeZone 的設定，不然寫 crontab 的時候還要換算成 UTC+0
