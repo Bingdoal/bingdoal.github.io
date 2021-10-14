@@ -1810,7 +1810,16 @@ table>tbody>tr:hover {
     color            : var(--table-hover-color);
 }
 
-.page-navigation{
-    display: flex;
+.page-navigation {
+    display        : flex;
     justify-content: space-between;
+}
+
+.utterances {
+    position    : relative;
+    box-sizing  : border-box;
+    width       : 100%;
+    max-width   : unset;
+    margin-left : auto;
+    margin-right: auto;
 }
