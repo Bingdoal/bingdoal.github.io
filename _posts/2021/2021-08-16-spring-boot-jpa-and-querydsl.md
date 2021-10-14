@@ -13,7 +13,7 @@ tags: [java, spring boot]
 
 # 前言
 
-工作使用 Spring boot 也一段時間了，完全能感受到這個生態系的強大，幾乎所有想到的功能都有很好的現有解決方案，這次會用到 QueryDSL 想要解決的問題最主要是對於每個 Get 的 filter 功能，由於可能會有多種不同的資料需要作 filter，若是手動去撰寫每個接口要耗費的工也是不小，而透過 QueryDSL 的神奇方法，只要透過一點設定就可以自動套用 filter 了
+工作使用 Spring boot 也一段時間了，完全能感受到這個生態系的強大，幾乎所有想到的功能都有很好的現有解決方案，這次會用到 QueryDSL 最想要解決的問題最主要是對於每個 Get 的 filter 功能，或者說是 search 的功能，由於可能會有多種不同的資料需要作 filter，若是手動去撰寫每個參數每個接口要耗費的工也是不小，而透過 QueryDSL 的神奇方法，只要透過一點設定就可以自動套用 filter 了
 
 不過 QueryDSL 可不只是用來作 filter 方便而已，QueryDSL 最主要是以模組化的方式來組裝客製的 query，下面就開始介紹吧
 
@@ -148,7 +148,7 @@ public class UserDaoService {
 ### 自動化產生 filter
 這部分其實才是我使用 QueryDSL 的重點😂
 
-直接來看到實作吧，原本的 Dao 只需要繼承 `JpaRepository`，而為了使用 QueryDSL `Predicate` 提供的強大 filter 功能，需要額外繼承 `QuerydslPredicateExecutor` 和 `QuerydslBinderCustomizer`，然後去 override `customize` 這個方法，用來定義那些屬性希望可以用作 filter 的屬性
+直接來看到實作吧，原本的 Dao 只需要繼承 `JpaRepository`，而為了使用 QueryDSL `Predicate` 提供的強大 filter 功能，需要額外繼承 `QuerydslPredicateExecutor` 和 `QuerydslBinderCustomizer`，然後去 override `customize` 這個方法，`bindings.including` 用來定義那些屬性希望可以用作 filter 的屬性，`bindings.bind` 則用來指定 filter 的方法，這邊使用的是 `containsIgnoreCase`，表示比對時只要包含字段不分大小寫
 
 ```java
 public interface UserDao extends JpaRepository<User, Long>,
