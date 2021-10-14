@@ -18,7 +18,7 @@ tags: [dev-tools, git]
 
 # Config
 
-然後對 SSH key 作一點設定新建 `~/.ssh/config`，預設沒有這個檔案，內容寫下:
+然後對 SSH key 作一點設定，新建一個設定檔 `~/.ssh/config`，預設沒有這個檔案，內容寫下:
 
 ```yaml
 # 預設 key
