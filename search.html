@@ -13,6 +13,16 @@ permalink: /search/
     <div id="search-result-div"></div>
 </section>
 <script>
+    var allArticle = JSON.parse(`[
+        {% for post in site.posts %}{
+            "title": "{{ post.title | escape }}",
+                "tags": "{{ post.tags | join: ', ' }}",
+                    "url": "{{ site.url }}{{ post.url }}",
+                        "description": "{{ post.description }}",
+                            "date": "{{ post.date | date: '%d %b %Y' }}"
+        } {% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+    ]`);
     function startSearch(event) {
         let url = "{{site.baseurl}}/search.json";
         let inputTxt = event.target.value.toLowerCase().trim();
@@ -20,43 +30,38 @@ permalink: /search/
             return;
         }
         let searchTxts = inputTxt.split(" ");
-        fetch(url).then((res) => {
-            return res.json();
-        }).then((resJson) => {
-            let articles = resJson;
-            let searchResultTemplate = "";
-            let searchedArticle = [];
-            for (let j = 0; j < searchTxts.length; j++) {
-                searchedArticle = [];
-                for (const idx in articles) {
-                    let article = articles[idx];
-                    const searchTxt = searchTxts[j];
-                    if (article.title.toLowerCase().includes(searchTxt) ||
-                        article.description.toLowerCase().includes(searchTxt) ||
-                        article.tags.toLowerCase().includes(searchTxt)) {
-                            searchedArticle.push(article);
-                    }
-                }
-                articles = searchedArticle;
-            }
-            for (let i = 0; i < searchedArticle.length; i++) {
-                const article = searchedArticle[i];
-                searchResultTemplate+= getArticleCardHtml(article);
-            }
 
-            let searchResultDiv = document.querySelector("#search-result-div");
-            if (searchResultTemplate != "") {
-                searchResultDiv.innerHTML = searchResultTemplate;
-            } else {
-                searchResultDiv.innerHTML = `
+        let articles = allArticle;
+        let searchResultTemplate = "";
+        let searchedArticle = [];
+        for (let j = 0; j < searchTxts.length; j++) {
+            searchedArticle = [];
+            for (const idx in articles) {
+                let article = articles[idx];
+                const searchTxt = searchTxts[j];
+                if (article.title.toLowerCase().includes(searchTxt) ||
+                    article.description.toLowerCase().includes(searchTxt) ||
+                    article.tags.toLowerCase().includes(searchTxt)) {
+                    searchedArticle.push(article);
+                }
+            }
+            articles = searchedArticle;
+        }
+        for (let i = 0; i < searchedArticle.length; i++) {
+            const article = searchedArticle[i];
+            searchResultTemplate += getArticleCardHtml(article);
+        }
+
+        let searchResultDiv = document.querySelector("#search-result-div");
+        if (searchResultTemplate != "") {
+            searchResultDiv.innerHTML = searchResultTemplate;
+        } else {
+            searchResultDiv.innerHTML = `
                     <div style="font-weight: bolder;font-size: x-large;text-align: center;">
                         查無結果
                     </div>
                 `;
-            }
-        }).catch((err) => {
-            console.error(err);
-        })
+        }
     }
 
     function getArticleCardHtml(article) {
