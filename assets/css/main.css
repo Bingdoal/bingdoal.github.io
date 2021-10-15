@@ -1871,6 +1871,10 @@ table>tbody>tr:hover {
     font-size: x-small;
 }
 
+#search-result-div .post-tag:hover {
+    color: white;
+}
+
 .search-result-card {
     border-bottom: gray solid 1px;
 }
