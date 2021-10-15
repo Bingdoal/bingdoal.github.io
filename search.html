@@ -15,8 +15,8 @@ permalink: /search/
 <script>
     function startSearch(event) {
         let url = "{{site.baseurl}}/search.json";
-        let inputTxt = event.target.value.toLowerCase();
-        if (inputTxt.trim() == "" || inputTxt == null) {
+        let inputTxt = event.target.value.toLowerCase().trim();
+        if (inputTxt == "" || inputTxt == null) {
             return;
         }
         let searchTxts = inputTxt.split(" ");
