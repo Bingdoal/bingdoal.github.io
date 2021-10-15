@@ -6,14 +6,6 @@
  * 2. Prevent adjustments of font size after orientation changes in
  *    IE on Windows Phone and in iOS.
  */
-* {
-    font-family: "Helvetica",
-        "Arial",
-        "LiHei Pro",
-        "Microsoft JhengHei",
-        sans-serif;
-}
-
 html {
     line-height             : 1.15;
     /* 1 */
@@ -92,7 +84,7 @@ hr {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 pre {
-    font-family: monospace, monospace !important;
+    font-family: monospace, monospace;
     /* 1 */
     font-size  : 1em;
     /* 2 */
@@ -1414,9 +1406,9 @@ a.newer-posts:hover {
 }
 
 .tag-highlight {
-    text-decoration : underline !important;
-    color           : white !important;
-    background-color: #263959 !important;
+    text-decoration: underline !important;
+color          : white  !important;
+background-color: #263959 !important;
 }
 
 .tags {
