@@ -26,7 +26,18 @@ permalink: /search/
             for (const idx in resJson) {
                 let article = resJson[idx];
                 if (article.title.toLowerCase().includes(searchTxt) ||
-                    article.description.toLowerCase().includes(searchTxt)) {
+                    article.description.toLowerCase().includes(searchTxt) ||
+                    article.tags.toLowerCase().includes(searchTxt)) {
+                    let tags = article.tags.split(",");
+                    let tagHtml =  "";
+                    for(let idx = 0; idx < tags.length; idx++) {
+                        const tag = tags[idx];
+                        tagHtml += `
+                        <span class="post-tag">
+                            <a href="/tags#${tag}">#${tag}</a>
+                        </span>
+                        `
+                    }
                     searchResultTemplate += `
                         <div class="search-result-card">
                             <div>
@@ -40,6 +51,9 @@ permalink: /search/
                             <p class="search-result-desc">
                                 ${article.description.substring(0, 100)}...
                             </p>
+                            <div style="margin-bottom: .5em;">
+                                ${tagHtml}
+                            </div>
                         </div>
                     `;
                 }
