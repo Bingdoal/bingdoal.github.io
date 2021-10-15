@@ -24,13 +24,11 @@ permalink: /search/
         {% endfor %}
     ]`);
     function startSearch(event) {
-        let url = "{{site.baseurl}}/search.json";
         let inputTxt = event.target.value.toLowerCase().trim();
         if (inputTxt == "" || inputTxt == null) {
             return;
         }
         let searchTxts = inputTxt.split(" ");
-
         let articles = allArticle;
         let searchResultTemplate = "";
         let searchedArticle = [];
@@ -68,10 +66,10 @@ permalink: /search/
         let tags = article.tags.split(",");
         let tagHtml = "";
         for (let idx = 0; idx < tags.length; idx++) {
-            const tag = tags[idx];
+            const tag = tags[idx].trim();
             tagHtml += `
                 <span class="post-tag">
-                    <a href="/tags#${tag.trim()}">#${tag}</a>
+                    <a href="/tags#${tag}">#${tag}</a>
                 </span>`;
         }
 
