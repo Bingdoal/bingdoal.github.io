@@ -15,49 +15,35 @@ permalink: /search/
 <script>
     function startSearch(event) {
         let url = "{{site.baseurl}}/search.json";
-        let searchTxt = event.target.value.toLowerCase();
-        if (searchTxt.trim() == "" || searchTxt == null) {
+        let inputTxt = event.target.value.toLowerCase();
+        if (inputTxt.trim() == "" || inputTxt == null) {
             return;
         }
+        let searchTxts = inputTxt.split(" ");
         fetch(url).then((res) => {
             return res.json();
         }).then((resJson) => {
+            let articles = resJson;
             let searchResultTemplate = "";
-            for (const idx in resJson) {
-                let article = resJson[idx];
-                if (article.title.toLowerCase().includes(searchTxt) ||
-                    article.description.toLowerCase().includes(searchTxt) ||
-                    article.tags.toLowerCase().includes(searchTxt)) {
-                    let tags = article.tags.split(",");
-                    let tagHtml = "";
-                    for (let idx = 0; idx < tags.length; idx++) {
-                        const tag = tags[idx];
-                        tagHtml += `
-                        <span class="post-tag">
-                            <a href="/tags#${tag.trim()}">#${tag}</a>
-                        </span>
-                        `
+            let searchedArticle = [];
+            for (let j = 0; j < searchTxts.length; j++) {
+                searchedArticle = [];
+                for (const idx in articles) {
+                    let article = articles[idx];
+                    const searchTxt = searchTxts[j];
+                    if (article.title.toLowerCase().includes(searchTxt) ||
+                        article.description.toLowerCase().includes(searchTxt) ||
+                        article.tags.toLowerCase().includes(searchTxt)) {
+                            searchedArticle.push(article);
                     }
-                    searchResultTemplate += `
-                        <div class="search-result-card">
-                            <div>
-                                <a class="search-result-title" href="${article.url}">
-                                    ${article.title}
-                                </a>
-                            </div>
-                            <div class="search-result-date">
-                                <span>${article.date}</span>
-                            </div>
-                            <p class="search-result-desc">
-                                ${article.description.substring(0, 100)}...
-                            </p>
-                            <div style="margin-bottom: .5em;">
-                                ${tagHtml}
-                            </div>
-                        </div>
-                    `;
                 }
+                articles = searchedArticle;
             }
+            for (let i = 0; i < searchedArticle.length; i++) {
+                const article = searchedArticle[i];
+                searchResultTemplate+= getArticleCardHtml(article);
+            }
+
             let searchResultDiv = document.querySelector("#search-result-div");
             if (searchResultTemplate != "") {
                 searchResultDiv.innerHTML = searchResultTemplate;
@@ -71,5 +57,35 @@ permalink: /search/
         }).catch((err) => {
             console.error(err);
         })
+    }
+
+    function getArticleCardHtml(article) {
+        let tags = article.tags.split(",");
+        let tagHtml = "";
+        for (let idx = 0; idx < tags.length; idx++) {
+            const tag = tags[idx];
+            tagHtml += `
+                <span class="post-tag">
+                    <a href="/tags#${tag.trim()}">#${tag}</a>
+                </span>`;
+        }
+
+        return `
+        <div class="search-result-card">
+            <div>
+                <a class="search-result-title" href="${article.url}">
+                    ${article.title}
+                </a>
+            </div>
+            <div class="search-result-date">
+                <span>${article.date}</span>
+            </div>
+            <p class="search-result-desc">
+                ${article.description.substring(0, 100)}...
+            </p>
+            <div style="margin-bottom: .5em;">
+                ${tagHtml}
+            </div>
+        </div>`;
     }
 </script>
