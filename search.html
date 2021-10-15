@@ -29,8 +29,8 @@ permalink: /search/
                     article.description.toLowerCase().includes(searchTxt) ||
                     article.tags.toLowerCase().includes(searchTxt)) {
                     let tags = article.tags.split(",");
-                    let tagHtml =  "";
-                    for(let idx = 0; idx < tags.length; idx++) {
+                    let tagHtml = "";
+                    for (let idx = 0; idx < tags.length; idx++) {
                         const tag = tags[idx];
                         tagHtml += `
                         <span class="post-tag">
@@ -58,9 +58,16 @@ permalink: /search/
                     `;
                 }
             }
-
             let searchResultDiv = document.querySelector("#search-result-div");
-            searchResultDiv.innerHTML = searchResultTemplate;
+            if (searchResultTemplate != "") {
+                searchResultDiv.innerHTML = searchResultTemplate;
+            } else {
+                searchResultDiv.innerHTML = `
+                    <div style="font-weight: bolder;font-size: x-large;text-align: center;">
+                        查無結果
+                    </div>
+                `;
+            }
         }).catch((err) => {
             console.error(err);
         })
