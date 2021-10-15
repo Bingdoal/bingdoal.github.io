@@ -7,10 +7,14 @@
  *    IE on Windows Phone and in iOS.
  */
 * {
-    font-family: Microsoft JhengHei;
+    font-family: "Helvetica",
+        "Arial",
+        "LiHei Pro",
+        "Microsoft JhengHei",
+        sans-serif;
 }
 
- html {
+html {
     line-height             : 1.15;
     /* 1 */
     -ms-text-size-adjust    : 100%;
@@ -1853,7 +1857,7 @@ table>tbody>tr:hover {
     border       : gray solid 2px;
     border-radius: 10px;
     padding      : .2em .5em .2em .5em;
-    align-items: center;
+    align-items  : center;
     display      : flex;
 }
 
@@ -1869,7 +1873,7 @@ table>tbody>tr:hover {
     flex-direction: column;
 }
 
-#search-result-div .post-tag{
+#search-result-div .post-tag {
     font-size: x-small;
 }
 
