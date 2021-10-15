@@ -21,7 +21,8 @@ permalink: /tags/
         <li>
             {% assign tagName = this_word | strip %}
             <a class="tag" href="#{{ tagName | escape }}">
-                {{ tagName }}<span>({{ site.tags[tagName].size}})</span>
+                {{ tagName }}
+                <span>({{ site.tags[tagName].size}})</span>
             </a>
         </li>
         {% endfor %}
@@ -30,7 +31,7 @@ permalink: /tags/
     {% for this_word in tag_words %}
     {% assign tagName = this_word | strip %}
     <div id="{{ tagName | escape }}" class="tag-list-div" style="display: none;">
-        <h2>{{ tagName }}</h2>
+        <h2>{{ tagName | upcase }}</h2>
         <!--  lists all posts corresponding to specific tag...-->
         {% for post in site.tags[tagName] %}
         {% if post.title != null %}
@@ -62,11 +63,11 @@ permalink: /tags/
         if (hrefArray.length < 1)
             return;
 
-        let hashId = decodeURIComponent(hrefArray[1]);
+        let hashId = decodeURIComponent(hrefArray[1]).toLowerCase();
         let hrefEles = document.querySelectorAll("ul.tags a.tag");
         hrefEles.forEach((href) => {
             let title = href.textContent.trim();
-            title = title.split("(")[0];
+            title = title.split("(")[0].toLowerCase().trim();
             if (title == hashId) {
                 href.className = "tag tag-highlight";
             } else {
