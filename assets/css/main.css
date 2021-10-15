@@ -1414,8 +1414,9 @@ a.newer-posts:hover {
 }
 
 .tag-highlight {
-    background-color: rgb(252, 129, 28) !important;
+    text-decoration : underline !important;
     color           : white !important;
+    background-color: #263959 !important;
 }
 
 .tags {
