@@ -1,0 +1,54 @@
+---
+layout: main
+title: Search
+permalink: /search/
+---
+<section class="search-section">
+    <h1>Search: </h1>
+    <div id="search-input">
+        <i class="fas fa-search"></i>
+        <input type="text" onchange="startSearch(event)">
+    </div>
+    <hr>
+    <div id="search-result-div"></div>
+</section>
+<script>
+    function startSearch(event) {
+        let url = "{{site.baseurl}}/search.json";
+        let searchTxt = event.target.value.toLowerCase();
+        if (searchTxt.trim() == "" || searchTxt == null) {
+            return;
+        }
+        fetch(url).then((res) => {
+            return res.json();
+        }).then((resJson) => {
+            let searchResultTemplate = "";
+            for (const idx in resJson) {
+                let article = resJson[idx];
+                if (article.title.toLowerCase().includes(searchTxt) ||
+                    article.description.toLowerCase().includes(searchTxt)) {
+                    searchResultTemplate += `
+                        <div class="search-result-card">
+                            <div>
+                                <a class="search-result-title" href="${article.url}">
+                                    ${article.title}
+                                </a>
+                            </div>
+                            <div class="search-result-date">
+                                <span>${article.date}</span>
+                            </div>
+                            <p class="search-result-desc">
+                                ${article.description.substring(0, 100)}...
+                            </p>
+                        </div>
+                    `;
+                }
+            }
+
+            let searchResultDiv = document.querySelector("#search-result-div");
+            searchResultDiv.innerHTML = searchResultTemplate;
+        }).catch((err) => {
+            console.error(err);
+        })
+    }
+</script>
