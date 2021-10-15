@@ -5,7 +5,7 @@ category: dev-tools
 img: cover/git.png
 description: 最近因為工作，還有架設部落格的關係，才又開始頻繁接觸使用 Git，想把最近的一些使用上的心得，還有一些設定，紀錄也分享一下，方便以後回顧
 layout: post
-tags: [git,dev tools]
+tags: [git,dev-tools]
 ---
 
 {{page.description}}

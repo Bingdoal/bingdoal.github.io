@@ -5,7 +5,7 @@ category: dev-tools
 img: cover/cmder.png
 description: 開發工作中經常會需要使用到 cmd 來進行操作，但 windows 的 cmd、PowerShell 都不是太美觀，操作上也沒有很順手，通常都是為了用某些工具才會打開來用，今天就來用看看這個功能強大的 command line 工具 cmder，用過之後甚至可以都在 command line 上面做操作就像在 linux 一樣
 layout: post
-tags: [dev tools, cmder]
+tags: [dev-tools, cmder]
 ---
 
 {{page.description}}

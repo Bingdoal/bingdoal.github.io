@@ -5,7 +5,7 @@ category: dev-tools
 img: cover/git.png
 description: 常常在 GUI 上操作還原某段或是某個檔案的內容，但始終不知道背後的 git 是怎麼運作的，今天試著來研究並記錄一下實際的指令操作
 layout: post
-tags: [git,dev tools]
+tags: [git,dev-tools]
 ---
 
 {{page.description}}

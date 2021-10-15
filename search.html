@@ -34,7 +34,7 @@ permalink: /search/
                         const tag = tags[idx];
                         tagHtml += `
                         <span class="post-tag">
-                            <a href="/tags#${tag}">#${tag}</a>
+                            <a href="/tags#${tag.trim()}">#${tag}</a>
                         </span>
                         `
                     }
