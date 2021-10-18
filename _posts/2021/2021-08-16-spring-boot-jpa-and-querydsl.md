@@ -191,7 +191,8 @@ $ curl --request GET http://localhost:8080/v1/user?name=test
 ```bash
 $ curl --request GET http://localhost:8080/v1/user?name=test&page=1&size=10
 ```
+---
 
-# 結語
+## 結語
 
 能夠自動組建 filter 的語句真的十分強大，以往都要手動去解析 filter 的參數，這真的是福音，讓後端撰寫上更加快速且易於維護，能夠用類別方法去組件查詢語句也是很強大的功能，能夠處理複雜操作卻又不會不易維護

@@ -85,6 +85,6 @@ spec:
     persistentVolumeClaim:
       claimName: pvc-test
 ```
-
-# 結語
+---
+## 結語
 其實會發現 PVC 的內容很少，好像沒有必要特別抽離出來管理，主要應該是在使用雲端儲存空間時，有很多的設定細節才能體現出 PVC 的優點，不過 PV 的好處就顯而易見了，可以管理 Volume 的使用上限還有刪除 Volume 的策略

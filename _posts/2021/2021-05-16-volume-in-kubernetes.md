@@ -121,6 +121,7 @@ spec:
 
 分別在各個平台上都有各自的 Volume Type，K8s 這方面的支援也真的是很到位，不過目前筆者還沒有用到雲端儲存空間的經驗這邊就不細談了
 
-## 結論
+---
+## 結語
 
 此篇簡單講解 k8s 的 Volume 在 Pod 上的設定還有種類，下次預計會介紹下 `Persistent Volumes (PV)` 和 `Persistent Volume Claims (PVC)`，更完整得補完 K8s 在資料保存方面的機制

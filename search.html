@@ -14,12 +14,12 @@ permalink: /search/
 </section>
 <script>
     var allArticle = JSON.parse(`[
-        {% for post in site.posts %}{
+        {% for post in site.posts %} {
             "title": "{{ post.title | escape }}",
-                "tags": "{{ post.tags | join: ', ' }}",
-                    "url": "{{ site.url }}{{ post.url }}",
-                        "description": "{{ post.description }}",
-                            "date": "{{ post.date | date: '%d %b %Y' }}"
+            "tags": "{{ post.tags | join: ', ' }}",
+            "url": "{{ site.url }}{{ post.url }}",
+            "description": "{{ post.description | truncate: 100 }}",
+            "date": "{{ post.date | date: '%d %b %Y' }}"
         } {% unless forloop.last %}, {% endunless %}
         {% endfor %}
     ]`);
@@ -84,7 +84,7 @@ permalink: /search/
                 <span>${article.date}</span>
             </div>
             <p class="search-result-desc">
-                ${article.description.substring(0, 100)}...
+                ${article.description}...
             </p>
             <div style="margin-bottom: .5em;">
                 ${tagHtml}

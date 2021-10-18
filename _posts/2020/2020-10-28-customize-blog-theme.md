@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "客製化自己的 blog 主題與樣式"
+title:  "客製化自己的 blog，Liquid 語法簡介"
 date:   2020-10-28 14:55:00 +0800
 category: blog
 img: cover/jekyll-github.png

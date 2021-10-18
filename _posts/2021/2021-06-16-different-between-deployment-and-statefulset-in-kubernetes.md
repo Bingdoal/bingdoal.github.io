@@ -76,5 +76,7 @@ spec:
 ### Pod
 從上面 Scale in 的策略可以看出來 StatefulSet 的 Pod 在刪除或更新時會等到前一個 Pod 完全停止才啟動新的 Pod，而不會像 Deployment 會在同止 Pod 的同時啟動新的 Pod
 
+---
+
 ## 結語
 簡單說的話，只要是需要儲存狀態的服務，都比較建議使用 StatefulSet，像是資料庫類的服務，比較可以確保資料的穩定性
