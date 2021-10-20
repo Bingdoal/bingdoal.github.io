@@ -175,6 +175,10 @@
         <loc>https://bingdoal.github.io/blog/2021/10/search-article-in-jekyll-git-page-site/</loc>
         <lastmod>2021-10-18</lastmod>
     </url>
+    <url>
+        <loc>https://bingdoal.github.io/backend/2021/10/spring-boot-validate-request-body/</loc>
+        <lastmod>2021-10-20</lastmod>
+    </url>
     <!-- category -->
     <url>
         <loc>https://bingdoal.github.io/category/dev-tools</loc>
