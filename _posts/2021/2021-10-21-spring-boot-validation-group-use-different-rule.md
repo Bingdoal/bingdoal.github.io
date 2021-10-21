@@ -46,7 +46,7 @@ public void createUser(@RequestBody @Validated(UserDto.Create.class) UserDto use
 
 @PutMapping("/{userId}")
 @ResponseStatus(HttpStatus.NO_CONTENT)
-public void modifyUser(@PathVariable("userId") Long userId, @RequestBody @Validated(UserDto.Update.class) UserDto userDuo) throws StatusException {
+public void modifyUser(@PathVariable("userId") Long userId, @RequestBody @Validated(UserDto.Update.class) UserDto userDuo) {
 }
 ```
 
