@@ -15,23 +15,12 @@ tags: [java, spring boot, validation, 踩雷紀錄]
 一樣按照前幾篇的例子來看，照以下寫法期望可以去驗證 List 中每個 UserDto 內的資料
 
 ```java
-@Data
-public class UserDto {
-    @NotBlank()
-    private String name;
-    @NotBlank()
-    private String password;
-    @Email()
-    private String email;
-}
-
 @RestController()
 @RequestMapping("/v1/user")
 public class UserController {
     @PostMapping("")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void createUsers(@RequestBody @Valid List<UserDto> dto) {
-        log.info("User: {}", dto);
     }
 }
 ```
@@ -49,7 +38,6 @@ public class UserController {
     @PostMapping("")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void createUsers(@RequestBody @Valid List<UserDto> dto) {
-        log.info("User: {}", dto);
     }
 }
 ```
@@ -65,7 +53,6 @@ public class UserController {
     @PostMapping("")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void createUsers(@RequestBody @Validated(UserDto.Update.class) List<UserDto> dto) {
-        log.info("User: {}", dto);
     }
 }
 ```
@@ -81,7 +68,6 @@ public class UserController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Validated(UserDto.Update.class)
     public void createUsers(@RequestBody @Valid List<UserDto> dto) {
-        log.info("User: {}", dto);
     }
 }
 ```
@@ -129,7 +115,6 @@ public class UserController {
     @PostMapping("")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void createUsers(@RequestBody @Valid ValidList<UserDto> dto) {
-        log.info("User: {}", dto);
     }
 }
 ```

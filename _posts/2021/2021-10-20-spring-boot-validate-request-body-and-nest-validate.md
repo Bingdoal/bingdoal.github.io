@@ -46,7 +46,6 @@ public class UserController {
     @PostMapping("")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void createUser(@RequestBody @Valid UserDto dto) {
-        log.info("User: {}", dto);
     }
 }
 ```
