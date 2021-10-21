@@ -176,8 +176,12 @@
         <lastmod>2021-10-18</lastmod>
     </url>
     <url>
-        <loc>https://bingdoal.github.io/backend/2021/10/spring-boot-validate-request-body/</loc>
+        <loc>https://bingdoal.github.io/backend/2021/10/spring-boot-validate-request-body-and-nest-validate/</loc>
         <lastmod>2021-10-20</lastmod>
+    </url>
+    <url>
+        <loc>https://bingdoal.github.io/backend/2021/10/spring-boot-validation-group-use-different-rule</loc>
+        <lastmod>2021-10-21</lastmod>
     </url>
     <!-- category -->
     <url>

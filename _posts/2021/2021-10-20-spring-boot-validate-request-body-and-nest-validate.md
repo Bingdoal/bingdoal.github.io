@@ -42,7 +42,7 @@ public class UserDto {
 }
 ```
 
-並且可以看到在這個類別的屬性上都加上了不同的 annotation 有各自不同的驗證意義，接著在傳入的 API 參數上加上 `@Valid` 的 annotation 就像下面所示，這樣在打這個 API 的時候就會根據設定去做參數的驗證
+並且可以看到在這個類別的屬性上都加上了不同的 annotation 有各自不同的驗證意義，接著在傳入的 API 參數上加上 `@Valid` 的 annotation 就像下面所示，這樣在打這個 API 的時候就會根據設定去做參數的驗證，如果驗證失敗就會拋出 `MethodArgumentNotValidException`
 
 ```java
 @RestController()
@@ -51,8 +51,52 @@ public class UserController {
     @PostMapping("")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void createUser(@RequestBody @Valid UserDto dto) {
-        log.info("User: {}",dto);
+        log.info("User: {}", dto);
     }
+}
+```
+
+特別的是 Validation 不只能夠用在 Controller，在一般的方法中也可以使用，這種情況下驗證失敗則會拋出 `ConstraintViolationException`
+
+```java
+@Validated
+@Service
+public class UserService {
+    public void testValid(@Valid UserDto dto){
+        log.info("User: {}", dto);
+    }
+}
+```
+
+## 巢狀驗證
+使用一陣子之後會發現，如果說今天的 dto 有兩層以上會沒辦法套入第二層的 Validation，以下面為例子，這樣的寫法沒辦法進行 `UserProperty` 的驗證
+
+```java
+@Data
+public class UserDto {
+    private UserProperty property;
+}
+
+@Data
+public class UserProperty {
+    @NotBlank()
+    private String name;
+    @NotBlank()
+    private String password;
+    @Size(max = 255, message = "Email 長度不得大於 255")
+    @Email(message = "Email 格式不正確")
+    private String email;
+}
+```
+
+寫法必須再加上，`@Valid` 驗證才會往下走，如果希望 property 一定要存在的話也可以加上 `@NotNull` 但不是必要的
+
+```java
+@Data
+public class UserDto {
+    @Valid
+    @NotNull
+    private UserProperty property;
 }
 ```
 
