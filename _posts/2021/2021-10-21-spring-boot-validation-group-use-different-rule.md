@@ -39,16 +39,15 @@ public class UserDto {
 設定完成之後呢只要在需驗證的參數前改用 `@Validated(UserDto.Create.class)` 這種形式去指定這次驗證的組別就可以了，需注意 `@Valid` 不具備帶入 group 的功能，只能用 `@Validate`，`@Validate` 本身也是 `@Valid` 的封裝，基本上功能是一樣的
 
 ```java
-    @PostMapping("")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void createUser(@RequestBody @Validated(UserDto.Create.class) UserDto userDco) {
-    }
+@PostMapping("")
+@ResponseStatus(HttpStatus.CREATED)
+public void createUser(@RequestBody @Validated(UserDto.Create.class) UserDto userDco){
+}
 
-    @PutMapping("/{userId}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void modifyUser(@PathVariable("userId") Long userId,
-                           @RequestBody @Validated(UserDto.Update.class) UserDto userDuo) throws StatusException {
-    }
+@PutMapping("/{userId}")
+@ResponseStatus(HttpStatus.NO_CONTENT)
+public void modifyUser(@PathVariable("userId") Long userId, @RequestBody @Validated(UserDto.Update.class) UserDto userDuo) throws StatusException {
+}
 ```
 
 ---
