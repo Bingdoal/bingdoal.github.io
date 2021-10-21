@@ -66,7 +66,7 @@ public class UserDto {
 @Data
 public class UserProperty{
     @NotBlank(groups = UserDto.Create.class)
-    @Size(max = 255, message = "{validation.user.name.length.max}")
+    @Size(max = 255)
     private String name;
 
     @NotBlank(groups = UserDto.Create.class)
@@ -74,7 +74,7 @@ public class UserProperty{
     private String password;
 
     @NotBlank(groups = UserDto.Create.class)
-    @Size(max = 255, message = "{validation.user.email.length.max}", groups={UserDto.Create.class, UserDto.Update.class})
+    @Size(max = 255, groups={UserDto.Create.class, UserDto.Update.class})
     @Email()
     private String email;
 }
