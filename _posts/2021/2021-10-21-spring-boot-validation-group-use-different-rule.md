@@ -6,7 +6,7 @@ category: backend
 img: cover/spring-boot.jpg
 description: 上篇介紹到 spring boot 簡單好用的參數驗證機制，但一般 API 常會分成 Create 跟 Update 兩種功能，兩種功能提供的參數大致上都會相同但會有一些驗證上的差異，如果要為了分開驗證去多寫一個類別也稍嫌有點麻煩且不好維護，所以 Validation 就提供了分組驗證的機制，下面介紹一下要如何來使用
 lang: zh-TW
-tags: [java, spring boot]
+tags: [java, spring boot, validation]
 ---
 
 {{page.description}}
