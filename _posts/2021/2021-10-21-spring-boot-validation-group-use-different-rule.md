@@ -50,6 +50,45 @@ public void modifyUser(@PathVariable("userId") Long userId, @RequestBody @Valida
 }
 ```
 
+## 巢狀驗證
+如同上篇也有提到的巢狀驗證，如果在分組的情況下巢狀驗證該怎麼進行呢，其實完全一樣，不需更改任何地方，只要加上 `@Valid` 就好，也許在嘗試的時候會發現 `@Validated` 其實是不允許被寫在 class 的 field 層的所以也只能用 `@Valid` 來標記
+
+```java
+@Data
+public class UserDto {
+    @Valid
+    private UserProperty property;
+
+    public interface Create{}
+    public interface Update{}
+}
+
+@Data
+public class UserProperty{
+    @NotBlank(groups = UserDto.Create.class)
+    @Size(max = 255, message = "{validation.user.name.length.max}")
+    private String name;
+
+    @NotBlank(groups = UserDto.Create.class)
+    @Null(groups = Update.class)
+    private String password;
+
+    @NotBlank(groups = UserDto.Create.class)
+    @Size(max = 255, message = "{validation.user.email.length.max}", groups={UserDto.Create.class, UserDto.Update.class})
+    @Email()
+    private String email;
+}
+```
+
+而當巢狀驗證設定好之後，從最外層傳入的 group 便會一路傳下去，到最後要驗證的屬性就會按照該 group 去做驗證，不過必須注意設定的 group 一定要是同一個來源，使用上其實相當直覺
+
+```java
+@PostMapping("")
+@ResponseStatus(HttpStatus.CREATED)
+public void createUser(@RequestBody @Validated(UserDto.Create.class) UserDto userDco){
+}
+```
+
 ---
 
 ## 結語

@@ -89,7 +89,7 @@ public class UserProperty {
 }
 ```
 
-寫法必須再加上，`@Valid` 驗證才會往下走，如果希望 property 一定要存在的話也可以加上 `@NotNull` 但不是必要的
+解法其實也很簡單，寫法再加上，`@Valid` 驗證就會往下走，而如果希望 property 一定要存在的話也可以加上 `@NotNull` 但不是必要的
 
 ```java
 @Data
