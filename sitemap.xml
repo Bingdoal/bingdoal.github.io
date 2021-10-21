@@ -1,3 +1,7 @@
+---
+layout: null
+---
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -18,175 +22,21 @@
         <loc>https://bingdoal.github.io/page/4/</loc>
         <lastmod>2021-04-27</lastmod>
     </url>
+    <url>
+        <loc>https://bingdoal.github.io/page/5/</loc>
+        <lastmod>2021-10-21</lastmod>
+    </url>
+    <url>
+        <loc>https://bingdoal.github.io/page/6/</loc>
+        <lastmod>2021-10-21</lastmod>
+    </url>
     <!-- post -->
+    {% for post in site.posts %}
     <url>
-        <loc>https://bingdoal.github.io/dev-tools/2021/01/best-java-ide-intellij/</loc>
-        <lastmod>2020-01-14</lastmod>
+        <loc>{{ site.url }}{{ post.url }}</loc>
+        <lastmod>{{ post.date | date: '%Y-%m-%d' }}</lastmod>
     </url>
-    <url>
-        <loc>https://bingdoal.github.io/deploy/2021/01/docker-container-store-data-at-local/</loc>
-        <lastmod>2020-01-14</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/blog/2020/10/use-jekyll-on-gitpage/</loc>
-        <lastmod>2020-12-28</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/backend/2020/10/spring-boot-begining/</loc>
-        <lastmod>2020-12-28</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/blog/2020/10/customize-blog-theme/</loc>
-        <lastmod>2020-12-28</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/blog/2020/10/category-archive-in-blog/</loc>
-        <lastmod>2020-12-28</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/dev-tools/2020/10/something-about-git/</loc>
-        <lastmod>2020-12-28</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/deploy/2020/11/docker-beginning/</loc>
-        <lastmod>2020-12-28</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/dev-tools/2020/11/git-for-recover-file/</loc>
-        <lastmod>2020-12-28</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/dev-tools/2020/11/cmd-like-on-linux/</loc>
-        <lastmod>2020-12-28</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/backend/2020/11/spring-scheduled-and-cron-expression/</loc>
-        <lastmod>2020-12-28</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/test/2020/11/powerful-test-tool-jmeter/</loc>
-        <lastmod>2020-12-28</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/backend/2020/11/aop-and-point-cut-in-spring-boot/</loc>
-        <lastmod>2020-12-28</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/test/2020/12/jmeter-json-extractor/</loc>
-        <lastmod>2020-12-28</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/deploy/2020/12/docker-composer/</loc>
-        <lastmod>2020-12-28</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/deploy/2021/01/docker-container-store-data-at-local/</loc>
-        <lastmod>2021-02-24</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/dev-tools/2021/01/best-java-ide-intellij/</loc>
-        <lastmod>2021-02-24</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/deploy/2021/01/build-maven-repo-on-github/</loc>
-        <lastmod>2021-02-24</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/deploy/2021/02/kubernetes-beginning/</loc>
-        <lastmod>2021-02-24</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/deploy/2021/02/docker-run-in-background-not-allow-tty/</loc>
-        <lastmod>2021-02-24</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/deploy/2021/02/use-ssh-connect-on-docker-container/</loc>
-        <lastmod>2021-03-05</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/others/2021/03/linux-run-in-background/</loc>
-        <lastmod>2021-03-05</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/others/2021/03/java-ftp-passive-and-active-mode/</loc>
-        <lastmod>2021-03-19</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/others/2021/03/edit-the-right-click-contextmenu-of-windows-with-regedit/</loc>
-        <lastmod>2021-03-19</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/others/2021/04/java-read-file-in-jar/</loc>
-        <lastmod>2021-04-27</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/others/2021/04/crontab-on-linux/</loc>
-        <lastmod>2021-04-27</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/others/2021/04/crontab-on-docker-container/</loc>
-        <lastmod>2021-04-27</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/deploy/2021/05/volume-in-kubernetes/</loc>
-        <lastmod>2021-06-24</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/deploy/2021/05/pv-and-pvc-in-kubernetes/</loc>
-        <lastmod>2021-06-24</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/deploy/2021/06/different-between-deployment-and-statefulset-in-kubernetes/</loc>
-        <lastmod>2021-06-24</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/deploy/2021/06/configmap-and-secret-in-kubernetes/</loc>
-        <lastmod>2021-06-24</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/linux/2021/07/shell-script-on-linux/</loc>
-        <lastmod>2021-07-23</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/linux/2021/07/linux-string-manipulation-and-output-proccessing-command/</loc>
-        <lastmod>2021-07-23</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/linux/2021/07/shell-script-read-file-and-csv/</loc>
-        <lastmod>2021-07-23</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/linux/2021/07/vim-usual-operation/</loc>
-        <lastmod>2021-07-27</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/dev-tools/2021/07/git-push-large-file-to-remote-error/</loc>
-        <lastmod>2021-07-29</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/backend/2021/08/spring-boot-jpa-and-querydsl/</loc>
-        <lastmod>2021-10-14</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/dev-tools/2021/08/git-multiple-ssh-key-for-different-account/</loc>
-        <lastmod>2021-10-14</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/blog/2021/10/search-article-in-jekyll-git-page-site/</loc>
-        <lastmod>2021-10-18</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/backend/2021/10/spring-boot-validate-request-body-and-nest-validate/</loc>
-        <lastmod>2021-10-20</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/backend/2021/10/spring-boot-validation-group-use-different-rule</loc>
-        <lastmod>2021-10-21</lastmod>
-    </url>
-    <url>
-        <loc>https://bingdoal.github.io/backend/2021/10/spring-boot-validate-list-and-set-type</loc>
-        <lastmod>2021-10-21</lastmod>
-    </url>
+    {% endfor %}
     <!-- category -->
     <url>
         <loc>https://bingdoal.github.io/category/dev-tools</loc>
@@ -227,7 +77,7 @@
         <lastmod>2020-12-28</lastmod>
     </url>
     <url>
-        <loc>https://bingdoal.github.io/search</loc>
+        <loc>https://bingdoal.github.io/search/</loc>
         <lastmod>2021-10-15</lastmod>
     </url>
 </urlset>
