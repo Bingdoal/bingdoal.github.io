@@ -12,17 +12,12 @@ tags: [java, spring boot]
 {{page.description}}
 
 ## 引入依賴
-首先當然要先加入 validation 的相關依賴
+首先當然要先加入 validation 的相關依賴，非常簡單只有一個依賴
 
 ```xml
  <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-validation</artifactId>
-</dependency>
-<dependency>
-    <groupId>javax.validation</groupId>
-    <artifactId>validation-api</artifactId>
-    <version>2.0.1.Final</version>
 </dependency>
 ```
 
