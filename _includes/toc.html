@@ -1,0 +1,24 @@
+<div>
+    <div id="article-toc">
+    </div>
+</div>
+<script>
+    window.onload = getTocMap;
+    function getTocMap() {
+        let titles = document.querySelectorAll("h1,h2,h3,h4");
+        let tocDiv = document.querySelector("#article-toc");
+        let firstLevel = Number(titles[0].tagName[1]);
+        let toc = "";
+        titles.forEach((title) => {
+            if (title.id != undefined && title.id != null && title.id != "") {
+                let level = Number(title.tagName[1]);
+                let spaceLevel = level - firstLevel;
+                for (let i = 0; i < spaceLevel; i++) {
+                    toc += "\t";
+                }
+                toc += title.textContent + "#" + title.id + "\n";
+            }
+        });
+        console.log(toc);
+    }
+</script>
