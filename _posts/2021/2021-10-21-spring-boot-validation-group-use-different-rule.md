@@ -50,6 +50,22 @@ public void modifyUser(@PathVariable("userId") Long userId, @RequestBody @Valida
 }
 ```
 
+## 預設組別驗證
+在上面的例子中會發現 `@Email` 跟 `@Size` 是沒有被設定組別的，預想情況應該是每個組別都會去執行驗證，但實際測試後就會發現其實是都不執行，對於 Validation 的機制來說他們其實都屬於一個 `Default` 的組別，所以這邊我們可以做點更改
+
+```java
+@Data
+public class UserDto {
+    ...
+
+    public interface Create extend Default{}
+    public interface Update extend Default{}
+}
+```
+
+讓用來分組的 interface 去繼承 `Default`，就能讓這些組別去套用預設沒有被分組的 annotation
+
+
 ## 巢狀驗證
 如同上篇也有提到的巢狀驗證，如果在分組的情況下巢狀驗證該怎麼進行呢，其實完全一樣，不需更改任何地方，只要加上 `@Valid` 就好，也許在嘗試的時候會發現 `@Validated` 其實是不允許被寫在 class 的 field 層的所以也只能用 `@Valid` 來標記
 
