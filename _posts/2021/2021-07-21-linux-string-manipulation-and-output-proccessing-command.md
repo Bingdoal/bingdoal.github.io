@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux 上的字串以及命令輸出處理
+title: Linux 上的字串以及命令輸出處理 grep、awk、xargs、sed
 date: 2021-07-21 10:16:00 +0800
 category: linux
 img: cover/bash.jpg
@@ -75,7 +75,7 @@ cat test.log | grep -P 10 "E\w+R" # 用 regex 來搜尋字串
 cat test.log | grep -n "ERROR" # 輸出內容時帶上行數
 cat test.log | grep -i "ERROR" # 不分大小寫比對
 cat test.log | grep -v "ERROR" # 反向操作，不輸出匹配到的內容
-cat test.log | grep --color=always 10 "ERROR" # 把匹配到的內容上色，方便觀看
+cat test.log | grep --color=always "ERROR" # 把匹配到的內容上色，方便觀看
 ```
 
 以上的參數操作都是可以混用的
