@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kubernetes 初戰(一) 基本單元 Pod、Node、Service、Deployment
+title: "Kubernetes 初戰(一) 基本單元 Pod、Node、Service、Deployment"
 date: 2021-02-10 18:28:07 +0800
 category: deploy
 img: cover/kubernetes.png

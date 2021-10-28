@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux 環境下在背景執行程式
+title: "Linux 環境下在背景執行程式"
 date: 2021-03-03 17:28:41 +0800
 category: linux
 img: cover/linux.png

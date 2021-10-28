@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 在 github 上建立自己的 maven repo
+title: "在 Github 上建立自己的 Maven Repo"
 date: 2021-01-22 15:17:44 +0800
 category: deploy
 img: cover/maven.jpg

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 在用 Jekyll 架的 Git page 中實現搜尋功能
+title: "在用 Jekyll 架的 Git page 中實現搜尋功能"
 date: 2021-10-18 09:35:45 +0800
 category: blog
 img: cover/jekyll-github.png

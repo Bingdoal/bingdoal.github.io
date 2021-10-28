@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Vim 的常用操作
+title: "Vim 的常用操作"
 date: 2021-07-27 09:55:24 +0800
 category: dev-tools
 img: cover/vim.png

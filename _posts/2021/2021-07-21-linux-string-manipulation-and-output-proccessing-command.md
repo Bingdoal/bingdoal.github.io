@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux 上的字串以及命令輸出處理 grep、awk、xargs、sed
+title: "Linux 上的字串以及命令輸出處理 grep、awk、xargs、sed"
 date: 2021-07-21 10:16:00 +0800
 category: linux
 img: cover/bash.jpg

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 最好的 Java IDE --- Intellij
+title: "最好的 Java IDE --- Intellij"
 date: 2021-01-14 17:24:50 +0800
 category: dev-tools
 img: cover/intellij.png

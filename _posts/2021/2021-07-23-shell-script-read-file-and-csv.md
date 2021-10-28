@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shell script 讀取檔案並解析類 csv 格式
+title: "Shell script 讀取檔案並解析類 csv 格式"
 date: 2021-07-23 15:14:31 +0800
 category: linux
 img: cover/bash.jpg

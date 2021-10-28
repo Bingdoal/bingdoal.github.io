@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux Shell Script 初學
+title: "Linux Shell Script 初學"
 date: 2021-07-20 11:02:51 +0800
 category: linux
 img: cover/bash.jpg

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[踩雷紀錄] git 無法推送大型檔案至 repo"
+title: "[踩雷紀錄] Git 無法推送大型檔案至 repo"
 date: 2021-07-28 16:48:11 +0800
 category: dev-tools
 img: cover/git.png

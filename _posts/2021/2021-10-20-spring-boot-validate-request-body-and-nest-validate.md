@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring boot Validation 參數驗證機制
+title: "Spring boot Validation 參數驗證機制"
 date: 2021-10-20 15:29:01 +0800
 category: backend
 img: cover/spring-boot.jpg
