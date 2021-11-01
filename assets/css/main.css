@@ -467,8 +467,7 @@ code.highlighter-rouge {
 
 /* Comment */
 .highlight .err {
-    color           : #a00;
-    background-color: #faa;
+    color: #a00;
 }
 
 /* Error */
@@ -1406,9 +1405,9 @@ a.newer-posts:hover {
 }
 
 .tag-highlight {
-    text-decoration: underline !important;
-color          : white  !important;
-background-color: #263959 !important;
+    text-decoration : underline !important;
+    color           : white !important;
+    background-color: #263959 !important;
 }
 
 .tags {
