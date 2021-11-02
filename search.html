@@ -7,7 +7,7 @@ permalink: /search/
     <h1>Search: </h1>
     <div id="search-input">
         <i class="fas fa-search"></i>
-        <input type="text" onchange="startSearch(event)">
+        <input type="text" onkeyup="startSearch(event)">
     </div>
     <hr>
     <div id="search-result-div"></div>
@@ -25,7 +25,13 @@ permalink: /search/
     ]`);
     function startSearch(event) {
         let inputTxt = event.target.value.toLowerCase().trim();
-        if (inputTxt == "" || inputTxt == null) {
+        if (inputTxt == "" || inputTxt === null) {
+            let searchResultDiv = document.querySelector("#search-result-div");
+            searchResultDiv.innerHTML = `
+                    <div style="font-weight: bolder;font-size: x-large;text-align: center;">
+                        查無結果
+                    </div>
+                `;
             return;
         }
         let searchTxts = inputTxt.split(" ");
