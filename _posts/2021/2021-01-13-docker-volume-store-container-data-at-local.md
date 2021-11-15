@@ -17,14 +17,14 @@ tags: [docker, deploy]
 
 其實說穿了就是在 container 裡面建立一個與本地端連結的路徑，像是 windows 的分享資料夾的概念，以下就直接以實作來看看吧
 
-## 實作
-+ 建立一個 container 並指定本地端的 `C:/.volume` 與 container 的 `/storage` 連結
+## 建立 Container
++ 可以在建立一個 container 的時候一並指定本地端的 `C:/.volume` 與 container 的 `/storage` 連結
 
 ```
 docker run -it -v C:/.volume:/storage ubuntu:18.04 bin/bash
 ```
 
-+ 也可以不指定連結位置，docker 會自動產生鏈結的資料夾
++ 也可以不指定本地的連結位置，docker 會自動產生鏈結的資料夾
 
 ```
 docker run -it -v /storage ubuntu:18.04 bin/bash
@@ -43,6 +43,33 @@ docker inspect -f "{{range .Mounts}}{{.Source}}{{end}}" <container_id>
 ```
 VOLUME "C:/.volume" "/storage"
 ```
+
+## Volume
+
+或是也可以透過指令單獨操作 volume
+
+```sh
+docker volume create <volume-name>
+docker volume ls
+docker inspect <volume-name>
+docker rm <volume-name>
+```
+
+需指定 volume 的本機路徑時，可以寫成
+
+```bash
+docker volume create <volume-name> \
+    --driver local \
+    --opt type=btrfs \
+    --opt device=C:/.volume
+```
+
+啟動 Container 時把本地路徑替換成 volume 就可以了
+
+```sh
+docker run -it -v <volume-name>:/storage ubuntu:18.04 bin/bash
+```
+
 # 其他傳遞檔案的方法
 
 有時候只是臨時需要來回傳個檔案，在建立 container 的時候並沒有事先掛上 volume，那也可以透過下面的方式來做到檔案傳遞:
