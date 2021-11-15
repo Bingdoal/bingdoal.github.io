@@ -51,8 +51,9 @@ VOLUME "C:/.volume" "/storage"
 ```sh
 docker volume create <volume-name>
 docker volume ls
-docker inspect <volume-name>
-docker rm <volume-name>
+docker volume inspect <volume-name> # 查看 volume 細節
+docker volume rm <volume-name>
+docker volume prnue # 刪除所有沒用到的 volume
 ```
 
 需指定 volume 的本機路徑時，可以寫成
