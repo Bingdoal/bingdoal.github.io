@@ -61,7 +61,8 @@ docker volume prnue # 刪除所有沒用到的 volume
 ```bash
 docker volume create <volume-name> \
     --driver local \
-    --opt type=btrfs \
+    --opt type=none \
+    --opt o=bind \
     --opt device=C:/.volume
 ```
 
