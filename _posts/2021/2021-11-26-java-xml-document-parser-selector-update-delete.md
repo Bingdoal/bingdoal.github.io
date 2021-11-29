@@ -186,8 +186,8 @@ public Node removeChild(Node oldChild) throws DOMException;
 注意到方法的傳入參數是 `Node` 也就是說，在刪除之前必須先定位到想刪除的節點，因此操作上可能會像這樣
 
 ```java
-Element ele = doc.getElementsByTagName("user").item(0);
-doc.removeChild(ele);
+Node node = doc.getElementsByTagName("user").item(0);
+doc.removeChild(node);
 ```
 
 ---
