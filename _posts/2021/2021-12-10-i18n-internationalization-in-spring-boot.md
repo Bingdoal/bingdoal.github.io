@@ -103,12 +103,10 @@ if (userOption.isEmpty()) {
 public class I18nDto {
     private I18nDto(String key) {
         this.key = key;
-        this.locale = LocaleContextHolder.getLocale();
     }
 
     private String key;
     private List<String> args = new ArrayList<>();
-    private Locale locale;
 
     public static I18nDto key(String key) {
         return new I18nDto(key);
@@ -125,7 +123,7 @@ public class I18nDto {
     public String toString() {
         try {
             MessageSource messageSource = StaticApplicationContext.getBean(MessageSource.class);
-            return messageSource.getMessage(key, args.toArray(), locale);
+            return messageSource.getMessage(key, args.toArray(), LocaleContextHolder.getLocale());
         } catch (Exception ex) {
             log.warn("I18N toString: {}", ex.getMessage(), ex);
             return key;
