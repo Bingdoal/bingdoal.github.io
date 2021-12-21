@@ -63,4 +63,4 @@ tags: [踩雷紀錄, others]
 ![]({{site.baseurl}}/assets/img/control-snippets.png)
 
 
-這樣就又回到我們乾淨的寫作環境了，還可以享有客製化的 snippets，真是太舒服了
+這樣就又回到我們乾淨的寫作環境了，還可以享有客製化的 snippets，真是太舒服了     
