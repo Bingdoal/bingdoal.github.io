@@ -22,21 +22,11 @@ public class OnceFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest req,
                                     HttpServletResponse res,
                                     FilterChain chain) throws ServletException, IOException {
-        ContentCachingRequestWrapper reqWrapper = new ContentCachingRequestWrapper(req);
         final String queryString =
             req.getQueryString() == null ? "" : "?" + req.getQueryString();
 
         log.info("\t[Request] {} {}{}", req.getMethod(), req.getRequestURI(), queryString);
-        if (reqWrapper.getContentLength() > 0) {
-            log.info("\t[Request] Body: {}", new String(reqWrapper.getContentAsByteArray()));
-        }
-
         chain.doFilter(req, res);
-
-        ContentCachingResponseWrapper resWrapper = new ContentCachingResponseWrapper(res);
-        if (resWrapper.getContentSize() > 0) {
-            log.info("\t[Response] Body: {}", new String(resWrapper.getContentAsByteArray()));
-        }
     }
 }
 ```
@@ -44,8 +34,6 @@ public class OnceFilter extends OncePerRequestFilter {
 一般的 Filter 其實也可以透過 `Implements Filter` 來實作，而 Spring 多提供了一個 `OncePerRequestFilter` 用以確保每個 Request 只會經過一次
 
 而一個請求在多個 Filter 間串接起來就被稱為 `FilterChain`，`chain.doFilter` 就是指往下一個 Filter 前進，並且在那之後才收到 Response 的物件，在 `chain.doFilter` 執行之前 Response 是拿不到東西的
-
-並且由於 Servlet 容器不允許多次取得內容資訊，所以透過 `ContentCachingRequestWrapper` 讓我們能夠多次呼叫資料主體來取得 Request 以及 Response Body
 
 ## 註冊
 將上面的 Filter 完成後應該會發現實際上還沒有作用，Spring boot 的物件基本上都需要通過註冊成為 Bean 的過程來啟用，Filter 也不例外，下面介紹三種 Filter 註冊的方式
