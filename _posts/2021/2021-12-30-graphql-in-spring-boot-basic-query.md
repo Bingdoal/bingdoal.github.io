@@ -60,6 +60,8 @@ graphql:
     exception-handlers-enabled: true
   playground:
     enabled: false
+  voyager:
+    enabled: true
 ```
 
 ### 基本範例
@@ -102,6 +104,8 @@ public class UserQuery implements GraphQLQueryResolver {
 
 這邊 Spring boot 會自己去抓與 operation 對應的 method 名稱，這邊就是 `userList` 對應到 `getUserList`
 
+注意要寫上 `@Component` 這樣才會被註冊成 Spring boot 中的 Bean
+
 #### Graphiql
 啟動之後我們可以到 [http://localhost:8080/graphiql](http://localhost:8080/graphiql) 下會有一個簡單的 GraphQL 的互動介面，在這邊可以測試你的 GraphQL 有沒有正確運作，回傳是不是自己想要的
 
@@ -135,6 +139,13 @@ public class UserQuery implements GraphQLQueryResolver {
     [Disable Content-Security-Policy](https://chrome.google.com/webstore/detail/disable-content-security/ieelmcmcagommplceebfedjlakkhpden)
 
     顧名思義就是用來關掉 CSP 的但是他只會作用在當前的網頁上，並且可以隨時開關十分方便
+
+#### Voyager
+根據上面的 `application.yaml` 設定會發現還有一個 Voyager 功能被啟用，可以到 [http://localhost:8080/Voyager](http://localhost:8080/Voyager)
+
+![]({{site.baseurl}}/assets/img/voyager.png)
+
+會看到完整的 GraphQL Schema 關聯圖，一目瞭然非常容易理解，搭配上 Graphiql 基本上已經是很完整的文件跟測試平台了
 
 #### Resolver
 上面是 Query 一個簡單的結構，而當結構稍微複雜一點，像是關聯式資料庫常出現的外部關聯
