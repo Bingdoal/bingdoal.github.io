@@ -139,7 +139,8 @@ public class UserDaoService {
         return queryFactory
                 .selectFrom(QUser.user)
                 .where(
-                        QUser.user.name.eq(name).eq(QUser.user.password.eq(password))
+                        QUser.user.name.eq(name).and(
+                            QUser.user.password.eq(password))
                 ).fetchFirst();
     }
 }

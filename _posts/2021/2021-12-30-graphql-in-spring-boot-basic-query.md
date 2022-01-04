@@ -134,7 +134,7 @@ public class UserQuery implements GraphQLQueryResolver {
 + CSP(Content Security Policy) 政策無法渲染頁面
     這是用來阻擋一些不安全的前端寫法而設置的，而 Graphiql 的 UI 介面可能有一些 Legacy code，導致會發生這個問題
 
-    首先這個設定通常也是在 `WebSecurity` 設定的，那可以直接拿掉就好，但有些時候在安全性上是不能妥協的，另一種方式呢是直接去關掉瀏覽器的 CSP 設定，雖然可以用了但這樣一來瀏覽其他網站就會有安全上的疑慮，所以這邊我建議安裝一個 chrome 的 extension
+    首先這個設定通常也是在 `WebSecurity` 設定的，那可以直接拿掉就好，另一種方式呢是直接去關掉瀏覽器的 CSP 設定，雖然可以用了但這樣一來瀏覽其他網站就會有安全上的疑慮，所以這邊我建議安裝一個 chrome 的 extension
 
     [Disable Content-Security-Policy](https://chrome.google.com/webstore/detail/disable-content-security/ieelmcmcagommplceebfedjlakkhpden)
 
