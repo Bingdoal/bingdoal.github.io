@@ -115,7 +115,7 @@ public class UserQuery implements GraphQLQueryResolver {
 
 ![]({{site.baseurl}}/assets/img/graphiql-schema.png)
 
-不過我自己在時候的時候會有一些情況導致沒辦法看到 Graphiql 的頁面
+不過我自己在開發時候的時候會有遇到沒辦法看到 Graphiql 頁面的情況
 
 + 事先有設定 Spring boot 的 `WebSecurity` 機制，那可能會被攔下來沒辦法存取，這問題不大，只要修改一下權限就好了
 
