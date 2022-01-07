@@ -187,6 +187,26 @@ public LocalDateTime addOneDay(LocalDateTime dateTime) {
 
 ![]({{site.baseurl}}/assets/img/graphiql-scalar-type.png)
 
+
+而 `graphql-java-kickstart` 也有幫忙實作一些客製化的 Scalar Type，包含以下
+
+```
+BigDecimal, BigInteger, Byte, Char, Date , DateTime, JSON, Locale, Long, NegativeFloat, NegativeInt, NonNegativeFloat, NonNegativeInt , NonPositiveFloat, NonPositiveInt, Object, PositiveFloat, PositiveInt, Short, Time, Url
+```
+
+只要在 `application.yaml` 中加入設定並在 schema 中定義就可以啟用
+
+```xml
+graphql:
+  extended-scalars: BigDecimal, Date
+```
+
+```graphql
+scalar BigDecimal
+scalar Date
+```
+
+
 ---
 
 ## 結語
