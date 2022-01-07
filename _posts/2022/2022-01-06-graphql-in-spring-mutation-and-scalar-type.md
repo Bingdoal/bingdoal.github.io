@@ -12,6 +12,10 @@ published: true
 
 {{page.description}}
 
+
+沒看過前一篇的可以點這邊:
++ [GraphQL in Spring boot(一) 基本 Query 操作](https://bingdoal.github.io/backend/2021/12/graphql-in-spring-boot-basic-query/)
+
 ## Mutation
 上一篇提到 Query 是用來取得資料的，而 Mutation 就是負責資料的修改，包含新增、修改、刪除，其實沒什麼特別的就直接看到實作吧
 

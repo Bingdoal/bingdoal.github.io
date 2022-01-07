@@ -11,6 +11,11 @@ tags: [java, spring boot, validation]
 
 {{page.description}}
 
+沒看過前幾篇的可以點這邊:
++ [Spring boot Validation 參數驗證機制](https://bingdoal.github.io/backend/2021/10/spring-boot-validate-request-body-and-nest-validate/)
++ [Spring boot Validation 分組驗證功能](https://bingdoal.github.io/backend/2021/10/spring-boot-validation-group-use-different-rule/)
++ [[踩雷紀錄] Spring boot validation 無法驗證 List、Set](https://bingdoal.github.io/backend/2021/10/spring-boot-validate-list-and-set-type/)
+
 ## Annotation
 首先要先建立自己的驗證用 annotation，如下的寫法
 

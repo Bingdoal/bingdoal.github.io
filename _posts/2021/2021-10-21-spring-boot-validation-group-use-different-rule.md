@@ -11,6 +11,10 @@ tags: [java, spring boot, validation]
 
 {{page.description}}
 
+沒看過前幾篇的可以點這邊:
++ [Spring boot Validation 參數驗證機制](https://bingdoal.github.io/backend/2021/10/spring-boot-validate-request-body-and-nest-validate/)
++ [Spring boot Validation 分組驗證功能](https://bingdoal.github.io/backend/2021/10/spring-boot-validation-group-use-different-rule/)
+
 ## 分組驗證設定
 分組驗證上呢我們要先宣告幾個不同的 interface 來用作區別，作用有點像 Enum，然後在各個 annotation 中指定到 `groups` 的參數中，這樣就可以指定在該 group 的時候會去做這個驗證，也可以指定多個 group 給單一個 annotation
 
