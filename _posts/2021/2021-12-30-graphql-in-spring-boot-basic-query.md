@@ -225,6 +225,11 @@ public class PostResolver implements GraphQLResolver<Post> {
 
 其實概念上就有點像是 Getter 一樣，只不過要記得處理好沒有帶參數的時候
 
+在 Graphiql 上測試看看
+
+![]({{site.baseurl}}/assets/img/graphql-get-post-field-resolver.png)
+
+
 ---
 ## 結語
 
