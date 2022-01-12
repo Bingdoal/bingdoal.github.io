@@ -18,6 +18,8 @@ tags: [java, spring boot]
 ```java
 @Slf4j
 public class OnceFilter extends OncePerRequestFilter {
+
+
     @Override
     protected void doFilterInternal(HttpServletRequest req,
                                     HttpServletResponse res,
@@ -25,8 +27,9 @@ public class OnceFilter extends OncePerRequestFilter {
         final String queryString =
             req.getQueryString() == null ? "" : "?" + req.getQueryString();
 
-        log.info("\t[Request] {} {}{}", req.getMethod(), req.getRequestURI(), queryString);
+        log.info("[Request] {} {}{}", req.getMethod(), req.getRequestURI(), queryString);
         chain.doFilter(req, res);
+        log.info("[Response] Status: {}", res.getStatus());
     }
 }
 ```
@@ -87,3 +90,33 @@ public class OnceFilter extends OncePerRequestFilter {
     ...
 }
 ```
+
+## Exclude
+
+有時候不是想要設定需要的 URL，而是要設定不需要的 URL，這時候就要去 `Override` Filter 的 `shouldNotFilter`
+
+```java
+@Slf4j
+public class OnceFilter extends OncePerRequestFilter {
+
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String path = request.getRequestURI();
+        return "/health".equals(path);
+    }
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest req,
+                                    HttpServletResponse res,
+                                    FilterChain chain) throws ServletException, IOException {
+        final String queryString =
+            req.getQueryString() == null ? "" : "?" + req.getQueryString();
+
+        log.info("[Request] {} {}{}", req.getMethod(), req.getRequestURI(), queryString);
+        chain.doFilter(req, res);
+        log.info("[Response] Status: {}", res.getStatus());
+    }
+}
+```
+
+只要 `shouldNotFilter` 的 `return` 是 `true` 就不會經過這個 Filter，其實也可以用於其他判斷，可能對於不同的權限、地區限制不同的 URL 之類的
