@@ -9,11 +9,21 @@ tags: [spring boot, java, cron]
 ---
 
 {{page.description}}
+
 ## @Scheduled
 
 當需要用到週期性的執行某些任務的時候，就很適合使用 `@Scheduled` 可以看到下面的使用範例
 
 ```java
+@SpringBootApplication()
+@EnableScheduling
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+
+
 @Component
 class myTask{
     @Scheduled(fixedDelay = 10 * 1000, initialDelay= 10 * 1000)
@@ -28,7 +38,7 @@ class myTask{
 }
 ```
 
-首先一定要記得放上 `@Component`，Spring 才會把這個 class 註冊為 Bean
+首先一定要記得放上 `@Component`，Spring 才會把這個 class 註冊為 Bean，並且在 ` SpringApplication.run` 的類別加上 `@EnableScheduling` 才會啟用
 
 然後可以看到 `@Scheduled` 裡面有兩種寫法 `@Scheduled(fixedDelay = 10 * 1000, initialDelay= 10 * 1000)` 是單純用來執行週期性的任務，以這邊的設置為例的話就是每十秒執行一次，並且會在程式執行十秒後才開始
 
