@@ -37,4 +37,4 @@ OpenFlow 主要就是用來控制 OpenFlow Switch 中的各個元件，如圖中
 ---
 
 ## 結語
-由於 OpenFlow 各個元件希望可以搭配實作來做講解，這篇就簡單做個介紹而已，之後會針對 Flow Table、Group Table、Meter Table 各自寫一篇，實作上則是使用 Opendaylight 以及 Mininet 來進行
+由於 OpenFlow 各個元件希望可以搭配實作來做講解，這篇就簡單做個介紹而已，之後會針對 Flow Table、Group Table、Meter Table 各自寫一篇，實作上則是使用 OpenDaylight 以及 Mininet 來進行
