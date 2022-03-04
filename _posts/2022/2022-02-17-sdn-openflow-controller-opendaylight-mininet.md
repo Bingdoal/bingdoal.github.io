@@ -4,7 +4,7 @@ title: "OpenFlow 之路(二) 實作環境架設 OpenDaylight、Mininet"
 date: 2022-02-17 15:46:14 +0800
 category: network
 img: cover/openflow.jpg
-description: "本篇會使用 OpenDaylight 來作為 Controller，以 Mininet 模擬 Switch 網路拓樸環境，這篇先簡介一下使用到的工具以及環境的架設"
+description: "本篇會介紹開發用的工具，本篇使用 OpenDaylight 來作為 Controller 並以 Mininet 模擬 Switch 網路拓樸環境，這篇先簡介一下工具的環境架設以及基本用法"
 lang: zh-TW
 tags: [network, openflow, sdn]
 published: true
@@ -71,7 +71,7 @@ mininet>
 sudo mn -x
 ```
 
-可以簡單在 host 間互相 ping
+可以簡單在 host 間互相 ping 確認線路順暢
 
 ```bash
 mininet> h1 ping h2
@@ -122,12 +122,12 @@ opendaylight-user@root>
 `karaf` 提供一個互動式介面可以下指令來操作，首先為了操作 OpenFlow 的協定，要先安裝我們需要的 plugin
 
 ```bash
-opendaylight-user@root>feature:install odl-openflowplugin-flow-services-rest odl-openflowplugin-app-table-miss-enforcer odl-openflowplugin-nxm-extensions odl-mdsal-apidocs
+opendaylight-user@root>feature:install odl-openflowplugin-flow-services-rest odl-openflowplugin-app-table-miss-enforcer odl-openflowplugin-nxm-extensions odl-mdsal-apidocs odl-openflowplugin-app-topology-manager
 ```
 
 安裝完成後不會有任何提示，不過建議是先重啟 ODL 比較保險，輸入 `Ctrl+D` 或是 `logout` 可以關閉 `karaf`
 
-重啟之後前往 [http://localhost:8181/apidoc/explorer/index.html](http://localhost:8181/apidoc/explorer/index.html) 可以看到現有的 API，OpenFlow 的 API 很多可能要等久一點
+重啟之後前往 [http://localhost:8181/apidoc/explorer/index.html](http://localhost:8181/apidoc/explorer/index.html) 預設帳密是 admin/admin，可以看到現有的 API，OpenFlow 的 API 很多可能要等久一點
 
 之後的操作則會透過 RestConf 提供的北向接口來進行操作
 
