@@ -13,6 +13,7 @@ tags: [java, spring boot, validation, 踩雷紀錄]
 
 沒看過前一篇的可以點這邊:
 + [Spring boot Validation 參數驗證機制](https://bingdoal.github.io/backend/2021/10/spring-boot-validate-request-body-and-nest-validate/)
++ [Spring boot Validation 分組驗證功能](https://bingdoal.github.io/backend/2021/10/spring-boot-validation-group-use-different-rule/)
 
 ## 情境
 一樣按照前幾篇的例子來看，照以下寫法期望可以去驗證 List 中每個 UserDto 內的資料
