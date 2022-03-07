@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "OpenFlow 之路(一) SDN、OpenFlow 簡介"
+title: "OpenFlow 初學之路(一) SDN、OpenFlow 簡介"
 date: 2022-02-16 15:37:29 +0800
 category: network
 img: cover/openflow.jpg
-description: "最近因緣際會接觸到一些 SDN 相關的工作，難得有這個機會就把所學到的紀錄一下吧，先簡單介紹下 SDN 以及 Openflow 的內容，後續則主要紀錄實作內容"
+description: "最近因緣際會接觸到一些 SDN 相關的工作，難得有這個機會就把所學到的紀錄一下吧，先簡單介紹下 SDN 以及 Openflow 的內容，不過由於主要是在實作層面上去進行的，所以理論方面就不是這麼扎實了，也許以後有機會再補上，後續則主要紀錄實作內容"
 lang: zh-TW
 tags: [network, openflow, sdn]
 published: true

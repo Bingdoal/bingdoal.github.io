@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "OpenFlow 之路(三) Flow Table 基本設定與操作"
+title: "OpenFlow 初學之路(三) Flow Table 基本設定與操作"
 date: 2022-03-03 10:45:34 +0800
 category: network
 img: cover/openflow.jpg
@@ -12,7 +12,11 @@ published: true
 
 {{page.description}}
 
-# 拓樸環境建立
+沒看過前幾篇的可以點這邊:
++ [OpenFlow 初學之路(一) SDN、OpenFlow 簡介](https://bingdoal.github.io/network/2022/02/sdn-openflow-intro/)
++ [OpenFlow 初學之路(二) 實作環境架設 OpenDaylight、Mininet](https://bingdoal.github.io/network/2022/02/sdn-openflow-controller-opendaylight-mininet/)
+
+## 拓樸環境建立
 
 ```bash
 sudo mn --topo single,2 --mac --switch ovsk --controller remote,ip=192.168.xx.xxx,port=6633 -x --ar
@@ -28,9 +32,9 @@ sudo mn --topo single,2 --mac --switch ovsk --controller remote,ip=192.168.xx.xx
 mininet> h1 ping h2
 ```
 
-# ODL Controller
+## ODL Controller
 
-## 確認 Switch 連線資訊
+### 確認 Switch 連線資訊
 接著開啟 Opendaylight 確認一下 mininet 有沒有連上 controller，可以透過以下 API 查看當前的拓樸資訊
 
 ```json
@@ -100,7 +104,7 @@ Basic Auth: admin/admin
 
 內容太多就不詳細列出來了，總之大概會有 switch 的各種資訊以及對 openflow 的支援程度，也可以看到各個 port 的狀態，還有各種統計數值
 
-## 加入 Flow Table
+### 加入 Flow Table
 
 從上次的架構圖中可以看到，封包進入 openflow switch 之後會通過 flow table 然後決定送往的方向，而 flow table 裡面每個運行單位稱為 flow entry
 
@@ -200,7 +204,7 @@ Basic Auth: admin/admin
 經過上面的設定之後會發現還是沒辦法從 h1 ping 到 h2，不過可以透過在 h2 使用 `tcpdump` 來擷取封包，會發現其實是有收到來自 h1 的封包的，但是 h2 的回應沒辦法順利送到 h1，所以必須要再設定一個 h2 -> h1 的 flow entry，依照上面的邏輯可以再寫一個 flow entry:
 
 + h2 to h1
-  
+
 ```json
 /*
 PUT http://localhost:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:1/flow-node-inventory:table/0/flow/2

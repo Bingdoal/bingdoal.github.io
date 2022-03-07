@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "OpenFlow 之路(二) 實作環境架設 OpenDaylight、Mininet"
+title: "OpenFlow 初學之路(二) 實作環境架設 OpenDaylight、Mininet"
 date: 2022-02-17 15:46:14 +0800
 category: network
 img: cover/openflow.jpg
@@ -11,6 +11,9 @@ published: true
 ---
 
 {{page.description}}
+
+沒看過前幾篇的可以點這邊:
++ [OpenFlow 初學之路(一) SDN、OpenFlow 簡介](https://bingdoal.github.io/network/2022/02/sdn-openflow-intro/)
 
 ### 實作環境
 + OpenDaylight Aluminium SR4 [官方連結](https://docs.opendaylight.org/en/stable-aluminium/downloads.html)
