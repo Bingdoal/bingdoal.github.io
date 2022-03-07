@@ -1,6 +1,6 @@
 ---
-title: Linux
-category: linux
+title: Network
+category: network
 layout: category
 permalink: "category/network"
 ---
