@@ -28,7 +28,7 @@ Mockito 是用來輔助進行單元測試的 mock 框架，可以用來模擬 me
 ```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-test</artifactId>
+    <artifactId>spring-boot-starter-test</artifactId>
     <scope>test</scope>
 </dependency>
 ```
@@ -183,7 +183,6 @@ public class UserControllerTest {
     }
 }
 ```
-
 `MockMvc` 有點像負責建立起與 Controller 的通道以及 `Advice` 等功能的套用與否，`Mockito` 則是用來模擬 `method` 的行為，由於我們在意的是 API 的行為而不希望牽涉到實際資料庫的內容，因此去模擬 DAO 以及 Service 的行為
 
 這邊要特別注意的是，原先的 Controller 有注入 `UserDao` 以及 `UserDaoService` 那即使沒有使用到，在這裡也必須要注入或是 Mock，這樣 Controller 的注入才會成功
