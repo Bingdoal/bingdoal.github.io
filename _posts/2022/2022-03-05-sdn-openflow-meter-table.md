@@ -6,7 +6,7 @@ category: network
 img: cover/openflow.jpg
 description: "本篇簡單介紹基本的 Meter Table 建立，以及透過 Mininet 需要的設定，並且也會進行流量的測試"
 lang: zh-TW
-tags: [network, openflow, sdn]
+tags: [network, openflow, sdn, opendaylight]
 published: true
 ---
 

@@ -6,7 +6,7 @@ category: network
 img: cover/openflow.jpg
 description: "本篇會介紹開發用的工具，本篇使用 OpenDaylight 來作為 Controller 並以 Mininet 模擬 Switch 網路拓樸環境，這篇先簡介一下工具的環境架設以及基本用法"
 lang: zh-TW
-tags: [network, openflow, sdn]
+tags: [network, openflow, sdn, opendaylight]
 published: true
 ---
 

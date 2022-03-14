@@ -6,7 +6,7 @@ category: network
 img: cover/openflow.jpg
 description: "本篇簡單介紹基本的 Flow Table 設定，並且實際測試封包傳送"
 lang: zh-TW
-tags: [network, openflow, sdn]
+tags: [network, openflow, sdn, opendaylight]
 published: true
 ---
 

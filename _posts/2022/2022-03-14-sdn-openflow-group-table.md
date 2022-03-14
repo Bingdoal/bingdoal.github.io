@@ -6,7 +6,7 @@ category: network
 img: cover/openflow.jpg
 description: "本篇簡單介紹基本的 Group Table 機制以及操作，並進行實做測試，預計是 Openflow 初學的最後一篇了"
 lang: zh-TW
-tags: [network, openflow, sdn]
+tags: [network, openflow, sdn, opendaylight]
 published: true
 ---
 
