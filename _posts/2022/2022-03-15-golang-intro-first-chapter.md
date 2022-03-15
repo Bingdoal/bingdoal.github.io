@@ -150,6 +150,8 @@ default:
 }
 ````
 
+特別注意到 Golang 不需要特別寫 break
+
 #### loop
 
 + for
