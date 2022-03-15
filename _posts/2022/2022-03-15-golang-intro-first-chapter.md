@@ -214,6 +214,8 @@ func main(){
 go mod init go-demo
 ```
 
+指令執行過後會產生一個 `go.mod` 的檔案，裏頭會紀錄 module 名稱，以及這個 module 有用到的其他 module，就像是 node.js 的 package.json，或是 java maven 的 pom.xml
+
 這樣才能把專案納入到 golang 的 module 當中，也才能夠引用，不然預設只會去抓 `GOPATH` 底下的 module
 
 接著按照下面結構擺放檔案
@@ -251,7 +253,7 @@ package 中的變數包含 function，只要開頭是大寫就是 public，小�
 
 ### 其他
 
-補充一個小知識，常會看到 Go 的圖片中有一隻下面的東西，這隻東西是地鼠，叫做 Gopher，是 Golang 的吉祥物
+補充一個小知識，常會看到 Go 的圖片中有一隻下面的東西，這隻東西是地鼠，叫做 Gopher，是 Golang 的吉祥物，是不是很可愛啊
 
 ![]({{site.baseurl}}/assets/img/gopher.jpg)
 
