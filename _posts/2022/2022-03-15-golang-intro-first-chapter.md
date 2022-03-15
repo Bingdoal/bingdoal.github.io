@@ -233,6 +233,10 @@ package pkg
 
 import "fmt"
 
+func init(){
+    fmt.Println("test.go init.")
+}
+
 func Test() {
 	fmt.Println("Hello, World!")
 }
@@ -247,7 +251,7 @@ func main() {
 }
 ```
 
-必須將專案納入到 module 中，才能夠引用，並且 package 必須跟目錄名稱一樣
+必須將專案納入到 module 中，才能夠引用，並且 package 必須跟目錄名稱一樣，package 在被引用時，會執行 `init()` 進行初始化，並且整個執行週期只會被初始化一次
 
 package 中的變數包含 function，只要開頭是大寫就是 public，小寫就是 private
 
