@@ -189,22 +189,6 @@ for key, value := range mapDemo {
 }
 ```
 
-### struct
-簡單說就是自定義一個資料結構，這個資料結構可以包含其他資料結構，也可以包含基本型態
-
-```golang
-type Person struct {
-    Name string
-    Age int
-}
-
-func main(){
-    var p Person
-    p.Name = "John"
-    p.Age = 20
-    fmt.Println(p)
-}
-```
 
 ### function
 function 的使用跟其他程式語言也沒太大差別，上面的 `func main()` 就是一種 function
@@ -261,9 +245,49 @@ func test5(a func()) {
 }
 ```
 
-傳入的部分跟一般程式語言差不多，並且能夠傳入 function
+傳入的部分跟一般程式語言差不多，並且能夠傳入 function，做到 callback 的功能
 
 但回傳有幾種比較特別的，像是能夠回傳多參數，以及能在回傳直接宣告變數名稱
+
+### struct
+簡單說就是自定義一個資料結構，這個資料結構可以包含其他資料結構，也可以包含基本型態
+
+```golang
+type Person struct {
+    Name string
+    Age int
+}
+
+func main(){
+    var p Person
+    p.Name = "John"
+    p.Age = 20
+    fmt.Println(p)
+}
+```
+
+#### function in struct
+
+寫過物件導向程式語言一定會希望能夠在物件內部使用 function，這樣的 function 可以被稱為 method
+
+寫法如下
+
+```golang
+func (person *Person) doIntro() {
+    fmt.Printf("Hello, my name is %s", person.Name)
+}
+```
+
+執行上如下
+
+```golang
+func main(){
+    var p Person
+    p.Name = "John"
+    p.Age = 20
+    p.doIntro()
+}
+```
 
 ### Go module & package
 
