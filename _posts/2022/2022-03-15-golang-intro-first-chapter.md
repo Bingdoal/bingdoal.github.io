@@ -206,6 +206,65 @@ func main(){
 }
 ```
 
+### function
+function 的使用跟其他程式語言也沒太大差別，上面的 `func main()` 就是一種 function
+
+```golang
+func hello(){
+    fmt.Println("Hello World")
+}
+
+func main(){
+    hello()
+}
+```
+
+Golang 的 function 有點像是 javascript 可以被 assign 給變數，也可以使用匿名函式
+
+```golang
+func main() {
+	func() {
+		fmt.Println("Hello World")
+	}()
+}
+
+func main() {
+	var test = func() {
+		fmt.Println("Hello World")
+	}
+	test()
+}
+```
+
+函式傳參方式有幾種如下
+
+```golang
+func test1() string {
+	return fmt.Sprintln("Hello World")
+}
+
+func test2() (a string) {
+	a = fmt.Sprintln("Hello World") // 注意這裡的 a 不需要經過 var 或是 :- 來新建變數
+	return
+}
+
+func test3(a int, b int) int {
+	return a + b
+}
+
+func test4(a int, b int) (int, int) {
+	return a, b
+}
+
+func test5(a func()) {
+	a()
+}
+```
+
+傳入的部分跟一般程式語言差不多，並且能夠傳入 function
+
+但回傳有幾種比較特別的，像是能夠回傳多參數，以及能在回傳直接宣告變數名稱
+
 ### Go module & package
 
 今天當我們要開始一個專案開發的時候總不可能都寫在一份 main 裡面，那要怎麼進行程式的引用呢
