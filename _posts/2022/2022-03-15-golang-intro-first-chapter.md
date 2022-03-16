@@ -81,7 +81,7 @@ go build main.go
 |             `string`              | 字串                                                 |
 |              `byte`               | 位元組                                               |
 |              `rune`               | `rune` 是個特別的型態，會把字串用 unicode 的方式呈現 |
-|             `[]Type`              | 被稱做 slice，類似陣列與 Linked list 的存在          |
+|      `[]Type`，被稱作 slice       | 類似 array 與 Linked list 的存在，有特別多的奇技淫巧 |
 |          `map[Type]Type`          | 就是 Map，Key & Value 的對應表                       |
 |            `interface`            | 代表的是泛用型，以 Java 舉例就是 Object              |
 
@@ -312,6 +312,8 @@ go mod init go-demo
 └── main.go
 ```
 
+程式碼如下
+
 ```golang
 // test.go
 package pkg
@@ -338,7 +340,7 @@ func main() {
 
 必須將專案納入到 module 中，才能夠引用，並且 package 必須跟目錄名稱一樣，package 在被引用時，會執行 `init()` 進行初始化，並且整個執行週期只會被初始化一次
 
-package 中的變數包含 function，只要開頭是大寫就是 public，小寫就是 private
++ golang 中的變數包含 function，只要開頭是大寫就是 public，小寫就是 private
 
 ### 其他
 
