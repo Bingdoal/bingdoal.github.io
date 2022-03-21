@@ -33,19 +33,19 @@ go get github.com/gin-gonic/gin
 
 ```golang
 type TestData struct {
-	Hello string `json:"hello"`
+    Hello string `json:"hello"`
 }
 
 func test(c *gin.Context) {
-	data := new(TestData)
-	data.Hello = "world!"
-	c.JSON(http.StatusOK, data)
+    data := new(TestData)
+    data.Hello = "world!"
+    c.JSON(http.StatusOK, data)
 }
 
 func main() {
-	server := gin.Default()
-	server.GET("/test", test)
-	server.Run(":8080")
+    server := gin.Default()
+    server.GET("/test", test)
+    server.Run(":8080")
 }
 ```
 
@@ -84,10 +84,10 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 
 ```golang
 func main() {
-	server := gin.Default()
-	apiV1 := server.Group("api/v1/")
-	apiV1.GET("test", test)
-	server.Run(":8080")
+    server := gin.Default()
+    apiV1 := server.Group("api/v1/")
+    apiV1.GET("test", test)
+    server.Run(":8080")
 }
 ```
 
@@ -99,29 +99,29 @@ func main() {
 
 ```golang
 func main() {
-	server := gin.Default()
-	apiV1 := server.Group("api/v1/")
-	apiV1.GET("hello/:name", func(c *gin.Context) {
-		name := c.Param("name")
-		c.JSON(http.StatusOK, gin.H{"hello": name})
-	})
+    server := gin.Default()
+    apiV1 := server.Group("api/v1/")
+    apiV1.GET("hello/:name", func(c *gin.Context) {
+        name := c.Param("name")
+        c.JSON(http.StatusOK, gin.H{"hello": name})
+    })
 
-	apiV1.GET("hello", func(c *gin.Context) {
-		name := c.Query("name")
-		c.JSON(http.StatusOK, gin.H{"hello": name})
-	})
+    apiV1.GET("hello", func(c *gin.Context) {
+        name := c.Query("name")
+        c.JSON(http.StatusOK, gin.H{"hello": name})
+    })
 
-	apiV1.POST("hello", func(c *gin.Context) {
-		body := map[string]string{}
-		c.BindJSON(&body)
-		c.JSON(http.StatusOK, gin.H{"hello": body["name"]})
-	})
-	apiV1.POST("hello/form", func(c *gin.Context) {
-		name := c.PostForm("name")
-		c.JSON(http.StatusOK, gin.H{"hello": name})
-	})
+    apiV1.POST("hello", func(c *gin.Context) {
+        body := map[string]string{}
+        c.BindJSON(&body)
+        c.JSON(http.StatusOK, gin.H{"hello": body["name"]})
+    })
+    apiV1.POST("hello/form", func(c *gin.Context) {
+        name := c.PostForm("name")
+        c.JSON(http.StatusOK, gin.H{"hello": name})
+    })
 
-	server.Run(":8080")
+    server.Run(":8080")
 }
 ```
 
@@ -147,18 +147,18 @@ curl --request POST "http://localhost:8080/api/v1/hello/form" --form name="world
 
 ```golang
 type Test struct {
-	Name string `json:"name"`
+    Name string `json:"name"`
 }
 
 func main() {
-	server := gin.Default()
-	apiV1 := server.Group("api/v1/")
-	apiV1.POST("hello", func(c *gin.Context) {
-		body := new(Test)
-		c.BindJSON(&body)
-		c.JSON(http.StatusOK, gin.H{"hello": body.Name})
-	})
-	server.Run(":8080")
+    server := gin.Default()
+    apiV1 := server.Group("api/v1/")
+    apiV1.POST("hello", func(c *gin.Context) {
+        body := new(Test)
+        c.BindJSON(&body)
+        c.JSON(http.StatusOK, gin.H{"hello": body.Name})
+    })
+    server.Run(":8080")
 }
 ```
 

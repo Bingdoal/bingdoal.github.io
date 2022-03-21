@@ -14,9 +14,9 @@ tags: [java, spring boot]
 ```java
 @SpringBootApplication
 public class Application {
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 }
 ```
 + Spring 的進入點就如上面這段 code

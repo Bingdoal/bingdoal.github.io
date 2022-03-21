@@ -17,8 +17,8 @@ defer 的用意是延後執行，後面要接上一段 function 執行，可以�
 
 ```golang
 func main() {
-	defer fmt.Println("World!")
-	fmt.Println("Hello!")
+    defer fmt.Println("World!")
+    fmt.Println("Hello!")
 }
 ```
 
@@ -30,10 +30,10 @@ defer 還不限定只能寫一個，多個 defer 執行時會從最後一個開�
 
 ```golang
 func main() {
-	defer fmt.Println("1")
-	defer fmt.Println("2")
-	defer fmt.Println("3")
-	defer fmt.Println("4")
+    defer fmt.Println("1")
+    defer fmt.Println("2")
+    defer fmt.Println("3")
+    defer fmt.Println("4")
     // 4 3 2 1
 }
 ```
@@ -42,9 +42,9 @@ func main() {
 
 ```golang
 func main() {
-	a := 50
-	defer fmt.Println(a)
-	a = 100
+    a := 50
+    defer fmt.Println(a)
+    a = 100
     // 50
 }
 ```
@@ -57,15 +57,15 @@ func main() {
 
 ```golang
 func test() int {
-	a := 50
-	defer func() {
-		a = 100
-	}()
-	return a
+    a := 50
+    defer func() {
+        a = 100
+    }()
+    return a
 }
 
 func main() {
-	fmt.Println(test())
+    fmt.Println(test())
 }
 // 50
 ```
@@ -74,15 +74,15 @@ func main() {
 
 ```golang
 func test() (a int) {
-	a = 50
-	defer func() {
-		a = 100
-	}()
-	return a
+    a = 50
+    defer func() {
+        a = 100
+    }()
+    return a
 }
 
 func main() {
-	fmt.Println(test())
+    fmt.Println(test())
 }
 // 100
 ```
@@ -95,11 +95,11 @@ Golang 也提供如 C 語言中的 Pointer，可以自由操控變數的位址�
 
 ```golang
 func main() {
-	var a *int
-	a = new(int)
-	*a = 10
-	fmt.Println("a = ", a) // 位址
-	fmt.Println("*a = ", *a) // 10
+    var a *int
+    a = new(int)
+    *a = 10
+    fmt.Println("a = ", a) // 位址
+    fmt.Println("*a = ", *a) // 10
 }
 ```
 
@@ -109,10 +109,10 @@ func main() {
 
 ```golang
 func main() {
-	var a int
-	a = 10
-	fmt.Println("&a = ", &a) // 位址
-	fmt.Println("a = ", a) // 10
+    var a int
+    a = 10
+    fmt.Println("&a = ", &a) // 位址
+    fmt.Println("a = ", a) // 10
 }
 ```
 
@@ -122,16 +122,16 @@ func main() {
 
 ```golang
 func Swap(a *int, b *int) {
-	temp := *a
-	*a = *b
-	*b = temp
+    temp := *a
+    *a = *b
+    *b = temp
 }
 
 func main() {
-	var a, b = 10, 20
-	fmt.Println(a, b)
-	Swap(&a, &b)
-	fmt.Println(a, b)
+    var a, b = 10, 20
+    fmt.Println(a, b)
+    Swap(&a, &b)
+    fmt.Println(a, b)
 }
 ```
 
@@ -145,14 +145,14 @@ goroutine 像是 Golang 中的 thread 概念，是用來進行非同步操作的
 
 ```golang
 func main() {
-	for i := 0; i < 10; i++ {
-		go test(i)
-	}
-	time.Sleep(time.Second * 1)
+    for i := 0; i < 10; i++ {
+        go test(i)
+    }
+    time.Sleep(time.Second * 1)
 }
 
 func test(i int) {
-	fmt.Println(i)
+    fmt.Println(i)
 }
 ```
 
@@ -168,13 +168,13 @@ channel 是一個跟 goroutine 常並用的東西，主要目的在於多線程�
 
 ```golang
 func main() {
-	ch := make(chan int)
+    ch := make(chan int)
 
-	go func() {
-		ch <- 1
-	}()
+    go func() {
+        ch <- 1
+    }()
 
-	fmt.Println(<-ch)
+    fmt.Println(<-ch)
     close(ch)
 }
 ```
@@ -186,14 +186,14 @@ func main() {
 
 ```golang
 func main() {
-	ch := make(chan int, 3)
+    ch := make(chan int, 3)
     defer close(ch)
-	ch <- 1
-	ch <- 2
-	ch <- 3
-	fmt.Println(<-ch) // 1
-	fmt.Println(<-ch) // 2
-	fmt.Println(<-ch) // 3
+    ch <- 1
+    ch <- 2
+    ch <- 3
+    fmt.Println(<-ch) // 1
+    fmt.Println(<-ch) // 2
+    fmt.Println(<-ch) // 3
 }
 ```
 
@@ -209,29 +209,29 @@ select 是一個 channel 的特殊用法，目的在於同時監聽不同的 cha
 
 ```golang
 func main() {
-	ch1 := make(chan int)
-	ch2 := make(chan int)
-	defer close(ch1)
-	defer close(ch2)
-	go func() {
-		for {
-			select {
-			case v := <-ch1:
-				fmt.Println("ch1:", v)
-			case v := <-ch2:
-				fmt.Println("ch2:", v)
-			}
-		}
-	}()
+    ch1 := make(chan int)
+    ch2 := make(chan int)
+    defer close(ch1)
+    defer close(ch2)
+    go func() {
+        for {
+            select {
+            case v := <-ch1:
+                fmt.Println("ch1:", v)
+            case v := <-ch2:
+                fmt.Println("ch2:", v)
+            }
+        }
+    }()
 
-	for i := 1; i <= 10; i++ {
-		if i%2 == 0 {
-			ch1 <- i
-		}
-		if i%3 == 0 {
-			ch2 <- i
-		}
-	}
+    for i := 1; i <= 10; i++ {
+        if i%2 == 0 {
+            ch1 <- i
+        }
+        if i%3 == 0 {
+            ch2 <- i
+        }
+    }
 }
 ```
 

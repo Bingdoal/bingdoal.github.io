@@ -19,24 +19,24 @@ tags: [踩雷紀錄, others]
 ```json
 {
     "jekyll blog post template": {
-		"prefix": "post",
-		"body": [
-			"---",
-			"layout: post",
-			"title: \"$1\"",
-			"date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND +0800",
-			"category: $2",
-			"img: cover/$3",
-			"description: $4",
-			"lang: zh-TW",
-			"tags: [$5]",
-			"---",
-			"",
-			"{{page.description}} ",
-			"$0"
-		],
-		"description": "markdown blog post template"
-	}
+        "prefix": "post",
+        "body": [
+            "---",
+            "layout: post",
+            "title: \"$1\"",
+            "date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND +0800",
+            "category: $2",
+            "img: cover/$3",
+            "description: $4",
+            "lang: zh-TW",
+            "tags: [$5]",
+            "---",
+            "",
+            "{{page.description}} ",
+            "$0"
+        ],
+        "description": "markdown blog post template"
+    }
 }
 ```
 {% endraw %}
@@ -63,4 +63,4 @@ tags: [踩雷紀錄, others]
 ![]({{site.baseurl}}/assets/img/control-snippets.png)
 
 
-這樣就又回到我們乾淨的寫作環境了，還可以享有客製化的 snippets，真是太舒服了     
+這樣就又回到我們乾淨的寫作環境了，還可以享有客製化的 snippets，真是太舒服了

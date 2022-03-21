@@ -112,7 +112,7 @@ const HELLO = "Hello"
 
 ```golang
 if Condition {
-	...
+    ...
 } else {
     ...
 }
@@ -124,13 +124,13 @@ if Condition {
 var i int = 2
 switch i {
 case 1:
-	fmt.Println("i is 1")
+    fmt.Println("i is 1")
 case 2:
-	fmt.Println("i is 2")
+    fmt.Println("i is 2")
 case 3:
-	fmt.Println("i is 3")
+    fmt.Println("i is 3")
 default:
-	fmt.Println("i is not 1, 2, 3")
+    fmt.Println("i is not 1, 2, 3")
 }
 ````
 
@@ -140,13 +140,13 @@ interface 的特殊用法
 var i interface{}
 switch i.(type) {
 case int:
-	fmt.Println("i is int")
+    fmt.Println("i is int")
 case string:
-	fmt.Println("i is string")
+    fmt.Println("i is string")
 case bool:
-	fmt.Println("i is bool")
+    fmt.Println("i is bool")
 default:
-	fmt.Println("i is not int, string, bool")
+    fmt.Println("i is not int, string, bool")
 }
 ````
 
@@ -180,12 +180,12 @@ for i < 10 {
 ```golang
 slice := []int{1, 2, 3, 4, 5}
 for index, num := range slice {
-	fmt.Println(index, num)
+    fmt.Println(index, num)
 }
 
 mapDemo := map[string]string{"a": "apple", "b": "banana"}
 for key, value := range mapDemo {
-	fmt.Println(key, value)
+    fmt.Println(key, value)
 }
 ```
 
@@ -207,16 +207,16 @@ Golang 的 function 有點像是 javascript 可以被 assign 給變數，也可�
 
 ```golang
 func main() {
-	func() {
-		fmt.Println("Hello World")
-	}()
+    func() {
+        fmt.Println("Hello World")
+    }()
 }
 
 func main() {
-	var test = func() {
-		fmt.Println("Hello World")
-	}
-	test()
+    var test = func() {
+        fmt.Println("Hello World")
+    }
+    test()
 }
 ```
 
@@ -224,24 +224,24 @@ func main() {
 
 ```golang
 func test1() string {
-	return fmt.Sprintln("Hello World")
+    return fmt.Sprintln("Hello World")
 }
 
 func test2() (a string) {
-	a = fmt.Sprintln("Hello World") // 注意這裡的 a 不需要經過 var 或是 :- 來新建變數
-	return
+    a = fmt.Sprintln("Hello World") // 注意這裡的 a 不需要經過 var 或是 :- 來新建變數
+    return
 }
 
 func test3(a int, b int) int {
-	return a + b
+    return a + b
 }
 
 func test4(a int, b int) (int, int) {
-	return a, b
+    return a, b
 }
 
 func test5(a func()) {
-	a()
+    a()
 }
 ```
 
@@ -325,7 +325,7 @@ func init(){
 }
 
 func Test() {
-	fmt.Println("Hello, World!")
+    fmt.Println("Hello, World!")
 }
 
 // main.go
@@ -334,7 +334,7 @@ package main
 import "go-demo/pkg"
 
 func main() {
-	pkg.Test()
+    pkg.Test()
 }
 ```
 
