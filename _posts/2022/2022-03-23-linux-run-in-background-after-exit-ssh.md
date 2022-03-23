@@ -20,6 +20,14 @@ published: true
 
 ## tmux
 
+### 安裝
+
+```bash
+sudo apt install tmux
+```
+
+### 背景執行的方法
+
 這個解法是透過 `tmux` 這個工具程式完成的，之後有機會再詳細介紹，簡言之
 
 `tmux` 是一款 terminal 下的多視窗管理工具，可以切分不同的 terminal 在同一個畫面，或是像頁籤一樣同時管理不同的 terminal 分頁，而每個分頁或視窗都可以獨立運行
