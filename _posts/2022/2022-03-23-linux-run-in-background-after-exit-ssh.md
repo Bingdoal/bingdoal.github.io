@@ -40,8 +40,9 @@ published: true
 
 ### 其他操作
 1. `ctrl + b` + `&`: 結束當前 window，如果是最後一個 window 就結束 session
-2. `ctrl + b` + `$`: 幫當前的 session 重新命名
-3. `ctrl + b` + `s`: 用視覺化的方式切換 session 以及 window
+2. `ctrl + b` + `c`: 建立新的 window
+3. `ctrl + b` + `$`: 幫當前的 session 重新命名
+4. `ctrl + b` + `s`: 用視覺化的方式切換 session 以及 window
 
 應該會用到的就這幾個了
 
