@@ -7,7 +7,7 @@ img: cover/linux.png
 description: "之前寫過在 Linux 的 terminal 下如何在背景運作程式，但是在離開 ssh 連線之後背景的程式也會跟著被關閉，尋尋覓覓終於找到一個方法可以在背景運作，還可以找回來的作法"
 lang: zh-TW
 tags: [linux]
-published: false
+published: true
 ---
 
 {{page.description}}
