@@ -273,7 +273,7 @@ SET GOOS=darwin&SET GOARCH=arm64&go build . # MAC
 SET GOOS=linux&SET GOARCH=arm64&go build . # Linux
 ```
 
-不過 `GOARCH` 應該是會跟著機器 CPU 有所不同而要更改，這就等到遇到再說了，各自的詳細值則可以參考[這邊](https://gist.github.com/asukakenji/f15ba7e588ac42795f421b48b8aede63)
+不過 `GOARCH` 應該是會跟著機器 CPU 有所不同而要更改，這就等到遇到再說了，各自的詳細值則可以參考[這邊](https://go.dev/doc/install/source#environment)
 
 ---
 ## 結語
