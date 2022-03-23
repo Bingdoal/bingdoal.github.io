@@ -22,21 +22,28 @@ published: true
 
 這個解法是透過 `tmux` 這個工具程式完成的，之後有機會再詳細介紹，簡言之
 
-`tmux` 是一款 terminal 下的多視窗管理工具，可以切分不同的 terminal 在同一個畫面，或是像頁籤一樣同時管理不同的 terminal 分頁，而每個分頁或視窗都是不同的 session 可以獨立運行
+`tmux` 是一款 terminal 下的多視窗管理工具，可以切分不同的 terminal 在同一個畫面，或是像頁籤一樣同時管理不同的 terminal 分頁，而每個分頁或視窗都可以獨立運行
 
-這裡便是運用了 `tmux` session 的特性，步驟如下:
+這裡便是運用了 `tmux` 可以暫離 session 的特性，步驟如下:
 
 1. 執行 `tmux`
 2. 在 `tmux` 之中運行需要背景執行的程式
 3. 輸入 `ctrl + b` 然後鍵入 `d`
 
-會發現你跳出 `tmux` 了，讓我們用 `ps -aux` 看看，會發現你的程式是有在運行的，並且離開 ssh 之後它還是在
+這時候會發現你跳出 `tmux` 了，讓我們用 `ps -aux` 看看，會發現你的程式是有在運行的，並且離開 ssh 之後它還是在
 
 而如果之後想要回到剛剛的 `tmux` 的話就輸入指令 `tmux attach`
 
-如果上述的操作作了很多次，有很多 session 被丟到背景的話，可以輸入 `tmux ls` 可以看到所有的 session
+如果上述的操作作了很多次，就會有很多 session 被丟到背景的話，可以輸入 `tmux ls` 可以看到所有的 session
 
 並且透過 `tmux attach -t <session-name>` 可以回到指定的 session
+
+### 其他操作
+1. `ctrl + b` + `&`: 結束當前 window，如果是最後一個 window 就結束 session
+2. `ctrl + b` + `$`: 幫當前的 session 重新命名
+3. `ctrl + b` + `s`: 用視覺化的方式切換 session 以及 window
+
+應該會用到的就這幾個了
 
 ---
 
