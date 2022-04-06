@@ -17,7 +17,7 @@ published: true
 
 ## go-playground/validator
 
-+ 附上 [Github](https://github.com/go-playground/validator) 連結
++ 附上 [官方 Github](https://github.com/go-playground/validator) 連結
 
 網路上看到絕大多數的教學都是用這套，主要原因應該是使用上比較簡單，不需要太多的額外操作，範例 code 如下
 
@@ -60,16 +60,18 @@ func main(){
 
 ## ozzo-validation
 
-+ 附上 [Github](https://github.com/go-ozzo/ozzo-validation) 連結
++ 附上 [官方 Github](https://github.com/go-ozzo/ozzo-validation) 連結
 
-`ozzo-validation` 則是站在 `go-playground/validator` 的對面，認為 tag 由於是字串，所以容易出錯的缺點不可忽略，因此改而用程式碼的方式進行驗證，寫一段等價於上面的範例 code
+`ozzo` 其實本身就是一個後端框架，並且有各種搭套的框架一起，如 ORM 的 `ozzo-dbx`，設定載入的 `ozzo-config`，感覺上有想要統一天下的雄心壯志，如果做的好的話應該會像 spring 那樣子變成一個生態系，之後有機會再來完整的研究研究，今天只專注在 `ozzo-validation` 上
+
+`ozzo-validation` 是站在 `go-playground/validator` 的對面，認為 tag 由於是字串，所以容易出錯不易除錯，因此改而用程式碼的方式進行驗證，寫一段等價於上面的範例 code
 
 ```golang
 package main
 
 import(
     "fmt"
-    v "github.com/go-ozzo/ozzo-validation/v4"
+    "github.com/go-ozzo/ozzo-validation/v4"
     "github.com/go-ozzo/ozzo-validation/v4/is"
 )
 
@@ -85,28 +87,30 @@ func main(){
         Email: "",
         Password: "",
     }
-    if err := v.ValidateStruct(user,
-		v.Field(&user.Name, v.Required, v.Min(2)),
-		v.Field(&user.Email, v.Required, is.Email),
-		v.Field(&user.Password, v.Required, v.Min(6)),
+    if err := validation.ValidateStruct(user,
+		validation.Field(&user.Name, validation.Required, v.Min(2)),
+		validation.Field(&user.Email, validation.Required, is.Email),
+		validation.Field(&user.Password, validation.Required, v.Min(6)),
 	);err!=nil{
         fmt.Println(err)
     }
 
     email := "12345"
-    if err := v.Validate(email, v.Required, is.Email); err != nil {
+    if err := validation.Validate(email, validation.Required, is.Email); err != nil {
         fmt.Println(err)
     }
 }
 ```
 
-不需要撰寫 tag 但要把驗證規則寫在程式碼之中，可以根據需求靈活運用，但彈性有點不足
+不需要撰寫 tag ，但把驗證規則寫在程式碼之中，透過 `validation` 提供的各種方法，根據需求靈活運用，但彈性有點不足，而且寫起來有點冗長
+
 + 優點:
   1. 程式碼實作時才決定規則，靈活套用在各種情境
-  2. 程式碼撰寫會有快速完成得提示，寫錯也會在 compile 就被擋下來
+  2. 程式碼撰寫會有快速完成的提示，寫錯也會在 compile 就被擋下來
 + 缺點:
   1. 必須把規則寫在程式碼之中，稍嫌有點彈性不足
   2. 要多寫很多 code，比較麻煩
+  3. 如果結構較為複雜，規則寫起來也會有點雜亂
 
 ---
 
