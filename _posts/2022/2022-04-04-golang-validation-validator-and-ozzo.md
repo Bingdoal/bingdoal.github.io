@@ -4,7 +4,7 @@ title: "Validation in Go: ozzo-validation、go-playground/validator"
 date: 2022-04-03 17:49:21 +0800
 category: backend
 img: cover/golang.png
-description: "在撰寫 API server 的時候一定會遇到參數驗證的問題，gin 本身沒有內建這部分的機制，要透過其他套件來實現，這次會介紹兩種常見的套件 ozzo-validation、go-playground/validator 看看各自是如何實踐在 golang 的 validation 的"
+description: "在撰寫 API server 的時候一定會遇到參數驗證的問題，這次會介紹兩種常見的套件 ozzo-validation、go-playground/validator 看看各自是如何實踐在 golang 的 validation 的"
 lang: zh-TW
 tags: [golang]
 published: true
@@ -13,13 +13,13 @@ published: true
 {{page.description}}
 
 ## 前言
-由於 gin gonic 不像是 spring boot 那樣有各種全家桶通通包好，所以 validation 也是需要額外的套件實現，並且在整合程度上也沒有這麼得完美，主要根據自己團隊喜好來使用就好
+其實 gin gonic 有內建 validation，也就是下面要介紹的 `go-playground/validator`，不過今天多介紹一個套件提供更多做法可以挑選
 
 ## go-playground/validator
 
 + 附上 [官方 Github](https://github.com/go-playground/validator) 連結
 
-網路上看到絕大多數的教學都是用這套，主要原因應該是使用上比較簡單，不需要太多的額外操作，範例 code 如下
+網路上看到絕大多數的教學也都是用這套，主要原因應該是使用上比較簡單，且 gin 官方指定，不需要太多的額外操作，範例 code 如下
 
 ```golang
 package main
