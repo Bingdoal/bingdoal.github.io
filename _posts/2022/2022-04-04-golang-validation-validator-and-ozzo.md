@@ -58,6 +58,17 @@ func main(){
   1. tag 撰寫是字串，容易寫錯，且寫錯沒辦法馬上得知
   2. 由於 tag 是綁定在 struct 上，所以不能隨 Create 或是 Update 改變，必須撰寫多個 struct 來套用
 
+### Gin 原生支援使用
+只不過在 Gin 原生中使用的 tag 稍微有些不同，要改寫成 `binding`，會在執行 `context.Bind` 類的方法的時候進行驗證
+
+```golang
+type User struct {
+	Name     string `binding:"required,min=2"`
+	Email    string `binding:"required,email"`
+	Password string `binding:"required,min=6`
+}
+```
+
 ## ozzo-validation
 
 + 附上 [官方 Github](https://github.com/go-ozzo/ozzo-validation) 連結
@@ -116,4 +127,4 @@ func main(){
 
 ## 結論
 
-其實端看各個團隊的使用習慣去選擇不同的套件即可，沒有一定孰優孰劣，個人是偏好 `go-playground/validator` 這套，利用 tag 的方式可以達到更好的彈性，不必把規則寫死在程式碼中，寫錯的問題只好多多測試了
+其實端看各個團隊的使用習慣去選擇不同的套件即可，沒有一定孰優孰劣，團隊目前是偏好 `go-playground/validator` 這套，利用 tag 的方式可以達到更好的彈性，不必把規則寫死在程式碼中，而且 gin 有內建支援可以比較好與 gin 相容，寫錯的問題只好多多測試了
