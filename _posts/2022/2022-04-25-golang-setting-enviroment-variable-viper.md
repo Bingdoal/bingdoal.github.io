@@ -56,34 +56,34 @@ package config
 var Env *viper.Viper
 
 func init() {
-	Env = initViper()
+    Env = initViper()
 }
 
 func initViper() *viper.Viper {
-	v := viper.New()
+    v := viper.New()
 
     // 設定檔的檔名、格式、路徑
     v.SetConfigName("env")
-	v.SetConfigType("yaml")
-	v.AddConfigPath("_assets/")
+    v.SetConfigType("yaml")
+    v.AddConfigPath("_assets/")
 
     // 執行讀取設定
-	err := v.ReadInConfig()
-	if err != nil {
-		fmt.Println("[Error] Loading config failed: ", err)
-		panic(err)
-	}
+    err := v.ReadInConfig()
+    if err != nil {
+        fmt.Println("[Error] Loading config failed: ", err)
+        panic(err)
+    }
 
     // 讀取環境變數時以 _ 為分隔符
-	v.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+    v.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
     // 設定讀取環境變數時的前綴字
-	v.SetEnvPrefix("demo")
+    v.SetEnvPrefix("demo")
     // 讀取環境變數
-	v.AutomaticEnv()
+    v.AutomaticEnv()
 
     //  Print 實際讀取到的設定
     fmt.Printf("%+v\n",v.AllSettings())
-	return v
+    return v
 }
 ```
 
@@ -94,10 +94,10 @@ func initViper() *viper.Viper {
 使用時，可以直接使用 `viper.Get` 的系列方法，例如:
 
 ```golang
-	fmt.Printf("\n============ Start [%s] version:%s on:%s ============\n",
-		config.Env.GetString("name"),
-		config.Env.GetString("version"),
-		config.Env.GetString("server.port"))
+    fmt.Printf("\n============ Start [%s] version:%s on:%s ============\n",
+        config.Env.GetString("name"),
+        config.Env.GetString("version"),
+        config.Env.GetString("server.port"))
 ```
 
 多層結構使用上用 `.` 隔開，提供各種 `Get` 的方法，不用額外進行轉換
@@ -110,35 +110,35 @@ const envType = "yaml"
 const envPrefix = "demo"
 
 func initViper() *viper.Viper {
-	v := viper.New()
-	v.SetConfigName("env")
-	v.SetConfigType(envType)
-	v.AddConfigPath(envPath)
-	err := v.ReadInConfig()
-	if err != nil {
-		fmt.Println("[Error] Loading config failed: ", err)
-		panic(err)
-	}
+    v := viper.New()
+    v.SetConfigName("env")
+    v.SetConfigType(envType)
+    v.AddConfigPath(envPath)
+    err := v.ReadInConfig()
+    if err != nil {
+        fmt.Println("[Error] Loading config failed: ", err)
+        panic(err)
+    }
 
     // 執行時讀取參數套用不同的設定檔
-	if len(os.Args) >= 2 {
-		v.SetConfigName("env."+os.Args[1])
-	    v.SetConfigType(envType)
-	    v.AddConfigPath(envPath)
+    if len(os.Args) >= 2 {
+        v.SetConfigName("env."+os.Args[1])
+         v.SetConfigType(envType)
+        v.AddConfigPath(envPath)
         // 合併設定檔
-	    err := v.MergeInConfig()
+        err := v.MergeInConfig()
         if err != nil {
             fmt.Println("[Error] Merge config failed: ", err)
             panic(err)
         }
-	}
+    }
 
-	v.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
-	v.SetEnvPrefix(envPrefix)
-	v.AutomaticEnv()
+    v.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+    v.SetEnvPrefix(envPrefix)
+    v.AutomaticEnv()
 
     fmt.Printf("%+v\n",v.AllSettings())
-	return v
+    return v
 }
 ```
 

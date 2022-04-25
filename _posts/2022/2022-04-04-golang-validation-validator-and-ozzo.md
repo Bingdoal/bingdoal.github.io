@@ -24,13 +24,13 @@ published: true
 ```golang
 package main
 import (
-	"fmt"
-	"github.com/go-playground/validator/v10"
+    "fmt"
+    "github.com/go-playground/validator/v10"
 )
 type User struct {
-	Name     string `validate:"required,min=2"`
-	Email    string `validate:"required,email"`
-	Password string `validate:"required,min=6`
+    Name     string `validate:"required,min=2"`
+    Email    string `validate:"required,email"`
+    Password string `validate:"required,min=6`
 }
 
 func main(){
@@ -63,9 +63,9 @@ func main(){
 
 ```golang
 type User struct {
-	Name     string `binding:"required,min=2"`
-	Email    string `binding:"required,email"`
-	Password string `binding:"required,min=6`
+    Name     string `binding:"required,min=2"`
+    Email    string `binding:"required,email"`
+    Password string `binding:"required,min=6`
 }
 ```
 
@@ -87,9 +87,9 @@ import(
 )
 
 type User struct {
-	Name     string
-	Email    string
-	Password string
+    Name     string
+    Email    string
+    Password string
 }
 
 func main(){
@@ -99,10 +99,10 @@ func main(){
         Password: "",
     }
     if err := validation.ValidateStruct(user,
-		validation.Field(&user.Name, validation.Required, v.Min(2)),
-		validation.Field(&user.Email, validation.Required, is.Email),
-		validation.Field(&user.Password, validation.Required, v.Min(6)),
-	);err!=nil{
+        validation.Field(&user.Name, validation.Required, v.Min(2)),
+        validation.Field(&user.Email, validation.Required, is.Email),
+        validation.Field(&user.Password, validation.Required, v.Min(6)),
+    );err!=nil{
         fmt.Println(err)
     }
 
