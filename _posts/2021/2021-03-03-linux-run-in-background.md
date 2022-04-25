@@ -51,3 +51,7 @@ kill -9 <PID>
 ```
 
 這樣該程式的輸出就會被持續寫入到 output.log 中了
+
+## 延伸閱讀
+
+如果說需要在離開 ssh 連線之後還能持續運行的話可以[參考](https://bingdoal.github.io/linux/2022/03/linux-run-in-background-after-exit-ssh/)
