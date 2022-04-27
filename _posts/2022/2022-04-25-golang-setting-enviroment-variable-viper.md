@@ -3,7 +3,7 @@ layout: post
 title: "Golang 環境變數與設定檔: viper"
 date: 2022-04-25 15:41:50 +0800
 category: backend
-img: cover/golang.png
+img: cover/golang-viper.png
 description: "程式部屬時常因執行環境的不同，而需要套用不同的設定，大多數情況我們是透過環境變數來設定，像是 Spring boot 內建讀取 application.yml，或是 Node.js 的 dotenv，這次介紹一個 Golang 的工具 viper，就是類似於前兩者的工具，提供各種環境變數與設定的操作，請看下面的範例"
 lang: zh-TW
 tags: [golang]
