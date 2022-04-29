@@ -1,7 +1,7 @@
 ---
 title: Jmeter JSON Extractor 快速解析 API 的 Response
 date: 2020-12-08 09:30:00 +0800
-category: other
+category: others
 img: cover/jmeter.png
 description: 在 RESTful API 的測試情境之下，常使用 JSON 為溝通的格式，在測試的時候需要驗證資料完整性，或是將結果擷取出來帶入其他 API 之中都是常會遇到的情境，今天就來整理一下 Jmeter JSON Extractor 的使用吧
 layout: post

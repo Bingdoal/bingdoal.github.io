@@ -1,7 +1,7 @@
 ---
 title: 強大的測試工具 Jmeter
 date: 2020-11-26 09:30:00 +0800
-category: other
+category: others
 img: cover/jmeter.png
 description: 當專案開發到達一定規模之後，通常會開始引入自動化測試，自動測試可以幫助維護程式品質，確保一次次的變更之下還能夠按照預期的運行，在重購或是加入新功能上都有一定的幫助，今天就要來介紹一款好用的自動測試工具 Jmeter，各種強大的功能之下 Jmeter 都可以玩出一套學問了，今天這篇就先簡單講解基本用法
 layout: post
