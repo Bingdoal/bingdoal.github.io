@@ -10,3 +10,4 @@ end
 
 gem 'jekyll-redirect-from'
 gem 'wdm'
+gem "webrick", "~> 1.7"
