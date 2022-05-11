@@ -164,6 +164,28 @@ func main(){
 
 但函式被 `panic` 結束後還是會進入到 `defer` 之中，並且在經過 `recover` 之後就不會再向外拋出了，可以確保程式不會被強制中斷，把錯誤限縮在可控的範圍之中
 
+## 其他
+
+如果說自行 `recover` `panic` 之後還是想拿到引發的 stacktrace 的話，可以參考
+
+```golang
+func getRecover(){
+    defer func() {
+        err := recover()
+        if err != nil {
+            fmt.Println("Recover from panic: ", err)
+            fmt.Println("stacktrace: ", string(debug.Stack()))
+        }
+    }()
+    letsPanic()
+}
+
+func main(){
+    getRecover()
+    fmt.Println("Still working.")
+}
+```
+
 雖說 `panic` 搭配 `recover` 有一點 `throw` 跟 `try catch` 的味道在，但實際使用上差異還是挺大的
 
 golang 的 `panic` 比較是真的發生嚴重錯誤才會拋出，相應的 `recover` 只是一個應急的容錯手段，理想上應該是盡可能不要有 `panic` 發生
