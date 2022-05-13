@@ -7,6 +7,8 @@ img: cover/docker.jpg
 description: 常在使用 container 建置開發環境後常會有一個困擾，就是當 container 被刪除的時候裡面的資料也會一併消失，或是 container 之間要共用一些檔案的時候都會有一些困難點，於是就有 docker volume 的機制出來了
 lang: zh-TW
 tags: [docker, deploy]
+redirect_from:
+- /deploy/2021/01/docker-container-store-data-at-local/
 ---
 
 {{page.description}}
