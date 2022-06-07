@@ -6,7 +6,7 @@ category: backend
 img: cover/golang.png
 description: "前篇介紹了 Spring Boot 的 Migration 用法，也簡介了 Migration 的用途，那這篇就介紹了在 Golang 中使用 golang-migrate 實現 database migration"
 lang: zh-TW
-tags: [golang]
+tags: [backend, golang]
 published: true
 ---
 
