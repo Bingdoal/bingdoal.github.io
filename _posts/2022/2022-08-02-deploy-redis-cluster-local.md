@@ -92,9 +92,3 @@ redis-cli -p 7001 -c
 ```
 
 之後的 set get 的操作就跟單台 redis 沒有兩樣了
-
----
-
-## 結語
-
-這篇說明要怎麼在本地架設 redis cluster，下篇會說明怎麼用 spring boot 進行連接以及踩到的雷
