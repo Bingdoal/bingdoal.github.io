@@ -3,7 +3,7 @@ layout: post
 title: "Spring boot Validation 進階操作: 客製化驗證、手動驗證"
 date: 2021-10-28 14:19:23 +0800
 category: backend
-img: cover/spring-boot.jpg
+img: cover/spring-boot.png
 description: 前幾篇說到基本的 Validation 該怎麼使用，不過實際情況下的商業邏輯往往是無比複雜的，一些內容的驗證可能不是這麼簡單的規則就可以帶過了，因此這篇就來說明下，怎麼在 Validation 的框架下建立自己的驗證方式，另外如果不想要用自動驗證的方式去處理，想要加點自己的驗證前後邏輯又該怎麼做呢
 lang: zh-TW
 tags: [java, spring boot, validation]

@@ -3,7 +3,7 @@ layout: post
 title: "Spring boot Filter 機制，攔截請求與回應"
 date: 2021-11-22 10:21:34 +0800
 category: backend
-img: cover/spring-boot.jpg
+img: cover/spring-boot.png
 description: 這次要介紹的 Filter 是用來針對 Http 的請求與回應在途中攔截下來做一些處理，運作邏輯上有一點像先前寫過的 AOP，但 AOP 是以 Method 為視角去攔截，而 Filter 則是以 Servlet 的層級來攔截，應用的場景會稍有不同
 lang: zh-TW
 tags: [java, spring boot]

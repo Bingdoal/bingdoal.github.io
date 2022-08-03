@@ -3,7 +3,7 @@ layout: post
 title: "Spring boot Validation 參數驗證機制"
 date: 2021-10-20 15:29:01 +0800
 category: backend
-img: cover/spring-boot.jpg
+img: cover/spring-boot.png
 description: Api 的請求參數一般都需要做合法性的驗證，每個參數都必須確保沒有問題，才不會導致有預期外的資料出現，導致系統發生不可預期的結果，Spring boot 強大的生態下 Validation 的機制自然是有好好地包含在其中了，只要善用各種 Annotation 就可以簡單做到參數驗證，還可以客製化錯誤訊息，下面就簡單介紹下用法
 lang: zh-TW
 tags: [java, spring boot, validation]

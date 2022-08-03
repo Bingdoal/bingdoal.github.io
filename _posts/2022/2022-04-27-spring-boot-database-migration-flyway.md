@@ -3,7 +3,7 @@ layout: post
 title: "在 Spring boot 上利用 Flyway 實現 Database Migration"
 date: 2022-04-26 16:16:27 +0800
 category: backend
-img: cover/spring-boot.jpg
+img: cover/spring-boot.png
 description: "在撰寫後端程式的時候時常需要搭配資料庫的使用，而功能上一定程度也與資料庫是有掛鉤的，那當程式碼有更動的時候資料庫理所當然需要更新，這個更新的機制就被稱為 Migration，可能是從無到有的全部搬移，可能是版本更新導致的變更，在 Spring boot 中有一套工具很好的實現了這個功能，那就是 Flyway"
 lang: zh-TW
 tags: [backend,spring boot]

@@ -3,7 +3,7 @@ layout: post
 title: "Spring boot JPA 的擴充函式庫 QueryDSL，輕鬆處理 GET filter"
 date: 2021-08-16 14:55:14 +0800
 category: backend
-img: cover/spring-boot.jpg
+img: cover/spring-boot.png
 description: spring boot 提供了強大的 JPA 操作，用簡單的宣告就可以組合出大多的查詢語法，但有些較複雜的操作還是得寫 JPQL 的語法，雖然也是很便利強大，但還是希望能有更模組化的方法，QueryDSL 就是用來解決這個問題的
 lang: zh-TW
 tags: [java, spring boot]

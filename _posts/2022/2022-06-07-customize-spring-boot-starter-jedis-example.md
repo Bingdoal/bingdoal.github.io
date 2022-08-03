@@ -3,7 +3,7 @@ layout: post
 title: 抽離出共用設定，客製化自己的 spring-boot-starter，以 Jedis 為例
 date: 2022-06-07 10:42:38 +0800
 category: backend
-img: cover/spring-boot.jpg
+img: cover/spring-boot.png
 description: 撰寫程式的時候常常會有一些部分是重複的，這時候不想要重寫一遍 code 或是複製貼上的話，就需要把共用的部分抽離出來，而 spring boot 本身其實就是一個這樣的懶人包的概念，透過各種 starter 幫忙將整個系統架構好，且只需要引入就可以作用，這篇的目的就是來撰寫一個自己的 starter
 lang: zh-TW
 tags: [spring boot]

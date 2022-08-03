@@ -3,7 +3,7 @@ layout: post
 title: "在 Spring boot 上撰寫 API 與 Service 的單元測試 JUnit、Mockito"
 date: 2021-12-19 19:12:34 +0800
 category: backend
-img: cover/spring-boot.jpg
+img: cover/spring-boot.png
 description: "軟體在開發時期常會一直疊代更新，為了確保功能正常並保證出產品質，測試是不可少的，而單元測試也是其中最小單位也較好實作的，後端的單元測試最基本要確保 API 的正常運作與回覆，深入一點要確保每個 Service 的功能運作正常，今天這篇將針對這兩部分來做個紀錄"
 lang: zh-TW
 tags: [java, spring boot, test]

@@ -2,7 +2,7 @@
 title: Spring 上的 @Scheduled 以及 cron 表示式
 date: 2020-11-24 09:30:00 +0800
 category: backend
-img: cover/spring-boot.jpg
+img: cover/spring-boot.png
 description: 後端開發中也常會碰到定期任務的需求，這時候 spring 的 Scheduled 就可以派上用場啦，也筆記一下 cron 表示式的內容，不然每次寫都搞不太清楚
 layout: post
 tags: [spring boot, java, cron]

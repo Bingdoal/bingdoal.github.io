@@ -2,7 +2,7 @@
 title: AOP 與 Pointcut 淺談
 date: 2020-11-30 09:30:00 +0800
 category: backend
-img: cover/spring-boot.jpg
+img: cover/spring-boot.png
 description: 用 Spring boot 撰寫後端時，常會有事前檢查、事後日誌的需求，若在每個 Api 中都做一次那就太蠢了，於是這邊介紹一下 Spring boot 中十分方便的 AOP 機制，可以輕鬆達成日誌的統一撰寫，也可以降低程式碼的耦合性
 layout: post
 tags: [spring boot, java]

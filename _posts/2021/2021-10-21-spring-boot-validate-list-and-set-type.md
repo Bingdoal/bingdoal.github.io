@@ -3,7 +3,7 @@ layout: post
 title: "[踩雷紀錄] Spring boot validation 無法驗證 List、Set"
 date: 2021-10-21 13:04:13 +0800
 category: backend
-img: cover/spring-boot.jpg
+img: cover/spring-boot.png
 description: API 參數傳入 List 或是 Set 的例子也是屢見不鮮，但卻發現一般的 Validation 作法沒有辦法驗證到 List 的內容，不確定是不是 Bug，但還是必須要想點辦法來解
 lang: zh-TW
 tags: [java, spring boot, validation, 踩雷紀錄]

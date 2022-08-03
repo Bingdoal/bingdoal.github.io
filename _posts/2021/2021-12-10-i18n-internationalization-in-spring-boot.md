@@ -3,7 +3,7 @@ layout: post
 title: "Spring boot 的 I18n 設定與進一步包裝"
 date: 2021-12-10 15:45:18 +0800
 category: backend
-img: cover/spring-boot.jpg
+img: cover/spring-boot.png
 description: 在專案中加入多國語言設定是很常見的需求，Spring boot 當然也有相應的支援，透過簡易的設定就可以套用
 lang: zh-TW
 tags: [java, spring boot, i18n]
