@@ -6,7 +6,7 @@ category: backend
 img: cover/spring-boot.png
 description: 撰寫系統不乏用到 Enum 的場景，但是通常不會希望直接存 Enum 的名稱在資料庫中，雖然可能可以增加資料庫的可讀性，但一方面也增加儲存空間的浪費，一方面可能需要儲存的是值，因此簡單紀錄下 JPA 在這部分的轉換是怎麼做的
 lang: zh-TW
-tags: [spring boot]
+tags: [spring boot, jpa]
 published: true
 ---
 
