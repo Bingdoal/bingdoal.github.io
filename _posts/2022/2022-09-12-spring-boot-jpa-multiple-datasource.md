@@ -98,6 +98,7 @@ public class Mydb1Config {
         "org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy");
     properties.put("hibernate.implicit_naming_strategy",
         "org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy");
+    properties.put("hibernate.auto_quote_keyword", "true");
 
     var bean = builder.dataSource(dataSource)
         .properties(properties)
@@ -148,6 +149,7 @@ public class Mydb2Config {
         "org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy");
     properties.put("hibernate.implicit_naming_strategy",
         "org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy");
+    properties.put("hibernate.auto_quote_keyword", "true");
 
     var bean = builder.dataSource(dataSource)
         .properties(properties)
@@ -175,7 +177,7 @@ public class Mydb2Config {
 
 特別要注意的是預設這裡的命名策略是完全按照 `entity` 以及 `field` 的名稱而不是 jpa 的預設規則，會去幫忙轉換命名風格成底線命名，因此這裡特別設定的兩個屬性，就是要還原成熟悉的 jpa 使用方式
 
-以及多個 datasource configuration 必須要有一個的 bean 全部都要加上 `@Primary` 
+並且設定好 `auto_quote_keyword` 讓保留字也可以用於欄位
 
 ```java
 HashMap<String, Object> properties = new HashMap<>();
@@ -183,7 +185,10 @@ HashMap<String, Object> properties = new HashMap<>();
         "org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy");
     properties.put("hibernate.implicit_naming_strategy",
         "org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy");
+    properties.put("hibernate.auto_quote_keyword", "true");
 ```
+
+其他還要注意多個 datasource configuration 必須要有一個的 bean 全部都要加上 `@Primary`
 
 這些都搞定之後就跟往常操作沒兩樣囉
 
