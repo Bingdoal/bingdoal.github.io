@@ -2,9 +2,9 @@
 layout: post
 title: "[踩雷紀錄] 在 JPA 使用 @Modifying 遇到 cache 問題"
 date: 2022-10-13 14:34:43 +0800
-category: JPA 是 Spring boot 現行架構下最流行的 ORM 框架，雖然大部分的情況我們都可以直接使用 JPA 提供的介面來進行操作，不過有時候還是會有一些特殊的客製化需求要處理，這次的問題發生在我們撰寫了一個的 @Modifying 的方法，但卻造成後續操作不如預期，之後又陸續踩到各種地雷，特別紀錄一下
+category: backend
 img: cover/spring-boot.png
-description:
+description: JPA 是 Spring boot 現行架構下最流行的 ORM 框架，雖然大部分的情況我們都可以直接使用 JPA 提供的介面來進行操作，不過有時候還是會有一些特殊的客製化需求要處理，這次的問題發生在我們撰寫了一個的 @Modifying 的方法，但卻造成後續操作不如預期，之後又陸續踩到各種地雷，特別紀錄一下
 lang: zh-TW
 tags: [踩雷紀錄, spring boot]
 published: true
