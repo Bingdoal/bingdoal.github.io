@@ -241,6 +241,7 @@ function sum(){
     for ((i=1;i<=$1;i++)); do
         let sum+=$i
     done
+    return sum
 }
 
 sum 5
