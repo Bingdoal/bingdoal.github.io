@@ -1,0 +1,17 @@
+<script>
+    window.onload = addHashTag;
+    function addHashTag() {
+        let titles = document.querySelectorAll(
+            ".page-content h2,.page-content h3,.page-content h4"
+            );
+        titles.forEach((title) => {
+            if (title.id != undefined &&
+                title.id != null &&
+                title.id != "") {
+                title.onclick = function (e) {
+                    window.location = '{{post.url | prepend: site.baseurl}}#' + e.target.id;
+                };
+            }
+        });
+    }
+</script>

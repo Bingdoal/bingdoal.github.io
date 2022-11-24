@@ -1918,3 +1918,19 @@ table>tbody>tr:hover {
 .search-result-card a:active {
     color: rgb(91, 182, 243);
 }
+
+.page-content h2,
+.page-content h3,
+.page-content h4{
+    display: block;
+    width: fit-content;
+}
+
+.page-content h2:hover,
+.page-content h3:hover,
+.page-content h4:hover{
+    position: relative;
+    cursor: pointer;
+    text-decoration: underline;
+    opacity: 0.5;
+}
