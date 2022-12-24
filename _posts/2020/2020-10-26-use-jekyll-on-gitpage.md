@@ -37,7 +37,7 @@ $ jekyll new <project-name>
 
 建立你的靜態網頁專案，跑完之後專案結構如下
 ```
-├ _post
+├ _post/
 │   └ 2010-10-26-title.markdown
 ├ _config.yml
 ├ .gitignore

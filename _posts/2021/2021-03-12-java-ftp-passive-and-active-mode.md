@@ -6,7 +6,7 @@ category: backend
 img: cover/ftp.jpg
 description: 最近一個案子中在 web server 有用到 FTP 的功能，而在開發中卻發現在本地測試時能夠正常運作的 FTP 功能，部屬到線上平台之後卻通通失靈了，查了一下才知道 FTP 有分為兩種不同的模式，而在特定的情況下一些模式是無法作用的。
 lang: zh-TW
-tags: [java, ftp, 踩雷紀錄]
+tags: [java, ftp, protocol, 踩雷紀錄]
 ---
 
 {{page.description}}
