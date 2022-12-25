@@ -64,6 +64,8 @@ service Test{
 
 欄位後面的數字代表著他的 id，應該盡可能的將 id 縮減在 1~15 因為只會佔用 1 byte，其實我不太懂為什麼這個不能由 gRPC 編譯時再自行加入
 
+基本型態 [支援][protobuf-type]
+
 ## 建立基本 gRPC server
 
 我們要建立一個新的 golang 專案來運行然後安裝所需的套件
@@ -203,7 +205,7 @@ import (
 )
 
 func main() {
-    conn, err := grpc.Dial("127.0.0.1:5000", grpc.WithInsecure())
+    conn, err := grpc.Dial("localhost:5000", grpc.WithInsecure())
     if err != nil {
         log.Fatalf("failed to dial: %v", err)
     }
@@ -243,3 +245,4 @@ func grpcTestAdd(client pb.TestClient) {
 先簡介基本概念跟程式，之後會補上更多 gRPC 的用法，還有一些踩到的雷
 
 [protobuf-tool]: https://github.com/protocolbuffers/protobuf/releases/
+[protobuf-type]: https://developers.google.com/protocol-buffers/docs/proto3#scalar
