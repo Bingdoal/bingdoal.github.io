@@ -14,7 +14,7 @@ published: true
 
 ## 簡介
 
-gRPC 簡言之就是 google 開發的 RPC(Remote Procedure Calls)，傳輸上是基於 HTTP/2 使用一種叫做 Protocol Buffers 的格式來作為介面描述語言，這點跟 GraphQL 有點像一樣要維護一份介面文件，不只可以作為文件也是執行程式必須的
+gRPC 簡言之就是 google 開發的 RPC(Remote Procedure Calls)，傳輸上是基於 HTTP/2 並使用一種叫做 Protocol Buffers 的格式來作為介面描述語言，這點跟 GraphQL 有點像，一樣要維護一份介面文件，不只可以作為文件也是執行程式必須的
 
 主要會轉用 gRPC 我認為有幾個優點:
 1. 透過 HTTP/2 並且用 binary 傳輸內容，傳送以及解析成本都比傳統 HTTP API 跟 json 快上不少
@@ -68,7 +68,7 @@ service Test{
 
 我們要建立一個新的 golang 專案來運行然後安裝所需的套件
 
-先來抓一下 protobuf 的 [必要工具](https://github.com/protocolbuffers/protobuf/releases/)
+先來抓一下 protobuf 的 [必要工具][protobuf-tool]
 
 然後透過下面指令確認版本跟安裝 golang 的套件
 
@@ -119,57 +119,127 @@ package main
 
 import (
     "context"
-	"fmt"
-	pb "grpc_demo/server/grpc/proto"
-	"log"
-	"net"
+    "fmt"
+    pb "grpc_demo/server/grpc/proto"
+    "log"
+    "net"
 
-	"google.golang.org/grpc"
+    "google.golang.org/grpc"
 )
 
 type TestGrpc struct {
-	pb.UnimplementedTestServer
+    pb.UnimplementedTestServer
 }
 
 func (*TestGrpc) TestAdd(ctx context.Context, req *pb.TestAddReq) (*pb.TestAddResp, error) {
-	return &pb.TestAddResp{
-		Sum: req.GetA() + req.GetB(),
-	}, nil
+    return &pb.TestAddResp{
+        Sum: req.GetA() + req.GetB(),
+    }, nil
 }
 
 
 func main() {
 
-	lis, err := net.Listen("tcp", "localhost:5000")
-	if err != nil {
-		log.Fatalf("failed to listen: %v \n", err)
-	}
+    lis, err := net.Listen("tcp", "localhost:5000")
+    if err != nil {
+        log.Fatalf("failed to listen: %v \n", err)
+    }
 
-	grpcServer := grpc.NewServer()
-	testGrpc := &TestGrpc{}
-	pb.RegisterTestServer(grpcServer, testGrpc)
+    grpcServer := grpc.NewServer()
+    testGrpc := &TestGrpc{}
+    pb.RegisterTestServer(grpcServer, testGrpc)
 
-	fmt.Println("starting gRPC server on localhost:5000...")
-	if err := grpcServer.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %v \n", err)
-	}
+    fmt.Println("starting gRPC server on localhost:5000...")
+    if err := grpcServer.Serve(lis); err != nil {
+        log.Fatalf("failed to serve: %v \n", err)
+    }
 }
 
 ```
 
+我覺得特別要注意的是 `import` 的路徑，由於沒有一個比較容易識別的 root struct 所以路徑基本不會自動完成，需要自己補上
+
 執行 `go run server.go` 簡單的 grpc server 就完成了
 
-## 測試
+## 基本 Client 範例
 
-接下來我們可以簡單利用 postman 來進行測試
+接下來我們寫個 Client 來測試
 
-![]({{site.baseurl}}/assets/img/postman-grpc-test.png)
+### 準備專案環境
+
+首先依照之前給的 `test.proto` 來建立一個新的 client 專案環境
+
+```
+├ proto/
+│   └ test.proto
+├ go.mod
+└ client.go
+```
+
+然後抓依賴並且產生 gRPC code
+
+```bash
+go get github.com/golang/protobuf/protoc-gen-go
+go get -u google.golang.org/grpc
+mkdir grpc
+protoc --go_out=./grpc --go_opt=paths=source_relative \
+    --go-grpc_out=./grpc --go-grpc_opt=paths=source_relative \
+    ./proto/*.proto
+```
+
+下面是一個基本的 client 範例
+
+```go
+// client.go
+package main
+
+import (
+    "context"
+    "fmt"
+    pb "grpc_demo/client/grpc/proto"
+    "log"
+
+    "google.golang.org/grpc"
+)
+
+func main() {
+    conn, err := grpc.Dial("127.0.0.1:5000", grpc.WithInsecure())
+    if err != nil {
+        log.Fatalf("failed to dial: %v", err)
+    }
+
+    defer conn.Close()
+
+    client := pb.NewTestClient(conn)
+
+    grpcTestAdd(client)
+}
+
+func grpcTestAdd(client pb.TestClient) {
+    fmt.Println("Staring gRPC request")
+    req := &pb.TestAddReq{
+        A: 5,
+        B: 7,
+    }
+
+    res, err := client.TestAdd(context.Background(), req)
+    if err != nil {
+        log.Fatalf("error: %v", err)
+    }
+
+    log.Printf("Response: %v", res.GetSum())
+}
+```
+
+直接執行就好了，可以發現在 gRPC Client 上調用請求是非常簡單的，實作都自動幫忙產好了
 
 正常回傳且結果正確
 
-至此就完成我們第一個 gRPC server 了
+至此就完成我們第一個 gRPC 實作了
 
 ---
 ## 結語
 
 先簡介基本概念跟程式，之後會補上更多 gRPC 的用法，還有一些踩到的雷
+
+[protobuf-tool]: https://github.com/protocolbuffers/protobuf/releases/
