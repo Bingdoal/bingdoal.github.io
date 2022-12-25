@@ -79,7 +79,6 @@ func grpcTestAdd(client pb.TestClient) {
     res, err := client.TestAdd(context.Background(), req)
     if err != nil {
         st, ok := status.FromError(err)
-        //fmt.Printf("error: %+v\n", st)
         if ok && len(st.Details()) > 0 {
             detail := st.Details()[0]
             fmt.Printf("detail: %+v\n", detail)
@@ -95,6 +94,45 @@ func grpcTestAdd(client pb.TestClient) {
 
 把客製化的 error struct 寫在 protobuf 的好處就是可以直接 casting 成需要的結構，這部分已經幫我們做好自動序列化了
 
+#### 額外補充
+
+一開始在使用 gRPC 的 error model 的時候沒有想到把 error detail 的結構寫在 `proto`
+
+並且 server 是用 java 寫的，不確定是不是有部分設定不太一樣
+
+結果造成沒辦法自動轉型，因此就找了一下怎麼自己做轉型，以下是範例 code
+
+```golang
+func GetErrInfo(err error) (int, string, error) {
+    st := status.Convert(err)
+    details := st.Proto().Details
+    if len(details) > 0 {
+        detail := details[0]
+        detail.TypeUrl = "type.googleapis.com/google.rpc.ErrorInfo"
+        detailJson, err := protojson.Marshal(detail)
+        if err != nil {
+            return 0, "", err
+        }
+        var errorInfo errdetails.ErrorInfo
+        json.Unmarshal(detailJson, &errorInfo)
+
+        code, err := strconv.Atoi(errorInfo.Metadata["code"])
+        if err != nil {
+            return 0, "", err
+        }
+        return code, errorInfo.Metadata["message"], nil
+    } else {
+        return -1, err.Error(), err
+    }
+}
+```
 
 [grpc-status]: https://grpc.github.io/grpc/core/md_doc_statuscodes.html
+
+
+---
+
+## 結語
+
+實在不理解為什麼在 gRPC 的標準中沒有把 error model 納入，這應該是很常見的業務需求才是，不過幸好 golang 的支援度很好
 
