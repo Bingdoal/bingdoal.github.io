@@ -17,7 +17,9 @@ published: true
 Spring boot 的 i18n 支援是含在 `spring-context-support` 裡的，理論上當在使用 Spring boot 的時候應該都會有才是
 
 ## application.yaml
+
 `basename` 代表語系檔的路徑以及檔名，依照這裡的設定須將語系檔放在 `resource/i18n` 之下，且命名為 `message.properties`
+
 ```yaml
 messages:
   basename: i18n/messages
@@ -30,6 +32,7 @@ messages:
 不同語系需放在不同檔案，命名上用上面設定的 `basename` 後面加上 `_語系` 來區隔
 
 {% raw %}
+
 ```yaml
 # message.properties
 user.controller.not.found.by.id=[預設] 使用者 ID [{0}] 不存在
@@ -46,6 +49,7 @@ user.controller.not.found.by.id=使用者 ID [{0}] 不存在
 {% endraw %}
 
 ## 套用
+
 注入 `MessageSource` 的資源，透過 key 值去對應訊息，如果後面帶入的語系不存在就會用預設的 `message.properties` 內容
 
 ```java

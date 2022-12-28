@@ -11,10 +11,12 @@ tags: [kubernetes, deploy]
 
 {{page.description}}
 
-# 前言
+## 前言
+
 Persistent Volumes(PV) 及 Persistent Volume Claims(PVC) 的概念是用來將 Pod 以及 Volume 分開，將 Volume 抽象化並從 Pod 的設定中抽離，可以讓專門的 storage 管理者來設定並管理 PV 及 PVC
 
 ## Persistent Volumes (PV)
+
 PV 有點像是 storage 的 cluster，一個 PV 可以包含多個 Volume Type，PV 的設定如下:
 
 ```yaml
@@ -43,6 +45,7 @@ spec:
     3. `Recycle`: 也是刪除資料，不過實際上的差異筆者其實沒有很理解😅，所以這邊附上[官方文件連結](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 
 ## Persistent Volume Claims(PVC)
+
 PVC 是用來向 PV 發出存取得請求的，充當 PV 以及 Pod 之間的連結，當 Pod 不再需要 Volume 的時候也只要移除 PVC 就好，也可以有一些 Volume 的操作策略，設定如下:
 
 ```yaml
@@ -66,6 +69,7 @@ spec:
 可以透過 `kubectl get pvc` 來查看部屬好的 PVC，看 status 為 Bound 則表示部屬成功，有成功與 PV 綁定起來
 
 ## 在 Pod 的設定中如何使用
+
 當 Volume 透過 PV 來設定管理，透過 PVC 來請求資源，那 Pod 就是透過 PVC 來綁定 Volume，關係上會像是 `Pod <-> PVC <-> PV`，所以必須確認 PVC 有確實綁好 PV，而 Pod 的設定其實也不複雜就是把 Volume 的設定換成 PVC 如下:
 
 ```yaml
@@ -85,6 +89,9 @@ spec:
     persistentVolumeClaim:
       claimName: pvc-test
 ```
+
 ---
+
 ## 結語
+
 其實會發現 PVC 的內容很少，好像沒有必要特別抽離出來管理，主要應該是在使用雲端儲存空間時，有很多的設定細節才能體現出 PVC 的優點，不過 PV 的好處就顯而易見了，可以管理 Volume 的使用上限還有刪除 Volume 的策略

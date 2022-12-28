@@ -13,14 +13,17 @@ published: true
 {{page.description}}
 
 ## JUnit
+
 Junit 是一個 Java 的單元測試框架，可以透過簡單的 `@Annotation` 宣告來撰寫 Unit test，配合 `Assertions` 來斷言測試結果
 
 Spring boot 的 Unit test 主要運行在 JUnit 上，透過加入 `spring-boot-starter-test` 的依賴，來把初始的測試環境架設好
 
 ## Mockito
+
 Mockito 是用來輔助進行單元測試的 mock 框架，可以用來模擬 method 被呼叫後的行為，包含返回值以及異常拋出，讓我們可以專注在測試案例上，也方便建立單一的測試環境
 
 ## 撰寫測試
+
 + IntelliJ IDEA 2021.3
 + Spring boot 2.5.2 版，預設 JUnit5
 + 加入依賴
@@ -36,6 +39,7 @@ Mockito 是用來輔助進行單元測試的 mock 框架，可以用來模擬 me
 建立路徑 `/src/test/java` 以及 `/src/test/resources`，將撰寫的單元測試放在 `/src/test/java`，`resources` 下則放希望在測試環境下套用的資源檔
 
 ### 基本測試
+
 ```java
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -68,13 +72,14 @@ public class DemoTest {
 
 + 不過如果是用 IntelliJ 的話可以直接在下面位置執行:
 
-![]({{site.baseurl}}/assets/img/unit-test-exec-in-idea.png)
+![Alt]({{site.baseurl}}/assets/img/unit-test-exec-in-idea.png)
 
 + 這樣子會有比較詳細的執行結果，也會有階層式結構，結果一目瞭然:
 
-![]({{site.baseurl}}/assets/img/unit-test-result.png)
+![Alt]({{site.baseurl}}/assets/img/unit-test-result.png)
 
 ### Test Service
+
 接下來要進入到 Spring boot 的測試階段，通常細部的功能都會被包裝在 `Service` 之中，所以就先從 `Service` 開始寫起吧。這邊的例子是一個用來產生以及驗證 JWT 的 Service:
 
 ```java
@@ -129,6 +134,7 @@ public class JwtTokenServiceTest {
 這邊有用到比較特別的 `Assertions.assertThrows` 可以用來斷言 callback 中拋出的 exception。
 
 ### Test API
+
 後端程式最常用的接入點 API 當然也是要經過測試比較好的，而要從 API 角度來測試的話寫法會稍有不同，會使用到 `Mockito` 和 `MockMvc` 來完成
 
 ```java
@@ -183,6 +189,7 @@ public class UserControllerTest {
     }
 }
 ```
+
 `MockMvc` 有點像負責建立起與 Controller 的通道以及 `Advice` 等功能的套用與否，`Mockito` 則是用來模擬 `method` 的行為，由於我們在意的是 API 的行為而不希望牽涉到實際資料庫的內容，因此去模擬 DAO 以及 Service 的行為
 
 這邊要特別注意的是，原先的 Controller 有注入 `UserDao` 以及 `UserDaoService` 那即使沒有使用到，在這裡也必須要注入或是 Mock，這樣 Controller 的注入才會成功
@@ -190,6 +197,7 @@ public class UserControllerTest {
 `MockMvc` 比較便利的是可以利用 `andExpect` 配合 `MockMvcResultMatchers` 的靜態方法來直接進行斷言，不需要寫太多程式碼
 
 ---
+
 ## 結語
 
 一般的 Unit test 寫起來之後在每次 mvn 打包的時候都會執行一次，確保程式的執行結果都是正確的，所以至少要將 API 的 Unit test 寫好，而且基本的 Unit test 寫起來也非常容易理解，之後再針對細部的功能去了解各個 Unit test 該怎麼使用

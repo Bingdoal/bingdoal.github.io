@@ -13,9 +13,11 @@ published: true
 {{page.description}}
 
 ## 目的
+
 如果有在開發實際上的產品就會了解到，資料庫的修改有時候是不可避免的，但若是直接去 Database 下 Query 的話會發生程式可能與資料庫不同步的情形，尤其若是這套系統需要部屬到多個平台上，那對資料庫的異動若是人工操作那絕對是一場災難，因此才會需要用到 Migration 的機制
 
 那首先簡單介紹下使用 Migration 的目的:
+
 1. 將資料庫的 Schema 變更搬移到不同的環境上
 2. 對資料庫的修改進行版本控制
 3. 利用 Git 這類版控工具將資料庫的修改與程式的版本同步
@@ -48,13 +50,14 @@ published: true
 ```
 
 那要先了解到在 Flyway 的 Migration 被分為三種執行方式，分別是:
+
 1. `Versioned Migrations`: 本身帶有版號，執行時會自動檢查資料庫的版本，如果版本不同則只會執行後面版本的 Migration，這是最常用的方式
 2. `Undo Migrations`: 本身也帶有版號，顧名思義是用來 rollback 資料庫版本的，通常與 `Versioned Migrations` 相對應
 3. `Repeatable Migrations`: 本身不帶有版號，會在每次執行 Migration 時都執行，算是簡單粗暴的方式
 
 而不同行為的 Migration 是用檔名來區分的，各個格式如下圖所示:
 
-![]({{site.baseurl}}/assets/img/flyway-migration.png)
+![flyway-migration.png]({{site.baseurl}}/assets/img/flyway-migration.png)
 
 ### 自動執行 Flyway Migration
 

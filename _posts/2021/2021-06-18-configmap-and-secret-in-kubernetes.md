@@ -11,15 +11,14 @@ tags: [kubernetes, deploy]
 
 {{page.description}}
 
-
 ## ConfigMap
 
 ConfigMap 是 k8s 中用來設定環境變數的其中一個資源，主要用於設定一些較不敏感的資料，直接以明文撰寫就好
 
-### yaml
+### configmap.yml
 
 ```yaml
-## configmap.yml
+# configmap.yml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -29,7 +28,7 @@ data:
 ```
 
 ```yaml
-## pod.yml
+# pod.yml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -53,13 +52,14 @@ spec:
 ## Secret
 
 Secret 用法跟 ConfigMap 基本差不多，不過是用來設定一些敏感資料的，常見的例如:
+
 + 帳號密碼
 + 一些 token 或是 ssh key 等等
 
-### yaml
+### secret.yml
 
 ```yaml
-##secret.yml
+# secret.yml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -102,4 +102,5 @@ spec:
 ---
 
 ## 結語
+
 至此五篇拖了很長的時間才完成XD，而 k8s 初戰系列預計就到這邊了，接下來會是進階系列，其實也沒什麼明確的分水嶺，只是目前只是跟著團隊部署時在使用，沒太深入各種內容，單就以有使用到的表面的功能做點介紹跟紀錄，之後再針對一些議題去做各個資源的討論，只是不知道會拖稿多久XD

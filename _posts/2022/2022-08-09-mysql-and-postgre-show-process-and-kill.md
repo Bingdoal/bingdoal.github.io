@@ -12,7 +12,6 @@ published: true
 
 {{page.description}}
 
-
 ## MySQL
 
 ```sql

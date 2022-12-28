@@ -47,6 +47,7 @@ sudo apt install tmux
 並且透過 `tmux attach -t <session-name>` 可以回到指定的 session
 
 ### 其他操作
+
 1. `ctrl + b` + `&`: 結束當前 window，如果是最後一個 window 就結束 session
 2. `ctrl + b` + `c`: 建立新的 window
 3. `ctrl + b` + `$`: 幫當前的 session 重新命名

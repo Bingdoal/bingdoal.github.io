@@ -5,23 +5,25 @@ layout: main
     {% include hash-link.html %}
     <div class="page-content">
         {% if page.img %}
-            <div class="page-cover-image">
-                <figure>
-                    <img class="page-image" src={{ "/assets/img/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}">
-                    {% if page.fig-caption %}
-                        <figcaption>{{page.fig-caption}}</figcaption>
-                    {% endif %}
-                </figure>
-            </div>
-            <!-- End Page Cover Image -->
-            {% else %}
+        <div class="page-cover-image">
+            <figure>
+                <img class="page-image" src={{ "/assets/img/" | prepend: site.baseurl | append : page.img}}
+                    alt="{{page.title}}">
+                {% if page.fig-caption %}
+                <figcaption>{{page.fig-caption}}</figcaption>
+                {% endif %}
+            </figure>
+        </div>
+        <!-- End Page Cover Image -->
+        {% else %}
         {% endif %}
         <div class="wrap-content">
             <header class="header-page">
                 <h1 class="page-title">{{page.title}}</h1>
                 <div class="page-date">
                     <span>
-                        <a class="my-link" href="/year/{{page.date | date: '%Y'}}">{{page.date | date: '%Y'}}</a>{{page.date | date: ', %b %d'}}&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class="my-link" href="/year/{{page.date | date: '%Y'}}">{{page.date | date:
+                            '%Y'}}</a>{{page.date | date: ', %b %d'}}&nbsp;&nbsp;&nbsp;&nbsp;
                     </span>
                 </div>
             </header>
@@ -30,25 +32,28 @@ layout: main
             </div>
             <div class="page-footer">
                 <div class="page-share">
-                    <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">
+                    <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow"
+                        target="_blank" title="Share on Facebook">
                         Share on Facebook
                     </a>
                 </div>
                 <div class="page-tag">
                     {% for tag in page.tags %}
-                        <a href="{{site.baseurl}}/tags#{{tag}}" class="tag">&#35;
-                            {{ tag }}</a>
+                    <a href="{{site.baseurl}}/tags#{{tag}}" class="tag">&#35;
+                        {{ tag }}</a>
                     {% endfor %}
                 </div>
             </div>
             <div class="page-navigation">
                 {% if page.previous.url %}
-                <a class="prev" href="{{page.previous.url}}"><i class="fas fa-arrow-left"></i>PREV| {{page.previous.title | truncate: 30}}</a>
+                <a class="prev" href="{{page.previous.url}}"><i class="fas fa-arrow-left"></i>PREV|
+                    {{page.previous.title | truncate: 30}}</a>
                 {% else %}
                 <span></span>
                 {% endif %}
                 {% if page.next.url %}
-                <a class="next" href="{{page.next.url}}">{{page.next.title | truncate: 30 }}  |NEXT<i class="fas fa-arrow-right"></i></a>
+                <a class="next" href="{{page.next.url}}">{{page.next.title | truncate: 30 }} |NEXT<i
+                        class="fas fa-arrow-right"></i></a>
                 {% endif %}
             </div>
             {% include github-issue.html %}

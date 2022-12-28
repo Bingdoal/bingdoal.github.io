@@ -13,11 +13,13 @@ published: true
 {{page.description}}
 
 沒看過前幾篇的可以點這邊:
+
 + [GraphQL in Spring boot(一) 基本 Query 操作](https://bingdoal.github.io/backend/2021/12/graphql-in-spring-boot-basic-query/)
 + [GraphQL in Spring boot(二) Mutation 與 Scalar Type](https://bingdoal.github.io/backend/2022/01/graphql-in-spring-mutation-and-scalar-type/)
 + [GraphQL in Spring Boot(三) DataLoader 解決 Resolver 重複執行問題](https://bingdoal.github.io/backend/2022/01/graphql-in-spring-dataloader/)
 
 ## Schema
+
 + 用一個簡單的大寫轉換作為範例，Query `hello` 回傳 `world`
 
 ```graphql
@@ -30,7 +32,7 @@ type Query{
 
 + 先宣告好 `directive` 的關鍵字以及適用範圍，可宣告的適用範圍如下:
 
-![]({{site.baseurl}}/assets/img/graphql-directive-on.png)
+![Alt]({{site.baseurl}}/assets/img/graphql-directive-on.png)
 
 ## 實作
 
@@ -60,11 +62,12 @@ public class UppercaseConfig {
 
 + 操作輸出如下，簡單轉換成大寫內容了
 
-![]({{site.baseurl}}/assets/img/graphql-directive-output-1.png)
+![Alt]({{site.baseurl}}/assets/img/graphql-directive-output-1.png)
 
 + 相關的應用像是日期格式轉換或是資料格式檢查都可以用上
 
 ### 帶參數
+
 + 或是 Directive 也可以帶入參數某種程度上達到共用或是增加彈性
 
 ```graphql

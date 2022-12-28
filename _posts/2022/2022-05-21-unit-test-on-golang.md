@@ -56,7 +56,7 @@ func TestTime(t *testing.T){
 
 如果說是利用 vscode 進行開發的話，按下 `F1`，找指令 `>Go: Generate Unit Tests ...`
 
-![]({{site.baseurl}}/assets/img/vscode-generate-golang-test.png)
+![Alt]({{site.baseurl}}/assets/img/vscode-generate-golang-test.png)
 
 可以間單產出下面的測試程式
 
@@ -137,6 +137,7 @@ func TestTime(t *testing.T){
 寫起來簡潔也好理解，除了 `assert` 之外也有更多神奇的用法，待之後再介紹
 
 ---
+
 ## 結語
 
 簡單介紹基本的 golang testing 的用法，不過實際上做測試還會遇到更多問題，等待之後再補幾篇來說明

@@ -152,4 +152,3 @@ public class Order extends EntityBase {
 ```
 
 經過 Converter 的轉換之後就可以取之 value 存之 value 了
-

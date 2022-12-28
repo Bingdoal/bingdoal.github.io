@@ -13,18 +13,22 @@ published: true
 {{page.description}}
 
 沒看過前幾篇的可以點這邊:
+
 + [OpenFlow 初學之路(一) SDN、OpenFlow 簡介](https://bingdoal.github.io/network/2022/02/sdn-openflow-intro/)
 
 ### 實作環境
+
 + OpenDaylight Aluminium SR4 [官方連結](https://docs.opendaylight.org/en/stable-aluminium/downloads.html)
 + Mininet 2.3.0 [官方連結](http://mininet.org/download/)
 
 ODL 跟 Mininet 兩者本身都有許多可以研究的地方，不過這個大坑就等到之後慢慢補吧😂
 
 ## Mininet
+
 Mininet 可以用來模擬網路拓樸的建構，包含 Switch、終端機器，而且還提供各個節點的終端操作，可以簡單的在個人環境下建構 SDN 的環境，並且實際模擬節點間的封包傳送
 
 ### 建立拓樸
+
 透過上面的官方連結安裝好 Mininet 之後，直接輸入 `mn` 就可以建立一個簡單的拓樸了
 
 ```bash
@@ -65,8 +69,7 @@ mininet>
 
 使用 `xterm` 則可以開啟指定節點的終端
 
-![]({{site.baseurl}}/assets/img/mininet-xterm.png)
-
+![Alt]({{site.baseurl}}/assets/img/mininet-xterm.png)
 
 加上 `-x` 可以在拓樸建立後順便開啟各節點的終端
 
@@ -92,9 +95,11 @@ rtt min/avg/max/mdev = 0.187/0.689/1.191/0.502 ms
 ## OpenDaylight
 
 ### 簡介
+
 OpenDaylight 本身是一個 Open Source 的專案，主要用途是支援各種 SDN 的工具，包含這次要講的 OpenFlow，其他還包含多種協定用以管理各種網路設備或是更深入到 Network Function Virtualization(NFV) 相關，這也是個更深入的領域了，主要開發語言為 Java
 
 ### 準備環境
+
 先從上面的官方連結下載後解壓縮，由於 ODL 是以 Java 開發的，需要先設定一下 `JAVA_HOME` 的路徑，Aluminium SR4 需要到 Java 11 的支援，這部分就不詳述了
 
 設定好之後執行解壓縮後的 `bin/karaf`，應該會看到下面畫面
@@ -137,4 +142,5 @@ opendaylight-user@root>feature:install odl-openflowplugin-flow-services-rest odl
 ---
 
 ## 結語
+
 OpenDaylight 實在是一個強大的工具，由於工作上不只是使用還要改 code，當初真的是花了很多的心力在研究這套軟體，而且網路上的資料不是不齊全就是年代久遠，一路走來也是碰了很多牆，才想分享出來希望後人可以不用繼續碰壁，而除了 OpenFlow 之外工作上也有用到 ODL 的其他功能，希望有天能把這個坑給補起來

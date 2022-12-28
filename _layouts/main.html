@@ -6,7 +6,9 @@ layout: default
     <header>
         <div class="about">
             <div class="cover-author-image">
-                <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/assets/img/{% if site.author-img %}{{site.author-img}}{% endif %}" alt="{{site.author}}"></a>
+                <a href="{{site.baseurl}}/"><img
+                        src="{{site.baseurl}}/assets/img/{% if site.author-img %}{{site.author-img}}{% endif %}"
+                        alt="{{site.author}}"></a>
             </div>
             <div class="author-name">{{site.author}}</div>
             <p>{{site.about-author}}</p>
@@ -21,15 +23,15 @@ layout: default
             <div class="blog-category">
                 <p>Category</p>
                 <div class="blog-category-nav">
-                    {% assign sortedCategories =  site.categories | sort%}
+                    {% assign sortedCategories = site.categories | sort%}
                     {% for pageContent in sortedCategories %}
-                        {% assign category = pageContent | first %}
-                        {% assign size = pageContent | last | size %}
-                        <div class="category-div">
-                            <a href="{{site.baseurl}}/category/{{category}}">{{category}}
-                                <i>({{size}})</i>
-                            </a>
-                        </div>
+                    {% assign category = pageContent | first %}
+                    {% assign size = pageContent | last | size %}
+                    <div class="category-div">
+                        <a href="{{site.baseurl}}/category/{{category}}">{{category}}
+                            <i>({{size}})</i>
+                        </a>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
@@ -41,39 +43,39 @@ layout: default
             <h3 class="contact-title">Contact me</h3>
             <ul>
                 {% if site.social-twitter %}
-                    <li>
-                        <a href="https://twitter.com/{{ site.social-twitter }}" target="_blank">
-                            <i aria-hidden="true" class="fab fa-twitter"></i>
-                        </a>
-                    </li>
+                <li>
+                    <a href="https://twitter.com/{{ site.social-twitter }}" target="_blank">
+                        <i aria-hidden="true" class="fab fa-twitter"></i>
+                    </a>
+                </li>
                 {% endif %}
                 {% if site.social-facebook %}
-                    <li>
-                        <a href="https://facebook.com/{{ site.social-facebook }}" target="_blank">
-                            <i aria-hidden="true" class="fab fa-facebook"></i>
-                        </a>
-                    </li>
+                <li>
+                    <a href="https://facebook.com/{{ site.social-facebook }}" target="_blank">
+                        <i aria-hidden="true" class="fab fa-facebook"></i>
+                    </a>
+                </li>
                 {% endif %}
                 {% if site.social-github %}
-                    <li class="github">
-                        <a href="http://github.com/{{site.social-github}}" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </li>
+                <li class="github">
+                    <a href="http://github.com/{{site.social-github}}" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
                 {% endif %}
                 {% if site.social-linkedin %}
-                    <li class="linkedin">
-                        <a href="https://in.linkedin.com/in/{{site.social-linkedin}}" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </li>
+                <li class="linkedin">
+                    <a href="https://in.linkedin.com/in/{{site.social-linkedin}}" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
                 {% endif %}
                 {% if site.social-email %}
-                    <li class="email">
-                        <a href="mailto:{{site.social-email}}">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </li>
+                <li class="email">
+                    <a href="mailto:{{site.social-email}}">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </li>
                 {% endif %}
             </ul>
         </section>

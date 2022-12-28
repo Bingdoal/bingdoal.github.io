@@ -12,7 +12,9 @@ tags: [java, ftp, protocol, 踩雷紀錄]
 {{page.description}}
 
 ## FTP 模式
+
 首先先理解一下 FTP 連線機制上其實有兩種模式:
+
 1. 主動式 (POST/Active)
 2. 被動式 (PASV/Passive)
 
@@ -21,6 +23,7 @@ tags: [java, ftp, protocol, 踩雷紀錄]
 ### 主動式
 
 最開始的 FTP 設計都是由主動式來進行溝通，溝通的方式如下:
+
 1. 由 client 端(通常是 1024)發出連線請求與 FTP server 的 Command Port 建立連線，並發出命令
 2. 同時 client 會開啟一個 Port (通常為 1025)等待接聽由 FTP server Data Port 傳過來的資料
 3. server 端回應命令並由 Data Port 傳送資料到 client 端
@@ -28,20 +31,22 @@ tags: [java, ftp, protocol, 踩雷紀錄]
 
 整體流程大致如下圖:
 
-![]({{site.baseurl}}/assets/img/ftp-active.png)
+![Alt]({{site.baseurl}}/assets/img/ftp-active.png)
 
 那主動式的問題主要會出現在第三步的時候，由於現行的網路架構下，client 端多數是被保護的，可能位在 router 之後或是有防火牆的設計防止外來的連線，也因此才有了被動式的方法誕生。
 
 ### 被動式
 
 為了解決在現代網路架構下主動式的連線問題所誕生的被動模式，溝通過程如下:
+
 1. 由 client 端(通常是 1024)發出連線請求與 FTP server 的 Command Port 建立連線，並發出命令
 2. 同時，server 端開啟一個大於 1023 的 port 作為 Data Port 等待連線，並在第一步時，將這個 port 傳送給 client
 3. client 對 server Data Port 主動發起連線進行資料傳輸
 
-![]({{site.baseurl}}/assets/img/ftp-passive.png)
+![Alt]({{site.baseurl}}/assets/img/ftp-passive.png)
 
 被動式來說的話變成 server 這邊需要額外多開幾個 port 來進行連線
+
 ## 實際問題解析
 
 其實蠻好理解的，既然沒辦法由 server 來連線那就轉由 client 來進行，然而就是這樣的機制造成本地測試與線上使用時預期上的不同

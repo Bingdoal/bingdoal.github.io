@@ -13,6 +13,7 @@ published: true
 {{page.description}}
 
 ### defer
+
 defer 的用意是延後執行，後面要接上一段 function 執行，可以是匿名 function，使用上我覺得有點像 Java 的 finally，一般來說會在最後才執行
 
 ```golang
@@ -178,6 +179,7 @@ func main() {
     close(ch)
 }
 ```
+
 藉由 `<-` 來表示資料的讀入跟輸出，其實是非常直覺的，並且在用完之後記得關閉，減少資源的消耗
 
 可以看到這邊沒有讓主線程睡，但是可以正常輸出資料，這是因為在讀出 channel 的時候，會進入等待，會等待 channel 有 input 才會通過 channel 的 output，否則就會卡住
@@ -237,7 +239,7 @@ func main() {
 
 輸出會像是下面這樣
 
-```
+```bash
 ch1: 2
 ch2: 3
 ch1: 4
@@ -276,6 +278,7 @@ SET GOOS=linux&SET GOARCH=arm64&go build . # Linux
 不過 `GOARCH` 應該是會跟著機器 CPU 有所不同而要更改，這就等到遇到再說了，各自的詳細值則可以參考[這邊](https://go.dev/doc/install/source#environment)
 
 ---
+
 ## 結語
 
 Golang 的 goroutine 以及 channel 實在是非常好用的兩個特性，在處理非同步的情況時調用簡便，且效率非常好，defer 的運用也是十分廣泛，感覺得出來都是經過很好的設計才誕生的用法，期望之後 Golang 的發展也能越來越方便並且維持它的高效能

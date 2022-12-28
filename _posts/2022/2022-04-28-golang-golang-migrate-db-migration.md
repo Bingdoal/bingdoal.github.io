@@ -13,11 +13,13 @@ published: true
 {{page.description}}
 
 ## 目的
+
 怕有讀者是只想看 golang 的，就再把 Migration 的用途貼一遍
 
 如果有在開發實際上的產品就會了解到，資料庫的修改有時候是不可避免的，但若是直接去 Database 下 Query 的話會發生程式可能與資料庫不同步的情形，尤其若是這套系統需要部屬到多個平台上，那對資料庫的異動若是人工操作那絕對是一場災難，因此才會需要用到 Migration 的機制
 
 那首先簡單介紹下使用 Migration 的目的:
+
 1. 將資料庫的 Schema 變更搬移到不同的環境上
 2. 對資料庫的修改進行版本控制
 3. 利用 Git 這類版控工具將資料庫的修改與程式的版本同步
@@ -114,20 +116,20 @@ func main() {
 var DB *gorm.DB
 
 func init() {
-	DB = connectDB()
-	if config.Env.GetBool("migration.enabled") {
-		migration()
-	}
+ DB = connectDB()
+ if config.Env.GetBool("migration.enabled") {
+  migration()
+ }
 }
 
 func migration() {
-	migration := newMigration()
-	target := config.Env.GetString("migration.target")
-	if target == "latest" {
-		migration.Up()
-	} else {
-		migration.To(config.Env.GetUint("migration.target"))
-	}
+ migration := newMigration()
+ target := config.Env.GetString("migration.target")
+ if target == "latest" {
+  migration.Up()
+ } else {
+  migration.To(config.Env.GetUint("migration.target"))
+ }
 }
 ```
 
@@ -137,51 +139,51 @@ func migration() {
 
 ```golang
 type Migration struct {
-	client *migrate.Migrate
+ client *migrate.Migrate
 }
 
 var dbUrl = fmt.Sprintf("postgres://%s:%s@%s:%d/%s?sslmode=disable&search_path=%s",
-	config.Env.GetString("postgres.user"),
-	config.Env.GetString("postgres.password"),
-	config.Env.GetString("postgres.host"),
-	config.Env.GetInt("postgres.port"),
-	config.Env.GetString("postgres.database"),
-	config.Env.GetString("postgres.schema"),
+ config.Env.GetString("postgres.user"),
+ config.Env.GetString("postgres.password"),
+ config.Env.GetString("postgres.host"),
+ config.Env.GetInt("postgres.port"),
+ config.Env.GetString("postgres.database"),
+ config.Env.GetString("postgres.schema"),
 )
 
 func newMigration() *Migration {
-	m := Migration{}
-	path := "file://_assets/db/migration"
-	var err error
-	m.client, err = migrate.New(path, dbUrl)
-	if err != nil {
-		panic(err)
-	}
-	return &m
+ m := Migration{}
+ path := "file://_assets/db/migration"
+ var err error
+ m.client, err = migrate.New(path, dbUrl)
+ if err != nil {
+  panic(err)
+ }
+ return &m
 }
 
 func (m *Migration) To(targetVersion uint) {
-	if err := m.client.Migrate(targetVersion); err != nil && err != migrate.ErrNoChange {
-		panic(err)
-	}
-	afterVersion, _, _ := m.client.Version()
-	fmt.Printf("Migration to version:%d success", afterVersion)
+ if err := m.client.Migrate(targetVersion); err != nil && err != migrate.ErrNoChange {
+  panic(err)
+ }
+ afterVersion, _, _ := m.client.Version()
+ fmt.Printf("Migration to version:%d success", afterVersion)
 }
 
 func (m *Migration) Up() {
-	if err := m.client.Up(); err != nil && err != migrate.ErrNoChange {
-		panic(err)
-	}
-	afterVersion, _, _ := m.client.Version()
-	fmt.Printf("Migration up version:%d success", afterVersion)
+ if err := m.client.Up(); err != nil && err != migrate.ErrNoChange {
+  panic(err)
+ }
+ afterVersion, _, _ := m.client.Version()
+ fmt.Printf("Migration up version:%d success", afterVersion)
 }
 
 func (m *Migration) Down() {
-	if err := m.client.Down(); err != nil && err != migrate.ErrNoChange {
-		panic(err)
-	}
-	version, _, _ := m.client.Version()
-	fmt.Printf("Migration down version:%d success", version)
+ if err := m.client.Down(); err != nil && err != migrate.ErrNoChange {
+  panic(err)
+ }
+ version, _, _ := m.client.Version()
+ fmt.Printf("Migration down version:%d success", version)
 }
 ```
 

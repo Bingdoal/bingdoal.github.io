@@ -191,4 +191,3 @@ HashMap<String, Object> properties = new HashMap<>();
 其他還要注意多個 datasource configuration 必須要有一個的 bean 全部都要加上 `@Primary`
 
 這些都搞定之後就跟往常操作沒兩樣囉
-

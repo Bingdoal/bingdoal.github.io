@@ -12,8 +12,8 @@ published: true
 
 {{page.description}}
 
-
 沒看過前幾篇的可以點這邊:
+
 + [OpenFlow 初學之路(一) SDN、OpenFlow 簡介](https://bingdoal.github.io/network/2022/02/sdn-openflow-intro/)
 + [OpenFlow 初學之路(二) 實作環境架設 OpenDaylight、Mininet](https://bingdoal.github.io/network/2022/02/sdn-openflow-controller-opendaylight-mininet/)
 + [OpenFlow 初學之路(三) Flow Table 基本設定與操作](https://bingdoal.github.io/network/2022/03/sdn-openflow-flow-table/)
@@ -33,14 +33,14 @@ sudo mn --topo single,4 --mac --switch ovsk --controller remote,ip=192.168.xx.xx
 
 Group 的機制稍微有點複雜，這邊簡單介紹下，並附上 Group Table 的結構如下圖
 
-![]({{site.baseurl}}/assets/img/openflow-group-table.png)
-
+![Alt]({{site.baseurl}}/assets/img/openflow-group-table.png)
 
 + 一個 Group 含有多個 Action Bucket
 + 一個 Action Bucket 含有多個 Action，概念上就是 Action 的集合
 + 根據 Group 的 Type 來決定 Action 執行的方式
 
 ### Group Type
+
 Group Type 是 Group 的一個重要設定，決定了 Group 的行為模式，總共有以下幾種
 
 + All: 複製封包送往執行全部的 Action Buckets
@@ -50,11 +50,12 @@ Group Type 是 Group 的一個重要設定，決定了 Group 的行為模式，�
 
 假定一個情境，Group 的 Action Bucket 設定為 output 到 1~4 port，那各個 Group Type 的行為模式就如下圖
 
-![]({{site.baseurl}}/assets/img/openflow-group-table-demo.png)
+![Alt]({{site.baseurl}}/assets/img/openflow-group-table-demo.png)
 
 ### Group Table 建立
 
 #### Type ALL
+
 首先來測試一下 Group Table 的建立，先建立一個 Group，並設定 Group Type 為 All
 
 ```json
@@ -168,7 +169,7 @@ Basic Auth: admin/admin
 
 這邊就不寫上 match 了，讓所有封包都能夠套用，讓我們簡單用 `ping` 來做測試，並且在每個 `xterm` 中都使用 `tcpdump` 來監控收到的封包
 
-![]({{site.baseurl}}/assets/img/openflow-group-all-demo.png)
+![Alt]({{site.baseurl}}/assets/img/openflow-group-all-demo.png)
 
 圖中可以看到雖然是從 `h1 ping h2` 但是所有的 host 都有收到 ICMP 的封包，可以知道 Group 的 All 的確會將封包傳送到所有的 Action Bucket，可以利用在封包廣播上
 
@@ -249,7 +250,7 @@ Basic Auth: admin/admin
 
 除了 type 要修改成 `group-select` 之外，也必須為每個 Action Bucket 加上 `weight`，Switch 會根據 weight 的大小來決定將封包傳送到哪個 Action Bucket，而這邊全部都設置為 1，會根據 Switch 自身的演算法隨機傳送，如下圖
 
-![]({{site.baseurl}}/assets/img/openflow-group-select-demo.png)
+![Alt]({{site.baseurl}}/assets/img/openflow-group-select-demo.png)
 
 可以看到雖然是 `h1 ping h2` 但是卻是 h3 收到封包，而且每次由 h1 -> h2 都是 h3 收到，這功能也許可以用在 Load Balance 方面
 

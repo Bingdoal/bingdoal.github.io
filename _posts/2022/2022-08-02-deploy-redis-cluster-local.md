@@ -13,6 +13,7 @@ published: true
 {{page.description}}
 
 ## 事前準備
+
 1. redis 的命令列工具: redis-cli, redis-server
 2. redis cluster node 的設定檔:
 

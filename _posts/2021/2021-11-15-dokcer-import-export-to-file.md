@@ -27,8 +27,8 @@ cat container-export.tar | docker import - <container-name>
 
 匯入的作法比較特別一點，需要透過 pipe 的方式去接收檔案資料
 
-
 ## Save
+
 除了 Export 以外其實還有 Save 的指令，類似於 export，不過差別在於，`save` 是匯出該 container 的 image，而不是 container 本身，也就是在建立之後的操作並不會被匯出
 
 ```sh
@@ -36,6 +36,7 @@ docker save <container-name> > container-export.tar
 ```
 
 ## Load
+
 如果檔案是由 save 輸出的，請用 load 來匯入
 
 ```sh
@@ -45,4 +46,5 @@ docker load < container-export.tar
 ---
 
 ## 結語
+
 一開始在使用 docker 的時候其實就一直在想，難道一定要透過 hub 才能夠分享 image 嗎，這樣如果只是想分享給同事其實也不是太方便，事實上是可以透過檔案來傳送的

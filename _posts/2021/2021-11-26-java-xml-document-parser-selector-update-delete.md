@@ -12,6 +12,7 @@ tags: [java, xml]
 {{page.description}}
 
 ## 範例資料
+
 ```xml
 <?xml version="1.0"?>
 <users>
@@ -27,6 +28,7 @@ tags: [java, xml]
 ```
 
 ## 讀取
+
 首先先讀入 XML 資料到 Java 內建函式庫的 `Document` 類別，後續的操作都會針對這個物件展開
 
 ```java
@@ -44,6 +46,7 @@ try {
 ```
 
 ### 迴圈讀取
+
 ```java
 NodeList nodeList = doc.getDocumentElement().getChildNodes();
 for (int i = 0; i < nodeList.getLength(); i++) {
@@ -61,10 +64,13 @@ for (int i = 0; i < nodeList.getLength(); i++) {
     }
 }
 ```
+
 因為只有兩層就先寫成兩個迴圈，按照這個邏輯去遞迴的話就可以遍歷整個 XML 的資料樹
 
 ### 根據 TagName 讀取
+
 只不過通常的使用情境上都是已經知道內容結構，然後去取得指定的資料，那麼就可以改寫成下面的樣子
+
 ```java
 NodeList nodeList = doc.getElementsByTagName("user");
 for (int i = 0; i < nodeList.getLength(); i++) {
@@ -86,6 +92,7 @@ for (int i = 0; i < nodeList.getLength(); i++) {
 要注意到的是，第一層並不是從 `users` 開始讀，而是直接抓到 `user` 那層，這要特別注意如果其他層有一樣的 tagName 會全部收錄進來，如果設計上沒有考量好有可能會有找錯節點的問題
 
 ### XPath
+
 如果說對於結構已經有事先的了解了，其實這個做法是最推薦的
 
 ```java
@@ -112,11 +119,13 @@ try {
     e.printStackTrace();
 }
 ```
+
 `XPath`是一種 XML 的路徑語言，本來就是用來定位 XML 中的資料位置的，詳細的語法可以[參考](https://zh.wikipedia.org/wiki/XPath)，也可以到[這裡](http://xpather.com/)，實驗看看 `XPath` 的正確性
 
 可以描述完整的路徑去找到需要的節點，比較可以確保不會找錯節點
 
 ### toString
+
 有些時候從第三方的函式庫會直接收到 `Document` 的 XML 物件，有些時候需要將其轉換回字串來使用
 
 ```java
@@ -142,6 +151,7 @@ public String xmlToString(Node doc, Boolean pretty) {
 如果需要轉換成 Json 或是其他格式，可以參考上面遍歷整個 XML 的方法，再根據屬性去建立整個結構
 
 ## 建立
+
 有時候會需要從其他格式轉換到 XML 來，需要從頭建立整個 `Document` 的結構，一樣用上面的結構舉例來從頭建立
 
 ```java
@@ -177,6 +187,7 @@ System.out.println(xmlToString(doc, true));
 ```
 
 ## 刪除
+
 刪除 XML 的節點在內建的 API 中只有提供
 
 ```java
@@ -193,4 +204,5 @@ doc.removeChild(node);
 ---
 
 ## 結語
+
 整理過後會發現也沒這麼複雜，只是跟 Json 的操作比起來還是繁雜了一點，被各種方便的函式庫寵壞了

@@ -12,7 +12,6 @@ published: true
 
 {{page.description}}
 
-
 ## Spring boot Actuator
 
 最基本的讓我們先加入依賴
@@ -38,7 +37,7 @@ published: true
 |  GET   | `/actuator/health`         | 確認服務活著，最基本會回傳一個 `{"status":"UP"}`，可以一定程度做些客製訊息                       |
 |  GET   | `/actuator/info`           | 用來查看 properties 在 info 下的內容，可以寫一些基本的服務資訊，一些套件會把資訊放在下面方便查看 |
 |  GET   | `/actuator/mappings`       | 取得所有可用的 API 以及相應的 controller，感覺很好用但個人在使用上有遇到一些問題，目前還沒解決   |
-|  GET   | `/actuator/env `           | 取得所有 properties 讀進來的值，有趣的是會幫忙把 PASSWORD 之類的敏感字屏蔽掉                     |
+|  GET   | `/actuator/env`           | 取得所有 properties 讀進來的值，有趣的是會幫忙把 PASSWORD 之類的敏感字屏蔽掉                     |
 |  GET   | `/actuator/configprops`    | 取得所有被 `@ConfigurationProperties` 修飾的 class 及其內容，以便得知有沒有被正確 binding 到     |
 |  GET   | `/actuator/conditions`     | 查看 `@ConditionalOnProperty` 修飾的 class 哪些有達成條件被建立                                  |
 |  GET   | `/actuator/beans`          | 可以看到所有 Spring Boot 啟動後建立的所有 Bean 以及其依賴關係                                    |
@@ -50,7 +49,6 @@ published: true
 |  GET   | `/actuator/metrics`        | 可以監控服務運作的各項指標，像是 cpu memory 之類的，有用過 Prometheus 的話應該很熟悉             |
 |  POST  | `/actuator/shutdown`       | 唯一用 POST 的方法，用來關閉服務，不過沒看人開過感覺很危險                                       |
 |  GET   | `/actuator/auditevent`     | 查看 audit 的事件，搭配 Spring security 使用，個人沒有使用過                                     |
-
 
 基本 Actuator 提供的介面就如以上，有些套件會去額外擴充一些內容就以後碰到再說了
 

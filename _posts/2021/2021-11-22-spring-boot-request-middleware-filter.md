@@ -39,9 +39,11 @@ public class OnceFilter extends OncePerRequestFilter {
 而一個請求在多個 Filter 間串接起來就被稱為 `FilterChain`，`chain.doFilter` 就是指往下一個 Filter 前進，並且在那之後才收到 Response 的物件，在 `chain.doFilter` 執行之前 Response 是拿不到東西的
 
 ## 註冊
+
 將上面的 Filter 完成後應該會發現實際上還沒有作用，Spring boot 的物件基本上都需要通過註冊成為 Bean 的過程來啟用，Filter 也不例外，下面介紹三種 Filter 註冊的方式
 
 ### FilterRegistrationBean
+
 首先是比較正規透過 Configuration 的方式來註冊完整的 Filter 屬性
 
 ```java
@@ -59,9 +61,11 @@ public class AppConfig {
     }
 }
 ```
+
 可以針對需要的 Url 來 Filter，如果有多個 Filter 也可以指定順序(數字越小越優先)以及啟用與否
 
 ### WebFilter
+
 不想多寫一個 Configuration 來註冊的話可以透過 `@WebFilter` 來取代，一樣可以指定 Url，執行順序則可以透過 `@Order` 來給定，只不過 `@WebFilter` 不是由 Spring 提供的，因此預設不會被掃描到，必須在進入點的主類別額外加上 `@ServletComponentScan` 才可以使用
 
 ```java
@@ -80,6 +84,7 @@ public class OnceFilter extends OncePerRequestFilter {
 ```
 
 ### Component
+
 如果還是嫌棄上述的作法太麻煩，最簡單的作法可以直接加上 `@Component` 直接將物件在 Spring boot 啟用時註冊成 Bean，預設上的 Url 就是全部，如果需要排序也可以加上 `@Order`，實際上沒有什麼特殊用途的話應該是蠻堪用了
 
 ```java

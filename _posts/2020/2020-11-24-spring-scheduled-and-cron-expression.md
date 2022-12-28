@@ -38,7 +38,7 @@ class myTask{
 }
 ```
 
-首先一定要記得放上 `@Component`，Spring 才會把這個 class 註冊為 Bean，並且在 ` SpringApplication.run` 的類別加上 `@EnableScheduling` 才會啟用
+首先一定要記得放上 `@Component`，Spring 才會把這個 class 註冊為 Bean，並且在 `SpringApplication.run` 的類別加上 `@EnableScheduling` 才會啟用
 
 然後可以看到 `@Scheduled` 裡面有兩種寫法 `@Scheduled(fixedDelay = 10 * 1000, initialDelay= 10 * 1000)` 是單純用來執行週期性的任務，以這邊的設置為例的話就是每十秒執行一次，並且會在程式執行十秒後才開始
 
@@ -49,6 +49,7 @@ class myTask{
 那其實重點是在於 cron 的規則撰寫上，要把 cron 運用自如才能更好的發揮 `@Scheduled` 的功能
 
 簡單幾個例子如下:
+
 + `0 0 12 * * ?`: 每天中午 12 點
 + `0 0 12 1 * ?`: 每個月 1 號中午 12 點
 + `0/5 0 12 * 1 ?`: 1 月每天中午 12 點，每 5 秒
@@ -56,6 +57,7 @@ class myTask{
 一開始在找資料的時候也是就看到幾個例子，可能套用一下改個數字也是可以用，但總覺得不得其要領，下面詳細介紹他的內容參數
 
 對照上面的表示式來看，依序是
+
 + `秒 分 時 日 月 周 (年)`: 年是可選參數，不一定要寫，其他都是必須的
 
 然後是一些特別的參數:

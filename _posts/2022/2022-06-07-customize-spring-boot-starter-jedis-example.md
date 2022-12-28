@@ -226,7 +226,7 @@ public class CommonRedisService {
 
 必須要在 `resources/META-INF` 路徑下建立一個檔案 `spring.factories` 加入下面內容：
 
-```
+```bash
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
     com.moneymanagement.common.config.CommonConfig, \
     com.moneymanagement.common.config.CommonRedisConfig

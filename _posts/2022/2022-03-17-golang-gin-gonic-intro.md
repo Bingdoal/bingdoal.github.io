@@ -26,7 +26,6 @@ Gin 是一套用 golang 原生的 `net/http` package 封裝過後的框架，效
 go get github.com/gin-gonic/gin
 ```
 
-
 簡單一行指令就可以安裝需要的套件了，只不過這個套件路徑不好記就是了
 
 ### 基本範例
@@ -50,6 +49,7 @@ func main() {
 ```
 
 寫個基本的 GET 路由，讓它回傳一個 JSON 的資料，Gin 有幾種常用的 Http Method 作為 function 提供
+
 1. GET
 2. POST
 3. PUT
@@ -173,4 +173,3 @@ func main() {
 Gin Gonic 是個簡單輕量的框架，寫起來的感覺其實更像是 node.js 的 express 框架寫法，設定簡單，撰寫簡單，沒有太多包袱也不用綁定一堆工具，比起 Spring boot 更好上手，這可以算是優點也算缺點
 
 短周期可以快速開發，但長期來看要維護這樣的架構，專案一旦大了起來就需要各種規範，由於 Gin 提供了強大的彈性與自由度會導致需要開發團隊自己約束
-

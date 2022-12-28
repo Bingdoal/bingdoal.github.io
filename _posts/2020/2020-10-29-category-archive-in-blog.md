@@ -15,15 +15,13 @@ tags: [blog, jekyll, github page]
 
 第一個想要的功能就是幫文章分類，可以藉由類別來查找文章，方便查找也方便歸類，就像現在左邊的樣子
 
-![]({{site.baseurl}}/assets/img/blog-category-shot.png)
+![blog-category-shot.png]({{site.baseurl}}/assets/img/blog-category-shot.png)
 
 然後點選連結就可以到一個分類的專用頁面，然後列出這個分類下的文章
 
-![]({{site.baseurl}}/assets/img/blog-category-shot2.png)
+![blog-category-shot2.png]({{site.baseurl}}/assets/img/blog-category-shot2.png)
 
 那就來看看應該怎麼實作這件事
-
-<hr>
 
 ## [jekyll-archives](https://github.com/jekyll/jekyll-archives)
 
@@ -46,6 +44,7 @@ jekyll-archives:
 以及相關的 layout 撰寫好
 
 {% raw %}
+
 ```liquid
 ---
 ---
@@ -67,6 +66,7 @@ jekyll-archives:
     {% endfor %}
 </ul>
 ```
+
 {% endraw %}
 
 然後記得加入 Plugin 後要鍵入 `$ bundle` 可以自動幫忙下載跟引用，以上都完成後，功能就完成了
@@ -88,6 +88,7 @@ jekyll-archives:
 首先創建一個資料夾 `_archives` 並在裡面創建一個檔案 `archivedata.txt` 裡面寫入以下內容
 
 {% raw %}
+
 ```liquid
 {
     "categories": [
@@ -107,9 +108,11 @@ jekyll-archives:
     ]
 }
 ```
+
 {% endraw %}
 
 然後建立三個 layout 在 `_layout` 的資料夾裡，分別是
+
 + `archive-categories.html`
 + `archive-tags.html`
 + `archive-years.html`
@@ -117,6 +120,7 @@ jekyll-archives:
 這邊提供我自己的 category layout
 
 {% raw %}
+
 ```liquid
 <div class="category-title">
     <strong>Category:</strong><span>{{ page.title }}</span>
@@ -147,6 +151,7 @@ jekyll-archives:
 </article>
 {% endfor %}
 ```
+
 {% endraw %}
 
 然後在專案目錄下創建一個資料夾 `.github` 裡面再創一個目錄 `workflows` 裡面塞一個檔案 `add_archives.yml` 內容如下
@@ -183,15 +188,15 @@ jobs:
           git commit -m "Created and updated archive files." || echo "No changes to commit."
           git push origin master || echo "No changes to push."
 ```
+
 記得在 `archive_url` 欄位填入自己的 url，然後推上 github 後到 Action 的頁籤找到剛剛編輯的 action 執行
 
 執行過程可以看一下輸出的訊息，大致可以了解到他是怎麼運作的
+
 1. 首先 Github 接收到你的專案後幫你 build 成靜態網站，然後剛剛的 `archivedata.txt` 經過 liquid 的嵌入過後，裡面會變成一個 json 列出了所有文章的年份、tag、category
 2. 然後 action 會去執行 [jekyll-blog-archive-workflow](https://github.com/kannansuresh/jekyll-blog-archive-workflow) 這個專案的 python，大概是透過 http request 去抓取到 `archives/archivedata` 裡面放的所有分類內容
 3. python 再幫你創建需要的資料夾以及 html 檔，依照年分、tag、category name 去命名，然後推一包上去
 4. Github 再重建一次新的網站時，就多了這幾個頁面，就達到自動封裝年分、tag、category 的效果了
-
-<hr>
 
 恩... 怎麼說呢，雖然是達到成效了，但總覺得步驟有點麻煩，每次推上去還要去按一下 action，而且因為 Github 建置網站也需要點時間，所以也不能推上去馬上按，還要等他一下，然後本地每次推之前也都要重拉一次，而且這樣本地開發就不能隨時用這個功能了，必須要 Github action 建完拉下來才是封裝好的版本，說實話有點不盡理想
 
@@ -199,7 +204,7 @@ jobs:
 
 所以最後分析完 Action 的做法之後，我決定自己手動建置這個結構，因為事實上也並不是太困難的步驟，可以留下上面的 category layout，然後在目錄下新增
 
-```
+```bash
 └ _category
     ├ blog.md
     └ backend.md
@@ -207,7 +212,7 @@ jobs:
 
 裡面內容也很簡單，就只有
 
-```
+```bash
 ---
 title: blog
 category: "blog"
@@ -215,12 +220,14 @@ layout: category
 permalink: "category/blog"
 ---
 ```
+
 這樣建置的時候，這個頁面就會套用 layout 上去，再根據每個頁面的 category 去帶入 liquid 撈出各類別的文章列出來，這樣也可以確保本地開發就有內容，推上去也不用再按 Action，每發一篇文章最多也就多一個分類，其實並也不算太複雜的工
 
-# 建立連結
+## 建立連結
 
 那分類的頁面完成了接下來做連結，其實就只是利用 liquid 的語法去生成而已
 {% raw %}
+
 ```liquid
 <div class="blog-category">
   <p>Category</p>
@@ -236,6 +243,7 @@ permalink: "category/blog"
   {% endfor %}
 </div>
 ```
+
 {% endraw %}
 
 可以放在自己想要顯示的位置，這段可以列出所有的 category 並且嵌入連結，利用 sort 可以確保出現的順序

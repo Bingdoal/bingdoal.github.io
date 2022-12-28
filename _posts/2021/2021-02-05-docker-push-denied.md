@@ -15,13 +15,13 @@ tags: [踩雷紀錄, docker, deploy]
 
 `docker push` 執行後跑出 `denied: requested access to the resource is denied` 的錯誤
 
-![]({{site.baseurl}}/assets/img/docker-push-denied.png)
+![Alt]({{site.baseurl}}/assets/img/docker-push-denied.png)
 
 ## 2. 登入
 
 第一反應就是沒登入 docker，於是下登入指令
 
-![]({{site.baseurl}}/assets/img/docker-login.png)
+![Alt]({{site.baseurl}}/assets/img/docker-login.png)
 
 就不附圖了，登入後發現情況還是跟上面一樣
 
@@ -29,10 +29,10 @@ tags: [踩雷紀錄, docker, deploy]
 
 上網找了一下資料才知道，原來 image 的 tag name 必須有帳號的前綴才能推上去，於是
 
-```
+```bash
 docker tag express-ts bingdoal/express-ts
 ```
 
-![]({{site.baseurl}}/assets/img/docker-push-success.png)
+![Alt]({{site.baseurl}}/assets/img/docker-push-success.png)
 
 成功啦，沒想到連 tag name 都要講究

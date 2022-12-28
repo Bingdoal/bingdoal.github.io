@@ -13,6 +13,7 @@ published: true
 {{page.description}}
 
 ## 前言
+
 其實 gin gonic 有內建 validation，也就是下面要介紹的 `go-playground/validator`，不過今天多介紹一個套件提供更多做法可以挑選
 
 ## go-playground/validator
@@ -51,6 +52,7 @@ func main(){
 ```
 
 主要是利用幫參數撰寫 tag 的方式設定驗證的規則，然後透過 `validate` 提供的 function 進行驗證
+
 + 優點:
   1. 使用便利，利用 tag 的方式撰寫相容性極高
   2. 幾乎不需要額外撰寫程式碼
@@ -59,6 +61,7 @@ func main(){
   2. 由於 tag 是綁定在 struct 上，所以不能隨 Create 或是 Update 改變，必須撰寫多個 struct 來套用
 
 ### Gin 原生支援使用
+
 只不過在 Gin 原生中使用的 tag 稍微有些不同，要改寫成 `binding`，會在執行 `context.Bind` 類的方法的時候進行驗證
 
 ```golang

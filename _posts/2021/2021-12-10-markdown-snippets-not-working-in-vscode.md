@@ -16,6 +16,7 @@ tags: [踩雷紀錄, others]
 首先在 vscode 的 markdown snippets 設定好下面的 snippet，可以幫助建立一個基本的 post 版面，包含時間都幫忙寫上
 
 {% raw %}
+
 ```json
 {
     "jekyll blog post template": {
@@ -39,8 +40,8 @@ tags: [踩雷紀錄, others]
     }
 }
 ```
-{% endraw %}
 
+{% endraw %}
 
 但實際在 markdown 撰寫的時候會發現，打 `post` 不會有任何提示跳出
 
@@ -60,7 +61,6 @@ tags: [踩雷紀錄, others]
 
 功能就像下面看到的，可以選擇想要開啟跟關閉的 snippet 功能，而且會區分內建跟 extension 提供的，如果是使用者自訂的則不能開關，可以利用這個把內建的 markdown 提示關掉
 
-![]({{site.baseurl}}/assets/img/control-snippets.png)
-
+![Alt]({{site.baseurl}}/assets/img/control-snippets.png)
 
 這樣就又回到我們乾淨的寫作環境了，還可以享有客製化的 snippets，真是太舒服了

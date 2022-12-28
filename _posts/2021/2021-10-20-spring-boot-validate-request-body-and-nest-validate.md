@@ -12,6 +12,7 @@ tags: [java, spring boot, validation]
 {{page.description}}
 
 ## 引入依賴
+
 首先當然要先加入 validation 的相關依賴，非常簡單只有一個依賴
 
 ```xml
@@ -22,6 +23,7 @@ tags: [java, spring boot, validation]
 ```
 
 ## 基本用法
+
 首先傳入參數必須是個有被事先定義好的類別，就像下面:
 
 ```java
@@ -63,6 +65,7 @@ public class UserService {
 ```
 
 ## 巢狀驗證
+
 使用一陣子之後會發現，如果說今天的 dto 有兩層以上會沒辦法套入第二層的 Validation，以下面為例子，這樣的寫法沒辦法進行 `UserProperty` 的驗證
 
 ```java
@@ -95,6 +98,7 @@ public class UserDto {
 ```
 
 ## 錯誤訊息
+
 測試過錯誤的輸入之後應該會發現錯誤訊息不是太好看，而且因為是拋出 Exception 所以對於前端來說會收到 500 錯誤，這不符合實際情況，因此這邊要來做一下錯誤處理，用 ExceptionHandler 去抓取驗證相關的 Exception，然後包裝一下錯誤訊息傳給前端，整個流程就完成了
 
 ```java
@@ -131,6 +135,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 ```
 
 ## Annotation 一覽
+
 這邊條列一下Validation 預設提供的常用 Annotation，方便之後使用查找
 
 |             annotation              | 說明                                                                            |
@@ -158,9 +163,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 |     `@Length(min,max)`     | 專用於 String 的 `@Size`                                                  |
 | `@URL(protocol,host,port)` | 必須為字串，判別 URL 格式，且可以指定 protocol、host、port 不指定則為任意 |
 
-
 其實還有一些 annotation 沒有寫到，但那些基本上沒怎麼用過，大部分的驗證應該都可以透過上面的 annotation 來做到了，如果有比較特殊的需求也有提供客製化驗證的功能，之後的文章會再行介紹
 
 ---
+
 ## 結語
+
 簡單幾個 annotation 就可以做好資料驗證實在是非常方便，省去大量的時間跟做苦工的部分，這篇簡單介紹基本用法，下篇會再介紹分組驗證以及巢狀驗證的問題

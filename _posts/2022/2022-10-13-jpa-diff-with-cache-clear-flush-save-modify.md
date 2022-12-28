@@ -56,7 +56,7 @@ public class WalletService{
 
 但卻會發現兩次 log 印出來的 wallet 都是 1000，然而實際去看資料庫會發現資料其實有被更新
 
-### 問題原因
+### 第一個問題原因
 
 原來 JPA 在操作的時候自己內部有先做一層的 cache 每次 select 的時候會先找 cache 中有沒有可用的 entity，有的話會直接回傳
 
@@ -76,7 +76,7 @@ public class WalletService{
 
 但是查看資料庫的時候卻發現了第二個問題，那就是 `ModificationTime` 沒有更新到
 
-### 問題原因
+### 第二個問題原因
 
 原來 JPA 的 cache 裏不只有 select 過的 entity 還一並把 save 執行的 update 以及 insert 一起 cache 起來
 

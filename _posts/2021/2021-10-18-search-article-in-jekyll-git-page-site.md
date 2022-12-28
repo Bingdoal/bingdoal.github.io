@@ -14,6 +14,7 @@ tags: [blog, jekyll, github page]
 既然是靜態網頁那能夠想到的實作方式只能是純前端的作法，那首先要先想辦法產生我們的文章列表的 `json` 供 `javascript` 使用，參考以下寫法:
 
 {% raw %}
+
 ```liquid
 [
     {% for post in site.posts %} {
@@ -26,6 +27,7 @@ tags: [blog, jekyll, github page]
     {% endfor %}
 ]
 ```
+
 {% endraw %}
 
 經過 liquid 轉換後大概長的像:
@@ -46,6 +48,7 @@ tags: [blog, jekyll, github page]
 有了這個結構就可以很容易的幫助我們對 `json` 操作的方式來達到搜尋的目的，部分程式碼如下:
 
 {% raw %}
+
 ```javascript
 var allArticle = JSON.parse(`[
     {% for post in site.posts %} {
@@ -97,6 +100,7 @@ function startSearch(event) {
     }
 }
 ```
+
 {% endraw %}
 
 搜尋的時候包含 title、tags、description 的內容都去做查詢，盡可能的找出使用者想要的內容，還加入的以空格為分割符號的多字段搜尋，希望可以做到盡可能智慧的搜尋功能

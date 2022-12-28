@@ -70,8 +70,8 @@ set GOGCCFLAGS=-m64 -mthreads -fno-caret-diagnostics -Qunused-arguments -fmessag
 透過參數 `-w` 可以寫入變數，`-u` 則可以移除變數
 
 ```bash
-$ go env -w GOBIN=/somewhere/else/bin
-$ go env -u GOBIN
+go env -w GOBIN=/somewhere/else/bin
+go env -u GOBIN
 ```
 
 ## `GOPATH`

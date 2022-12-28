@@ -13,6 +13,7 @@ published: true
 {{page.description}}
 
 ## read
+
 簡單實用的指令，就是用來讀取使用者輸入的，雖然多數 command line 都是直接帶 argument 來讀取參數
 
 但有些情境下可以讓使用者有個互動的輸入會比較方便使用，下面是指令用法，應該看過就知道用途了
@@ -40,9 +41,10 @@ select value in opt1 opt2 opt3 opt4; do
     echo "select $REPLY $value"
 done
 ```
+
 輸出會像下面
 
-```
+```bash
 1) opt1
 2) opt2
 3) opt3

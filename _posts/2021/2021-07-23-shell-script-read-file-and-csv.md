@@ -72,9 +72,10 @@ addLineNumber
 `read` 在預設會去讀取 `stdin` 的來源內容，因此可以用來接收 pipe 的資料
 
 ## 解析 csv
+
 如果今天有個檔案如下
 
-```
+```bash
 1,test,hello world
 ```
 

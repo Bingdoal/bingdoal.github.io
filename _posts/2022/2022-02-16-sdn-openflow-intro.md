@@ -18,7 +18,7 @@ Software-defined Networking 軟體定義網路，網路架構是由數台 Router
 
 SDN 最主要就是來解決這種問題，如下圖所示，SDN 架構主要把網路分成「控制層」跟「資料層」，簡單說就是抽離出一個統一的管理端來對各個 Switch 做設定，而要實現這種架構就必須要統一所有 Switch 的設定方式，這個方式就是 Openflow
 
-![]({{site.baseurl}}/assets/img/sdn-structure.jpg)
+![Alt]({{site.baseurl}}/assets/img/sdn-structure.jpg)
 
 因此網管人員可以透過一個控制端來操作所有的 Switch，也可以透過串接 OpenFlow 協議進一步實現更高層級的管理應用程式，更便利網管人員管理以及檢視網路拓樸的各種資訊與統計，Switch 本身也可以專注在資料傳輸的部分，對於效能提升、除錯都有顯著的幫助
 
@@ -26,7 +26,7 @@ SDN 最主要就是來解決這種問題，如下圖所示，SDN 架構主要把
 
 OpenFlow 是 SDN 架構中 Controller 跟 OpenFlow Switch 溝通的重要 Protocol
 
-![]({{site.baseurl}}/assets/img/openflow-intro.png)
+![Alt]({{site.baseurl}}/assets/img/openflow-intro.png)
 
 OpenFlow 主要就是用來控制 OpenFlow Switch 中的各個元件，如圖中畫的 Controller 透過一個 Channel 溝通控制 Flow Table、Group Table、Meter Table
 
@@ -37,4 +37,5 @@ OpenFlow 主要就是用來控制 OpenFlow Switch 中的各個元件，如圖中
 ---
 
 ## 結語
+
 由於 OpenFlow 各個元件希望可以搭配實作來做講解，這篇就簡單做個介紹而已，之後會針對 Flow Table、Group Table、Meter Table 各自寫一篇，實作上則是使用 OpenDaylight 以及 Mininet 來進行

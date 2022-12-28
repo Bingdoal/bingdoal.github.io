@@ -12,11 +12,13 @@ tags: [java, spring boot, validation]
 {{page.description}}
 
 沒看過前幾篇的可以點這邊:
+
 + [Spring boot Validation 參數驗證機制](https://bingdoal.github.io/backend/2021/10/spring-boot-validate-request-body-and-nest-validate/)
 + [Spring boot Validation 分組驗證功能](https://bingdoal.github.io/backend/2021/10/spring-boot-validation-group-use-different-rule/)
 + [[踩雷紀錄] Spring boot validation 無法驗證 List、Set](https://bingdoal.github.io/backend/2021/10/spring-boot-validate-list-and-set-type/)
 
 ## Annotation
+
 首先要先建立自己的驗證用 annotation，如下的寫法
 
 ```java
@@ -41,6 +43,7 @@ public @interface PasswordRule {
 先寫完 annotation 會發現 `PasswordRuleValidator` 是不存在的，所以接下來就要自己來建立 validator 了
 
 ## Validator
+
 建立一個 validator 去繼承 `ConstraintValidator`，泛型中帶入 annotation 跟預計傳入的參數型別，接著可以從 `initialize` 裡取得 annotation 的各個設定值，然後藉由 `isValid` 來實作驗證機制
 
 ```java
@@ -98,6 +101,7 @@ public class UserDto{
 ```
 
 ## 手動進行驗證
+
 有時候驗證失敗可能不想只是簡單的拋出錯誤訊息給前端，這時候需要自己加上驗證失敗的邏輯作法如下
 
 ```java
@@ -131,7 +135,9 @@ Set<ConstraintViolation<UserDto>> validateSet = validator.validate(userDto, User
 ```
 
 ## 其他補充
+
 ### 快速驗證失敗
+
 一般在進行驗證的時候，其實會將所有參數都跑完，最後回傳所有驗證結果，但是實際上我們比較希望跑到第一個錯誤就回傳，可以節省一些效能，跟沒必要的操作，設定方式如下
 
 ```java
@@ -147,6 +153,7 @@ public class AppConfig {
 ```
 
 ---
+
 ## 結語
 
 Validation 除了方便之外，提供的彈性也是非常好的，可以在很高的程度上進行客製化，有了手動驗證的方式甚至自己重新覆寫整個自動驗證都不是什麼困難事

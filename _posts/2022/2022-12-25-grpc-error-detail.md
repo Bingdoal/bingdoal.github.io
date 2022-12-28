@@ -44,6 +44,7 @@ message ErrorDetail{
 要注意到的是 `enum` 的類型其實就是 int32，而 int32 的預設值是 0，所以 `enum` 的序列必須要有設定 0，其他亂跳沒關係
 
 ### server
+
 那我們改寫一下 server 的 code
 
 ```go
@@ -129,10 +130,8 @@ func GetErrInfo(err error) (int, string, error) {
 
 [grpc-status]: https://grpc.github.io/grpc/core/md_doc_statuscodes.html
 
-
 ---
 
 ## 結語
 
 實在不理解為什麼在 gRPC 的標準中沒有把 error model 納入，這應該是很常見的業務需求才是，不過幸好 golang 的支援度很好
-

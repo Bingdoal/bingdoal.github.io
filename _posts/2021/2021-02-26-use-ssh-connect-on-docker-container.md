@@ -11,7 +11,8 @@ tags: [docker, deploy]
 
 {{page.description}}
 
-# 安裝 ssh
+## 安裝 ssh
+
 首先 container 版的 os 是沒有 ssh server 的，所以先安裝:
 
 ```bash
@@ -19,7 +20,8 @@ apt update
 apt install openssh-server -y
 ```
 
-# 設定密碼
+## 設定密碼
+
 然後 container 版 os 的 root 也是沒有密碼的，所以也得先設定一下:
 
 ```bash
@@ -28,7 +30,7 @@ passwd root
 # Retype new UNIX password:
 ```
 
-# 設定 ssh
+## 設定 ssh
 
 因為預設 openssh server 有些功能沒有開，所以即使有帳號密碼也沒辦法連線，需要改一下設定檔:
 
@@ -44,7 +46,7 @@ echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 /etc/init.d/ssh restart
 ```
 
-# Dockerfile
+## Dockerfile
 
 如果想在 container 一啟動就可以用 ssh 連線的話可以參考下面 Dockerfile 的寫法，不過應該只適用 `Ubuntu`:
 

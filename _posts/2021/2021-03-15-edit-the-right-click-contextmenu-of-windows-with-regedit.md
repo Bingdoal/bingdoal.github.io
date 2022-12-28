@@ -15,22 +15,21 @@ tags: [others, windows, 踩雷紀錄]
 
 + 首先開啟 Regedit，然後找到以下路徑 `HKEY_CLASSES_ROOT\Directory`
 
-![]({{site.baseurl}}/assets/img/regedit-directory.png)
+![Alt]({{site.baseurl}}/assets/img/regedit-directory.png)
 
 可以看到展開的內容下有 shell 的資料夾，在登錄檔設定中被稱為`機碼`，這個 shell 的機碼裡面放的就是在目錄下的右鍵選單
 
 `Background/shell` 則是代表進入資料夾之後在背景點右鍵的內容
 
-![]({{site.baseurl}}/assets/img/directory-background-contextmenu.png)
+![Alt]({{site.baseurl}}/assets/img/directory-background-contextmenu.png)
 
 #### 新增內容
 
 那要新增自訂的功能只要在 `shell` 下面右鍵 `新增` => `機碼`，取的名稱會直接變為選單顯示的名稱，或是更改`機碼`內的`預設值`，如果想要選單顯示圖示的話可以在`機碼`內再新增一個`字串值` 命名為 `icon` 裡面填想要的 icon 路徑，也可以指定 Exe 為路徑也會套用一樣的圖示
 
-![]({{site.baseurl}}/assets/img/regedit-create-contextmenu.png)
+![Alt]({{site.baseurl}}/assets/img/regedit-create-contextmenu.png)
 
 而要有實際的點選功能則要新增如圖中的 `command` 的`機碼`在該選單的下面，而這個 `command` 的`機碼``預設值`就是點選之後會執行的指令，並且執行路徑就預設在該目錄底下
-
 
 #### 後記
 

@@ -182,7 +182,6 @@ type User struct {
 
 這邊利用到 golang 的繼承以及 gorm 的 Hook，幫剛剛的 Model 套上一層基本的 Model，藉由這樣的設計在每次更新跟建立的時候都會去自動更新時間
 
-
 ---
 
 ## 結語

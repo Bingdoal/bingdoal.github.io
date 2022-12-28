@@ -15,6 +15,7 @@ published: true
 ## Go 的錯誤處理機制
 
 golang 不像現行多數的程式語言有 `try catch` 的機制，Go 的錯誤處理方式大致分成兩種：
+
 1. 回傳錯誤的物件，由後續程式自行處理
 2. 觸發 panic 事件，強制中斷程式
 
@@ -30,7 +31,7 @@ import (
 
 func main(){
     strVar := "abc"
-	intVar, err := strconv.Atoi(strVar)
+ intVar, err := strconv.Atoi(strVar)
     if err != nil {
         fmt.Println(strVar + " 不是整數。")
     }

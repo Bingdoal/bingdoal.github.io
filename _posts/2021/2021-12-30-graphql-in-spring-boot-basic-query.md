@@ -24,19 +24,20 @@ GraphQL 是一種類似於 SQL 的語法，透過 Server 端預先定義好 Sche
 
 下面是一個簡單的範例，左邊是輸入的語法，右邊則是回傳
 
-![]({{site.baseurl}}/assets/img/graphql-hello-world.png)
+![Alt]({{site.baseurl}}/assets/img/graphql-hello-world.png)
 
 複雜一點像這樣，可以任意挑選需要的欄位來 query
 
-![]({{site.baseurl}}/assets/img/graphql-get-user-all.png)
+![Alt]({{site.baseurl}}/assets/img/graphql-get-user-all.png)
 
-![]({{site.baseurl}}/assets/img/graphql-get-user-ex-email.png)
+![Alt]({{site.baseurl}}/assets/img/graphql-get-user-ex-email.png)
 
 語法上有點像 SQL 的 SELECT 但又更簡潔好懂
 
 ### 設定
 
 #### 依賴引用
+
 ```xml
 <dependency>
     <groupId>com.graphql-java-kickstart</groupId>
@@ -48,6 +49,7 @@ GraphQL 是一種類似於 SQL 的語法，透過 Server 端預先定義好 Sche
 一個依賴全包好 Spring boot 全家桶就是這麼方便
 
 #### application.yaml
+
 這邊只寫上我用到的基本設定，詳細設定請看 [graphql-java-kickstart github](https://github.com/graphql-java-kickstart/graphql-spring-boot)
 
 ```yaml
@@ -65,8 +67,11 @@ graphql:
 ```
 
 ### 基本範例
+
 設定完成後我們就來個基本範例
+
 #### Schema
+
 首先在 `src/main/resources` 下新增 `graphql` 的目錄，然後在裡面新增 `schema.graphqls` 內容如下
 
 ```graphql
@@ -87,6 +92,7 @@ type Query{
 `ID` 是一個特別的基本型態，不過其實沒有實際定義說 `ID` 一定要長怎樣，回傳是 Int 或是 String 都會被接受
 
 #### Query
+
 寫好以上 Schema 後會發現程式還沒有辦法執行，那是因為雖然已經定義了 `userList` 的 Schema 了，但還沒有定義實作，因此我們要在專案中加入以下程式碼
 
 ```java
@@ -107,13 +113,14 @@ public class UserQuery implements GraphQLQueryResolver {
 注意要寫上 `@Component` 這樣才會被註冊成 Spring boot 中的 Bean
 
 #### Graphiql
+
 啟動之後我們可以到 [http://localhost:8080/graphiql](http://localhost:8080/graphiql) 下會有一個簡單的 GraphQL 的互動介面，在這邊可以測試你的 GraphQL 有沒有正確運作，回傳是不是自己想要的
 
-![]({{site.baseurl}}/assets/img/graphiql.png)
+![Alt]({{site.baseurl}}/assets/img/graphiql.png)
 
 旁邊點開還有文件可以看，也就是寫好了 Schema 就寫好了文件，這也是 GraphQL 的優點吧
 
-![]({{site.baseurl}}/assets/img/graphiql-schema.png)
+![Alt]({{site.baseurl}}/assets/img/graphiql-schema.png)
 
 不過我自己在開發時候的時候會有遇到沒辦法看到 Graphiql 頁面的情況
 
@@ -141,13 +148,15 @@ public class UserQuery implements GraphQLQueryResolver {
     顧名思義就是用來關掉 CSP 的但是他只會作用在當前的網頁上，並且可以隨時開關十分方便
 
 #### Voyager
+
 根據上面的 `application.yaml` 設定會發現還有一個 Voyager 功能被啟用，可以到 [http://localhost:8080/Voyager](http://localhost:8080/Voyager)
 
-![]({{site.baseurl}}/assets/img/voyager.png)
+![Alt]({{site.baseurl}}/assets/img/voyager.png)
 
 會看到完整的 GraphQL Schema 關聯圖，一目瞭然非常容易理解，搭配上 Graphiql 基本上已經是很完整的文件跟測試平台了
 
 #### Resolver
+
 上面是 Query 一個簡單的結構，而當結構稍微複雜一點，像是關聯式資料庫常出現的外部關聯
 
 ```graphql
@@ -190,12 +199,13 @@ public class PostResolver implements GraphQLResolver<Post> {
     }
 }
 ```
+
 多了一個 `Resolver` 來處理主要 Query 附帶的其他子 Query，一樣 Spring boot 會根據定義好的 Field name 去抓相應的方法，像這邊就是 `author` 對應 `getAuthor`
 
-
- + `Resolver` 也能用在一般的 Field 上，甚至還能帶參數
++ `Resolver` 也能用在一般的 Field 上，甚至還能帶參數
 
 先在 schema 上加入 field 參數
+
 ```graphql
 type Post{
     id: ID!
@@ -206,6 +216,7 @@ type Post{
 ```
 
 然後加入 Resolver
+
 ```java
 @Slf4j
 @Component
@@ -227,10 +238,10 @@ public class PostResolver implements GraphQLResolver<Post> {
 
 在 Graphiql 上測試看看
 
-![]({{site.baseurl}}/assets/img/graphql-get-post-field-resolver.png)
-
+![Alt]({{site.baseurl}}/assets/img/graphql-get-post-field-resolver.png)
 
 ---
+
 ## 結語
 
 目前看下來 GraphQL 這樣的效能表現感覺會蠻差的，不確定是不是 Spring boot 的實作問題，又或是 GraphQL 跟關聯式資料庫的相性不太好，也或許會有相應的解決辦法，等待以後研究，還有如果遇到層層遞迴的結構，那是不是會直接炸掉，很多問題等待釐清，離正式用在產品上可能還有一段路要走

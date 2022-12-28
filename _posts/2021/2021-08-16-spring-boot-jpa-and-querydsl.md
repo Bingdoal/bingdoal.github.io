@@ -20,6 +20,7 @@ tags: [java, spring boot]
 ## JPA
 
 那在介紹 QueryDSL 之前來簡單複習一下 JPA 的作法
+
 ```java
 @Repository
 public interface UserDao extends JpaRepository<User, Long> {
@@ -39,6 +40,7 @@ JPA 除了可以用 method 的命名來生成想要的 query 外，也可以透�
 ### 安裝
 
 要使用之前要加入 dependency:
+
 ```xml
 <dependencies>
     <!-- QueryDSL 函式庫 -->
@@ -80,6 +82,7 @@ JPA 除了可以用 method 的命名來生成想要的 query 外，也可以透�
 QueryDSL 的操作都會建立在由 `apt-maven-plugin` 生成的 Query Entity 物件來進行，舉個例子:
 
 像一般操作一樣先建立一個 Entity
+
 ```java
 @Entity
 @Data
@@ -147,6 +150,7 @@ public class UserDaoService {
 ```
 
 ### 自動化產生 filter
+
 這部分其實才是我使用 QueryDSL 的重點😂
 
 直接來看到實作吧，原本的 Dao 只需要繼承 `JpaRepository`，而為了使用 QueryDSL `Predicate` 提供的強大 filter 功能，需要額外繼承 `QuerydslPredicateExecutor` 和 `QuerydslBinderCustomizer`，然後去 override `customize` 這個方法，`bindings.including` 用來定義那些屬性希望可以用作 filter 的屬性，`bindings.bind` 則用來指定 filter 的方法，這邊使用的是 `containsIgnoreCase`，表示比對時只要包含字段不分大小寫
@@ -184,14 +188,17 @@ public class UserController {
 ```
 
 外部呼叫 API 的時候只要帶在 GET 的 Url 之後就會自動產生 filter 後的結果了:
+
 ```bash
-$ curl --request GET http://localhost:8080/v1/user?name=test
+curl --request GET http://localhost:8080/v1/user?name=test
 ```
 
 上面的 Controller 寫法還順便加入了 `Pageable` 的用法:
+
 ```bash
-$ curl --request GET http://localhost:8080/v1/user?name=test&page=1&size=10
+curl --request GET http://localhost:8080/v1/user?name=test&page=1&size=10
 ```
+
 ---
 
 ## 結語

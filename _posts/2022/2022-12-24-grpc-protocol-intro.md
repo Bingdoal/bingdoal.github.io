@@ -17,6 +17,7 @@ published: true
 gRPC 簡言之就是 google 開發的 RPC(Remote Procedure Calls)，傳輸上是基於 HTTP/2 並使用一種叫做 Protocol Buffers 的格式來作為介面描述語言，這點跟 GraphQL 有點像，一樣要維護一份介面文件，不只可以作為文件也是執行程式必須的
 
 主要會轉用 gRPC 我認為有幾個優點:
+
 1. 透過 HTTP/2 並且用 binary 傳輸內容，傳送以及解析成本都比傳統 HTTP API 跟 json 快上不少
 2. 透過 Protocol Buffers 維護統一介面，必須要有而不是隨心情而寫的文件
 3. 可以透過 Protocol Buffers 直接產生程式碼，coding 的時候就是呼叫一個 function，不用額外記 url path，或是一直重複寫 http request 的 function
@@ -24,6 +25,7 @@ gRPC 簡言之就是 google 開發的 RPC(Remote Procedure Calls)，傳輸上是
 5. 可以指定本次請求的預期時間，超時可以透過 server 端進行逾時處理
 
 gRPC 缺點:
+
 1. 生態系還不那麼完整，相比各個廠商都有提供 OpenAPI，gRPC 主要用在內部微服務溝通，也比較少第三方的各種方便 library 提供使用
 2. 瀏覽器支援不足，目前瀏覽器還沒有原生支援 gRPC 的使用，我認為這是很大的原因限制了 gRPC 的發展
 3. 沒有 Method 的分類，以及共同約定的 Header，像是驗證身份，或是語系的內容，都必須由雙方自行約定欄位並且自己實作機制
@@ -82,7 +84,7 @@ go get -u google.golang.org/grpc
 
 現在我們的專案大概長下面這樣
 
-```
+```bash
 ├ proto/
 │   └ test.proto
 ├ go.mod
@@ -171,7 +173,7 @@ func main() {
 
 首先依照之前給的 `test.proto` 來建立一個新的 client 專案環境
 
-```
+```bash
 ├ proto/
 │   └ test.proto
 ├ go.mod
@@ -240,6 +242,7 @@ func grpcTestAdd(client pb.TestClient) {
 至此就完成我們第一個 gRPC 實作了
 
 ---
+
 ## 結語
 
 先簡介基本概念跟程式，之後會補上更多 gRPC 的用法，還有一些踩到的雷

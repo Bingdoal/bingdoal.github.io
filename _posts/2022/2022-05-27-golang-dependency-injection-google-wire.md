@@ -12,7 +12,6 @@ published: true
 
 {{page.description}}
 
-
 ## Google/wire
 
 ### 簡介
@@ -41,11 +40,12 @@ func Initialize(){
 ```
 
 google/wire 主要是幫忙完成第二件事，可以幫忙省下幾個麻煩:
+
 1. 自動去建立各種依賴物件
 2. 不需要記得每個建構子的參數順序
 
-
 ### 安裝
+
 + 附上官方連結: [https://github.com/google/wire](https://github.com/google/wire)
 
 首先安裝指令工具

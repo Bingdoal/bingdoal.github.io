@@ -21,7 +21,7 @@ maven 透過在專案底下的`pom.xml (Project Object Model)`來管理專案的
 
 Github package 是一個 package hosting 的服務，可以在 github 上建立自己的 package repo，不過要注意免費版不支援個人的 private package，下面是 github package 的 overview，可以看到支援的 package 的類型
 
-![]({{site.baseurl}}/assets/img/github-packages-overview-diagram.png)
+![Alt]({{site.baseurl}}/assets/img/github-packages-overview-diagram.png)
 
 而一般公開的 package 是可以免費使用的，但若有私人使用的需求在 github 就是要收費了，收費方式看下面連結 [github package 收費機制](https://docs.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)
 
@@ -92,9 +92,8 @@ Github package 是一個 package hosting 的服務，可以在 github 上建立�
 
 接下來在專案目錄下鍵入指令 `mvn clean deploy`，看到跑完結果之後就可以到 github repo 上檢查看看
 
-![]({{site.baseurl}}/assets/img/mvn-package-on-github.png)
+![Alt]({{site.baseurl}}/assets/img/mvn-package-on-github.png)
 
 可以發現 package 已經出現囉，接下來只要在想要引用的專案裡加入 dependency 就可以使用了
-
 
 [主要參考資料](https://docs.github.com/en/packages/guides/configuring-apache-maven-for-use-with-github-packages#authenticating-to-github-packages)

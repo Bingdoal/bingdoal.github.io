@@ -16,9 +16,10 @@ tags: [dev-tools, git, 踩雷紀錄]
 **在開始前一定要記得第一步一定要先編輯 `.gitignore`，再一次把大型檔案加入提交這種事情是一定要避免的**
 
 ## Error Message
+
 先記錄下當下看到的錯誤訊息:
 
-```
+```bash
 remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com
 remote: error: Trace: dff1555...
 remote: error: See http://git.io/iEPt8g for more information.
@@ -31,6 +32,7 @@ error: failed to push some refs to 'https://github.com/.../.git'
 屏蔽了一些不重要的資訊，明確的告知了哪個檔案過大導致了問題的發生，並且也有標示出發生的 commit，這讓我們很容易可以追蹤到問題
 
 ## 情境一: 剛剛才 commit 掉大型檔案
+
 如果是這個情況，那恭喜，要做的事情簡單很多，只要兩行就可以解決了
 
 ```bash
@@ -44,16 +46,18 @@ git commit --amend -C HEAD
 只要這兩行就可以簡單解決了
 
 ## 情境二: 大型檔案的 commit 在三個 commit 之前
+
 這個情境就是筆者遇到的，在經過了幾個 commit 之後才發現曾經把不該加入的檔案提交了😢
 
 那首先根據剛剛的錯誤訊息可以得知這個檔案是位在 commit `dff1555...`，讓我們先看看這個 commit 的位置在哪
+
 ```shell
 git log --pretty=oneline --abbrev-commit
 ```
 
 可以知道問題發生在前三個 commit，那我們要回朔到再往前一個 commit 來去進行修改
 
-```
+```bash
 706d14191 最後一個 commit
 810f4dbaf 倒數第二個 commit
 dff155505 罪魁禍首
@@ -62,13 +66,14 @@ dd81500d8 問題發生前一個 commit
 ```
 
 找到 commit 位置後輸入下面指令:
+
 ```shell
 git rebase -i dd81500d8
 ```
 
 `git rebase -i` 是用來幫忙整理 commit 紀錄的，可以用來修改 commit 的內容以及 commit 訊息，輸入之後會開啟 git 的預設編輯器並看到以下畫面:
 
-```
+```bash
 pick dff1555 罪魁禍首
 pick 810f4db 倒數第二個 commit
 pick 706d141 最後一個 commit
@@ -102,7 +107,7 @@ pick 706d141 最後一個 commit
 
 接著在我們要修改的 commit 前面，把 `pick` 改成 `edit`，如下所示
 
-```
+```bash
 edit dff1555 罪魁禍首
 pick 810f4db 倒數第二個 commit
 pick 706d141 最後一個 commit
@@ -118,6 +123,7 @@ git rebase --continue
 ```
 
 ## 情境三: 大型檔案的 commit 散佈在各處，且有多處變更
+
 如果真的有個意外，讓這個大型檔案流傳了好幾個 commit，而且不同的 commit 間還有變更，那就不是改一個 commit 可以解決的問題了
 
 ```shell
@@ -126,6 +132,7 @@ git push -f
 ```
 
 其實這個解法好像更簡單，不過要確定操作正確，不然刪錯東西就麻煩了，下面簡單說明下指令:
+
 + `git filter-branch`: 這個指令的用途呢，其實就是 `checkout` 到每一個版本去做批次的操作，根據參數的 filter 去決定要做的操作
 + `--tree-filter`: 這個 filter 則是代表要針對每個版本的檔案去做修改
 + `"rm -f test.tar"`: 跟前面的指令與參數結合代表，切換到每個版本去刪除掉 `test.tar` 這個檔案
@@ -136,4 +143,5 @@ git push -f
 ---
 
 ## 結語
+
 雖然是遇到這個 error 才特別查的做法，但其實不限於刪除大型檔案上，如果真的有一定要更動 commit 的需求也可以比照辦理，更加理解到了 git 的強大

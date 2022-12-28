@@ -12,10 +12,11 @@ tags: [java, spring boot, validation]
 {{page.description}}
 
 沒看過前幾篇的可以點這邊:
+
 + [Spring boot Validation 參數驗證機制](https://bingdoal.github.io/backend/2021/10/spring-boot-validate-request-body-and-nest-validate/)
 
-
 ## 分組驗證設定
+
 分組驗證上呢我們要先宣告幾個不同的 interface 來用作區別，作用有點像 Enum，然後在各個 annotation 中指定到 `groups` 的參數中，這樣就可以指定在該 group 的時候會去做這個驗證，也可以指定多個 group 給單一個 annotation
 
 ```java
@@ -40,6 +41,7 @@ public class UserDto {
 ```
 
 ## 分組驗證啟用
+
 設定完成之後呢只要在需驗證的參數前改用 `@Validated(UserDto.Create.class)` 這種形式去指定這次驗證的組別就可以了，需注意 `@Valid` 不具備帶入 group 的功能，只能用 `@Validate`，`@Validate` 本身也是 `@Valid` 的封裝，基本上功能是一樣的
 
 ```java
@@ -55,6 +57,7 @@ public void modifyUser(@PathVariable("userId") Long userId, @RequestBody @Valida
 ```
 
 ## 預設組別驗證
+
 在上面的例子中會發現 `@Email` 跟 `@Size` 是沒有被設定組別的，預想情況應該是每個組別都會去執行驗證，但實際測試後就會發現其實是都不執行，對於 Validation 的機制來說他們其實都屬於一個 `Default` 的組別，所以這邊我們可以做點更改
 
 ```java
@@ -69,8 +72,8 @@ public class UserDto {
 
 讓用來分組的 interface 去繼承 `Default`，就能讓這些組別去套用預設沒有被分組的 annotation
 
-
 ## 巢狀驗證
+
 如同上篇也有提到的巢狀驗證，如果在分組的情況下巢狀驗證該怎麼進行呢，其實完全一樣，不需更改任何地方，只要加上 `@Valid` 就好，也許在嘗試的時候會發現 `@Validated` 其實是不允許被寫在 class 的 field 層的所以也只能用 `@Valid` 來標記
 
 ```java

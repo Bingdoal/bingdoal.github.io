@@ -13,10 +13,12 @@ published: true
 {{page.description}}
 
 沒看過前幾篇的可以點這邊:
+
 + [GraphQL in Spring boot(一) 基本 Query 操作](https://bingdoal.github.io/backend/2021/12/graphql-in-spring-boot-basic-query/)
 + [GraphQL in Spring boot(二) Mutation 與 Scalar Type](https://bingdoal.github.io/backend/2022/01/graphql-in-spring-mutation-and-scalar-type/)
 
 ## 測試情境
+
 用之前那篇的情境來說明
 
 + Schema
@@ -62,18 +64,17 @@ public class PostResolver implements GraphQLResolver<Post> {
 
 在取得 PostList 的時候會像下面那樣得到所有 Post 的作者
 
-![]({{site.baseurl}}/assets/img/graphql-get-post-field-resolver.png)
+![Alt]({{site.baseurl}}/assets/img/graphql-get-post-field-resolver.png)
 
 可以開啟 Hibernate 的 Log 看到送出去的語法，明顯可以了解到條目非常多
 
-![]({{site.baseurl}}/assets/img/graphql-dataloader-1.png)
-
+![Alt]({{site.baseurl}}/assets/img/graphql-dataloader-1.png)
 
 可以知道他是每一個元素都去執行一次 `getAuthor(Post post)`，這樣對效能是一個不必要的消耗，以這個測試環境來說作者只有兩個，不需要跟 DB 取資料這麼多次，再者以 DB SQL 的操作來說是可以一次就取得我們要的所有資料的
 
 ## DataLoader
-為了解決上述的問題我們要用到一個 DataLoader 的機制，簡單的說就是把要拿的資料參數先收集起來，收集完畢之後再一次進行 Query，把操作集中處理
 
+為了解決上述的問題我們要用到一個 DataLoader 的機制，簡單的說就是把要拿的資料參數先收集起來，收集完畢之後再一次進行 Query，把操作集中處理
 
 + 首先先寫一個 `DataLoader` 的執行方法，看到 `DataLoaderFactory.newDataLoader` 裡面，由於輸入參數是 `userId` 最後會被收集成一個 `List`，然後再用 `Dao` 一次拿到所有的 ID 資料，這邊的 `KEY` 等會會用到
 
@@ -149,8 +150,7 @@ public class PostResolver implements GraphQLResolver<Post> {
 
 再來看一次 Hibernate 的 Log，只剩下兩行了，一次拿到所有的 Post，一次拿到其下的作者，這說明 `DataLoader` 有正常作用著，也達到了節省效能的目的
 
-![]({{site.baseurl}}/assets/img/graphql-dataloader-2.png)
-
+![Alt]({{site.baseurl}}/assets/img/graphql-dataloader-2.png)
 
 ---
 

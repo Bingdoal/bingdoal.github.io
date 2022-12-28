@@ -13,6 +13,7 @@ published: true
 {{page.description}}
 
 沒看過前幾篇的可以點這邊:
+
 + [OpenFlow 初學之路(一) SDN、OpenFlow 簡介](https://bingdoal.github.io/network/2022/02/sdn-openflow-intro/)
 + [OpenFlow 初學之路(二) 實作環境架設 OpenDaylight、Mininet](https://bingdoal.github.io/network/2022/02/sdn-openflow-controller-opendaylight-mininet/)
 
@@ -24,7 +25,7 @@ sudo mn --topo single,2 --mac --switch ovsk --controller remote,ip=192.168.xx.xx
 
 簡單建立一個如下的拓樸
 
-![]({{site.baseurl}}/assets/img/topology-single-2.png)
+![Alt]({{site.baseurl}}/assets/img/topology-single-2.png)
 
 預設環境下可以先 ping 看看，正常應該是沒有回應的
 
@@ -35,6 +36,7 @@ mininet> h1 ping h2
 ## ODL Controller
 
 ### 確認 Switch 連線資訊
+
 接著開啟 Opendaylight 確認一下 mininet 有沒有連上 controller，可以透過以下 API 查看當前的拓樸資訊
 
 ```json
@@ -108,11 +110,11 @@ Basic Auth: admin/admin
 
 從上次的架構圖中可以看到，封包進入 openflow switch 之後會通過 flow table 然後決定送往的方向，而 flow table 裡面每個運行單位稱為 flow entry
 
-![]({{site.baseurl}}/assets/img/openflow-intro.png)
+![Alt]({{site.baseurl}}/assets/img/openflow-intro.png)
 
 封包會依序進入每個 flow table，然後找到符合條件的 flow entry 時就會執行裡面的行為，最後封包會根據 flow entry 的設定，送往目的地或者送往下一個 flow table
 
-![]({{site.baseurl}}/assets/img/openflow-flow-table-proc.png)
+![Alt]({{site.baseurl}}/assets/img/openflow-flow-table-proc.png)
 
 那這裡我們要利用 Opendaylight 的 API 來加入 flow entry:
 
@@ -259,4 +261,5 @@ Basic Auth: admin/admin
 ---
 
 ## 結語
+
 以一個流水帳的方式說明整個 flow entry 的建立邏輯，由於穿插 opendaylight 的 API 而 API 內容及回覆都很複雜，希望不會造成閱讀困難，下一篇預計講解下 openflow 的 meter 機制

@@ -12,10 +12,12 @@ tags: [java, spring boot, validation, 踩雷紀錄]
 {{page.description}}
 
 沒看過前一篇的可以點這邊:
+
 + [Spring boot Validation 參數驗證機制](https://bingdoal.github.io/backend/2021/10/spring-boot-validate-request-body-and-nest-validate/)
 + [Spring boot Validation 分組驗證功能](https://bingdoal.github.io/backend/2021/10/spring-boot-validation-group-use-different-rule/)
 
 ## 情境
+
 一樣按照前幾篇的例子來看，照以下寫法期望可以去驗證 List 中每個 UserDto 內的資料
 
 ```java
@@ -32,6 +34,7 @@ public class UserController {
 但實際上卻一個驗證都不會執行，如果要讓他生效需要一些其他的做法，大致查到有兩種解法
 
 ## 解法 1
+
 在 Controller 的 class 層級加上 `@Validated`，簡單加上一個 annotation 就可以讓驗證生效，只是會改變拋出的 Exception，記得將例外處理事先寫好，如果不知道怎麼寫的可以參考[這裡](https://bingdoal.github.io/backend/2021/10/spring-boot-validate-request-body-and-nest-validate/)
 
 ```java
@@ -47,6 +50,7 @@ public class UserController {
 ```
 
 ### 分組驗證
+
 不過這個寫法直覺上如果想套用分組驗證的時候，會想跟一般寫法一樣，直接寫在參數裡，但這樣卻是不 work 的
 
 ```java
@@ -77,6 +81,7 @@ public class UserController {
 ```
 
 ## 解法 2
+
 第二種方式呢是自己去實作一個 List 的介面
 
 ```java
@@ -147,7 +152,9 @@ public class ValidList<E> implements List<E> {
 ---
 
 ## 結語
-#### 兩個做法各有利弊，簡單說明一下個人的感覺:
+
+兩個做法各有利弊，簡單說明一下個人的感覺
+
 + 第一種作法可以繼續使用原生的 List 而不用特意去建立另一個實作，使用時也可以很直覺的調用 List 出來，不過缺點就是要加的 annotation 有點多，一個忘了加這個驗證就不會生效，如果又沒有好好測試的話可能就很難注意到
 + 第二種作法則是可以當作一般的類型使用，使用上的體驗是一致的，不過缺點就是必須要記得使用新建的 ValidList
 

@@ -11,7 +11,7 @@ tags: [java, 踩雷紀錄]
 
 {{page.description}}
 
-# 問題描述
+## 問題描述
 
 + 問題主要發生於下面程式碼:
 
@@ -28,10 +28,9 @@ List<File> files = Files.walk(sourceDir.toPath())
 
 主要需求為讀取專案 `src/main/resources/file/` 底下的所有 `.csv` 檔，以上程式碼在開發階段都沒有問題，但一旦 build 成 jar 就會吐錯誤 `URI is not hierarchical` 發生在 `url.toURI()`
 
-
 查了幾篇網路文章有講到讀取 jar 中的 resources 不能用 `getResource()` 要用 `getResourceAsStream()` 的方式才能讀到檔案，測試過後的確可以使用，但 `getResourceAsStream()` 不能讀取 jar 中的目錄結構，對於我的需求是讀取整個目錄下的內容會有點問題，以此為出發點發展出下面解方
 
-# 解決方案
+## 解決方案
 
 ```java
 List<File> files = new ArrayList<>();
