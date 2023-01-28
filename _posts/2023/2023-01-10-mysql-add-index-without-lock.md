@@ -6,7 +6,7 @@ category: others
 img: cover/database.jpg
 description: "最近一個需求要加上 index 以增加查詢效率，不過那個表的資料有點太大了，指令一下去整張表完全不能操作，頓時辦公室哀鴻遍野，嚇得我也是不知所措"
 lang: zh-TW
-tags: []
+tags: [others, database]
 published: true
 ---
 
