@@ -13,6 +13,7 @@ layout: main
         {% assign postYear = post.date | date: "%Y" %}
         {% assign thisYear = page.year | append: "" %}
         {% if postYear == thisYear %}
+        {% assign postCount = postCount | plus: 1 %}
         <div class="tag-list">
             <span>
                 <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
@@ -25,4 +26,6 @@ layout: main
         {% endif %}
         {% endfor %}
     </div>
+
+    <p>共 {{ postCount }} 篇文章</p>
 </section>
