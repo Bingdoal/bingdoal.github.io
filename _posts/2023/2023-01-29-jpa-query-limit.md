@@ -41,7 +41,7 @@ public User findFirst();
 JPQL 無法直接寫 `LIMIT` 但可以透過傳入 `Pageable` 的物件來實現，我們可以改寫 `DAO` 的方法參數
 
 ```java
-@Query("SELECT u FROM User u WHERE u.status = 1 ORDER BY createdAt LIMIT 1")
+@Query("SELECT u FROM User u WHERE u.status = 1")
 public User findFirst(Pageable pageable);
 ```
 
