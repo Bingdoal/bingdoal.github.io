@@ -20,7 +20,7 @@ published: true
 
 沒意外會看到下面畫面
 
-![]({{site.baseurl}}/assets/img/nginx-index.png)
+![nginx test]({{site.baseurl}}/assets/img/nginx-index.png)
 
 ## 基本操作
 
