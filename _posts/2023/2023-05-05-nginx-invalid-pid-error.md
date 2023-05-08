@@ -6,7 +6,7 @@ category: deploy
 img: cover/nginx.jpeg
 description: "之前在使用 nginx 時有發生過這個錯誤，其實提示訊息蠻明顯的，就簡單記錄一下"
 lang: zh-TW
-tags: [nginx,deploy]
+tags: [踩雷紀錄,nginx,deploy]
 published: true
 ---
 
