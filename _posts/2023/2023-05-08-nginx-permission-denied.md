@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[踩雷紀錄] nginx: open() "..." failed(13:Permission denied) ..."
+title: "[踩雷紀錄] nginx: open() \"...\" failed(13:Permission denied) ..."
 date: 2023-05-08 10:47:41 +0800
 category: deploy
 img: cover/nginx.jpeg
@@ -62,7 +62,7 @@ setenforce 0
 
 但下次重啟就會再次開啟，可以透過修改文件 `/etc/selinux/config`
 
-```
+```shell
 SELINUX=disabled
 ```
 
