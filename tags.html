@@ -77,7 +77,8 @@ permalink: /tags/
 
         let tagListEles = document.querySelectorAll("div.tag-list-div");
         tagListEles.forEach((tagList) => {
-            if (tagList.id == hashId) {
+            let tagName = tagList.id.toLowerCase().trim()
+            if (tagName == hashId) {
                 tagList.style = "display: block;";
             } else {
                 tagList.style = "display: none;";
