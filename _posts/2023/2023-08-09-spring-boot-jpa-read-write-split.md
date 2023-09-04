@@ -72,7 +72,7 @@ class UserDao extends JpaRepository<User, Long> {
 
 這樣在調用這個方法的時候就會去抓 slave 的資料庫
 
-不過因為 `@Transactional` 本身還包含有其他功能，所以後來我們專為用其他方式來做資料源的切換
+不過因為 `@Transactional` 本身還包含有其他功能，所以後來我們轉為用其他方式來做資料源的切換
 
 ## 實作二
 
@@ -175,7 +175,7 @@ public class DataSourceConfig {
             }
         };
         routing.setTargetDataSources(map);
-        routing.setDefaultTargetDataSource(DataSourceKey.MASTER);
+        routing.setDefaultTargetDataSource(map.get(DataSourceKey.MASTER));
         return routing;
     }
 }
