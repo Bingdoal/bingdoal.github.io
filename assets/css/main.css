@@ -797,6 +797,10 @@ img {
     display       : inline-block;
 }
 
+div.wrap-content img{
+    max-width     : max(600px,60%);
+}
+
 img+em {
     text-align : center;
     display    : block;
