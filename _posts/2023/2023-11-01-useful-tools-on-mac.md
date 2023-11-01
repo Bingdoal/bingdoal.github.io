@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "MAC 上的好用工具介紹 Shottr, Raycast..."
-date: 2023-08-17 09:30:24 +0800
+date: 2023-11-01 09:30:24 +0800
 category: dev-tools
 img: cover/apple-logo.webp
 description: "最近到新公司有公發的 MAC 使用，真的是感受到 MAC 對於電腦工作者來說有很多方便的地方，重點還很潮，這篇就整理一下各種在這段時間用到的 MAC 工具，幫助提升工作效率"
