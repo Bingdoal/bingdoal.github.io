@@ -797,8 +797,8 @@ img {
     display       : inline-block;
 }
 
-div.wrap-content img{
-    max-width     : max(600px,60%);
+div.wrap-content img {
+    max-width: max(600px, 60%);
 }
 
 img+em {
@@ -888,6 +888,7 @@ pre code {
     padding                : 20px 10px;
     background-color       : #ffffff;
     box-shadow             : 2px 2px 5px 2px #bbb !important;
+    z-index                : 10;
 }
 
 .about {
@@ -1525,6 +1526,7 @@ a.newer-posts:hover {
         background-color       : #ffffff;
         -webkit-box-shadow     : 0 1px 1px 0 rgba(31, 35, 46, 0.15);
         box-shadow             : 0 1px 1px 0 rgba(31, 35, 46, 0.15);
+        z-index                : 10;
     }
 
     .sidebar footer {
@@ -1925,16 +1927,16 @@ table>tbody>tr:hover {
 
 .page-content h2,
 .page-content h3,
-.page-content h4{
+.page-content h4 {
     display: block;
-    width: fit-content;
+    width  : fit-content;
 }
 
 .page-content h2:hover,
 .page-content h3:hover,
-.page-content h4:hover{
-    position: relative;
-    cursor: pointer;
+.page-content h4:hover {
+    position       : relative;
+    cursor         : pointer;
     text-decoration: underline;
-    opacity: 0.5;
+    opacity        : 0.5;
 }

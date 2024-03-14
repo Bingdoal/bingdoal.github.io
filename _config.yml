@@ -1,7 +1,7 @@
 title: Bingdoal's Note
 description: > # this means to ignore newlines until "baseurl:"
-  這裡是 Bingdoal 的筆記，裡面有各種自己在技術上遇到後想記錄的內容，
-  曾經寫過一點 Web 前端，目前則是一名後端工程師，主要開發語言是 golang 跟 spring boot
+  這裡是 Bingdoal 的筆記，裡面有各種自己在技術上遇到後想記錄的內容，主要拿來當作自己的筆記與工具書，
+  曾經寫過一點 Web 前端，目前則是一名後端工程師，主要開發語言是 golang 跟 java spring boot
 permalink: '/:categories/:year/:month/:title/'
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bingdoal.github.io" # the base hostname & protocol for your site, e.g. http://example.com
@@ -34,7 +34,7 @@ plugins:
 paginate: 8
 paginate_path: "/page/:num"
 
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "README.md"]
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "README.md", "init-project.sh"]
 
 collections:
   category:
