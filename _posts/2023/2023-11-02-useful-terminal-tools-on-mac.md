@@ -16,9 +16,17 @@ published: false
 
 ## zsh
 ### p10k
+https://github.com/romkatv/powerlevel10k
 
 ## fzf
 
-## Fig
+https://github.com/junegunn/fzf
+https://github.com/Aloxaf/fzf-tab
+
+## CodeWhisperer for command line
+
+https://docs.aws.amazon.com/codewhisperer/latest/userguide/command-line.html
 
 ## lnav
+
+https://lnav.org/
