@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MAC 上的好用 terminal 工具介紹 lnav, Fig..."
+title: "MAC 上的好用 terminal 工具介紹 lnav, cw..."
 date: 2023-11-02 10:27:12 +0800
 category: dev-tools
 img: cover/apple-logo.webp
@@ -22,10 +22,6 @@ https://github.com/romkatv/powerlevel10k
 
 https://github.com/junegunn/fzf
 https://github.com/Aloxaf/fzf-tab
-
-## CodeWhisperer for command line
-
-https://docs.aws.amazon.com/codewhisperer/latest/userguide/command-line.html
 
 ## lnav
 
